@@ -31,6 +31,13 @@ import ChangePasswordScreen from '../screens/ChangePasswordScreen';
 import My_OrderScreen from '../screens/My_OrderScreen';
 import PrivacyPolicyScreen from '../screens/PrivacyPolicyScreen';
 import TermConditionScreen from '../screens/TermConditionScreen';
+import AuthScreen from '../screens/AuthScreen';
+
+
+import LoginScreen from '../screens/LoginScreen';
+import SignUp from '../screens/signUp';
+import SignupScreen from '../screens/SignupScreen';
+import SplashScreen from '../screens/SplashScreen';
 
 import Colors from '../constants/Colors';
 
@@ -345,6 +352,26 @@ const FiltersNavigator = createStackNavigator(
 
 const MainNavigator = createDrawerNavigator(
   {
+    SplashScreen: {
+      screen: SplashScreen,
+      navigationOptions: {
+        title: '',
+        headerShown: false,
+      }},
+      LoginScreen:{
+        screen: LoginScreen,
+        navigationOptions: {
+        title: '',
+        headerShown: false,
+        headerMode: 'none'
+      }},
+      SignupScreen:{
+        screen: SignupScreen,
+        navigationOptions: {
+        title: '',
+        headerShown: false,
+        headerMode: 'none'
+      }},
     MealsFavs: {
       screen: TabNavigator,
       navigationOptions: {
@@ -359,7 +386,8 @@ const MainNavigator = createDrawerNavigator(
     My_Order: My_OrderScreen,
     PrivacyPolicy: PrivacyPolicyScreen,
     TermCondition: TermConditionScreen
-  },
+    
+},
   {
     contentOptions: {
       activeTintColor: Colors.accentColor,

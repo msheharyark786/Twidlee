@@ -148,7 +148,7 @@ function AccountScreen(props) {
       <View style={styles.line}>
         <TouchableOpacity style={styles.button}  onPress={() => {
         props.navigation.navigate({
-          routeName: '',
+          routeName: 'LoginScreen',
           // params: {
           //   categoryId: itemData.item.id
           // }
