@@ -1,24 +1,22 @@
-import React from 'react'
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import MealList from '../components/MealList';
- 
+
 import HeaderButton from '../components/HeaderButton';
 
-function ReservationScreen() {
+function BbqScreen(props) {
     return (
-        <View style={styles.screen}> 
+        <View style={styles.screen}>
             <Text>
-                Reservations Screen
+            Bbq Screen
             </Text>
-            {/* <MealList listData={} navigation={props.navigation} /> */}
-        </View> 
+        </View>
     )
 }
 
-ReservationScreen.navigationOptions = navData => {
+BbqScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'Reservation',
+      headerTitle: 'Bbq',
       headerLeft:()=> (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
           <Item
@@ -37,10 +35,8 @@ const styles=StyleSheet.create({
     screen:{
         flex:1,
         fontSize:20,
-        justifyContent:'center',
-        paddingLeft:120
-
+        alignContent:'center'
     }
 })
 
-export default ReservationScreen
+export default BbqScreen

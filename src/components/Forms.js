@@ -40,7 +40,7 @@ function Forms(props) {
 }
 const styles = StyleSheet.create({
 
-  container:{
+  g_container:{
     flexGrow:1,
     justifyContent: 'center',
     alignItems: 'center',

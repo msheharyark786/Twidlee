@@ -17,7 +17,7 @@ function DineScreen(props) {
 DineScreen.navigationOptions = navData => {
     return {
       headerTitle: 'Dine In',
-      headerLeft: (
+      headerLeft: ()=>(
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
           <Item
             title="Menu"

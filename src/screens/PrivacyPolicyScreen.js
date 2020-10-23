@@ -1,7 +1,9 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 function PrivacyPolicyScreen() {
+    const [data, setData]=useState("");
+
     return (
         <View style={styles.screen}>
             <Text>

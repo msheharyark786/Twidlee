@@ -8,7 +8,7 @@ function DeliveryScreen(props) {
     return (
         <View style={styles.screen}>
             <Text>
-                Account Screen;
+                Delivery Screen
             </Text>
         </View>
     )
@@ -17,7 +17,7 @@ function DeliveryScreen(props) {
 DeliveryScreen.navigationOptions = navData => {
     return {
       headerTitle: 'Delivery',
-      headerLeft: (
+      headerLeft:()=> (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
           <Item
             title="Menu"

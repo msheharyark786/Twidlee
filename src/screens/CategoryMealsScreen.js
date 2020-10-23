@@ -2,6 +2,8 @@ import React from 'react';
 
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 import MealList from '../components/MealList';
+//import SecondTopScreen from '../screens/SecondTopScreen'
+import { View } from 'react-native-animatable';
 
 const CategoryMealScreen = props => {
     
@@ -11,7 +13,8 @@ const CategoryMealScreen = props => {
     meal => meal.categoryIds.indexOf(catId) >= 0
   );
 
-  return <MealList listData={displayedMeals} navigation={props.navigation} />;
+  return <MealList listData={displayedMeals} navigation={props.navigation} />
+    
 };
 
 CategoryMealScreen.navigationOptions = navigationData => {

@@ -6,12 +6,12 @@ import {
 } from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createDrawerNavigator} from 'react-navigation-drawer'
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+import {createBottomTabNavigator, createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import  Icon  from 'react-native-vector-icons/Ionicons';
 import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+//import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
@@ -31,7 +31,15 @@ import ChangePasswordScreen from '../screens/ChangePasswordScreen';
 import My_OrderScreen from '../screens/My_OrderScreen';
 import PrivacyPolicyScreen from '../screens/PrivacyPolicyScreen';
 import TermConditionScreen from '../screens/TermConditionScreen';
+import FirstScreen from '../screens/FirstScreen';
 import AuthScreen from '../screens/AuthScreen';
+import SecondTopScreen from '../screens/SecondTopScreen';
+import TandoorScreen from '../screens/TandoorScreen';
+import ChineseScreen from '../screens/ChineseScreen';
+import DealScreen from '../screens/DealScreen';
+import PakistaniScreen from '../screens/PakistaniScreen';
+import BbqScreen from '../screens/BbqScreen';
+//import Forms from '../components/Forms';
 
 
 import LoginScreen from '../screens/LoginScreen';
@@ -57,15 +65,29 @@ const defaultStackNavOptions = {
   headerTitle: 'A Screen'
 };
 
-const MealsNavigator = createStackNavigator(
+// const MealsNavigator = createStackNavigator(
+//   {
+//     // Categories: {
+//     //   screen: CategoriesScreen
+//     // },
+//     // CategoryMeals: {
+//     //   screen: CategoryMealsScreen
+//     // },
+//     First: {
+//       screen:FirstScreen
+//     },
+//      MealDetail: MealDetailScreen
+//   },
+//   {
+//     // initialRouteName: 'Categories',
+//     defaultNavigationOptions: defaultStackNavOptions
+//   }
+// );
+
+const FavNavigator = createStackNavigator(
   {
-    Categories: {
-      screen: CategoriesScreen
-    },
-    CategoryMeals: {
-      screen: CategoryMealsScreen
-    },
-    MealDetail: MealDetailScreen
+    Favorites: FavoritesScreen,
+    //MealDetail: MealDetailScreen
   },
   {
     // initialRouteName: 'Categories',
@@ -73,10 +95,18 @@ const MealsNavigator = createStackNavigator(
   }
 );
 
-const FavNavigator = createStackNavigator(
+const FirstNavigator = createStackNavigator(
   {
-    Favorites: FavoritesScreen,
-    MealDetail: MealDetailScreen
+    First: {
+      screen:FirstScreen
+    },
+    SecondTop:{
+      screen: SecondTopScreen
+    },
+    // CategoryMeals: {
+    //   screen: CategoryMealsScreen
+    // },
+    // MealDetail: MealDetailScreen
   },
   {
     // initialRouteName: 'Categories',
@@ -87,7 +117,7 @@ const FavNavigator = createStackNavigator(
 const ReserveNavigator = createStackNavigator(
   {
     Reservation: ReservationScreen,
-    MealDetail: MealDetailScreen
+    //MealDetail: MealDetailScreen
   },
   {
     // initialRouteName: 'Categories',
@@ -98,7 +128,7 @@ const ReserveNavigator = createStackNavigator(
 const HisNavigator = createStackNavigator(
   {
     History: HistoryScreen,
-    MealDetail: MealDetailScreen
+   // MealDetail: MealDetailScreen
   },
   {
     // initialRouteName: 'Categories',
@@ -109,7 +139,7 @@ const HisNavigator = createStackNavigator(
 const AccNavigator = createStackNavigator(
   {
     Account: AccountScreen,
-    MealDetail: MealDetailScreen
+    //MealDetail: MealDetailScreen
   },
   {
     // initialRouteName: 'Categories',
@@ -117,27 +147,34 @@ const AccNavigator = createStackNavigator(
   }
 );
 
-const DineNavigator = createStackNavigator(
-  {
-    Dine: DineScreen,
-    MealDetail: MealDetailScreen
-  },
-  {
-    // initialRouteName: 'Categories',
-    defaultNavigationOptions: defaultStackNavOptions
-  }
-);
+// const DineNavigator = createStackNavigator(
+//   {
+//     // Dine: DineScreen,
+//     Categories: {
+//         screen: CategoriesScreen
+//       },
+//       CategoryMeals: {
+//         screen: CategoryMealsScreen
+//       },
+//       MealDetail: MealDetailScreen
+//     //MealDetail: MealDetailScreen
+//   },
+//   {
+//     // initialRouteName: 'Categories',
+//     defaultNavigationOptions: defaultStackNavOptions
+//   }
+// );
 
-const DeliveryNavigator = createStackNavigator(
-  {
-    Delivery: DeliveryScreen,
-    MealDetail: MealDetailScreen
-  },
-  {
-    // initialRouteName: 'Categories',
-    defaultNavigationOptions: defaultStackNavOptions
-  }
-);
+// const DeliveryNavigator = createStackNavigator(
+//   {
+//     Delivery: DeliveryScreen,
+//     //MealDetail: MealDetailScreen
+//   },
+//   {
+//     // initialRouteName: 'Categories',
+//     defaultNavigationOptions: defaultStackNavOptions
+//   }
+// );
 
 // const tabScreenConfig = {
 //   Home: {
@@ -221,45 +258,14 @@ const DeliveryNavigator = createStackNavigator(
 //   }
 // };
 
-// const myTabs={
-//   Dine: {
-//     screen: DineNavigator,
-//     navigationOptions: {
-//       tabBarIcon: tabInfo => {
-//         return <MaterialCommunityIcons name="account" size={24} color={tabInfo.tintColor} />;
-//       },
-//       tabBarColor: Colors.accentColor,
-//       tabBarLabel:
-//         Platform.OS === 'android' ? (
-//           <Text style={{ fontFamily: 'open-sans-bold' }}>Dine In</Text>
-//         ) : (
-//           'Dine'
-//         )
-//     }
-//   },
-//   Delivery: {
-//     screen: DeliveryNavigator,
-//     navigationOptions: {
-//       tabBarIcon: tabInfo => {
-//         return <MaterialCommunityIcons name="account" size={24} color={tabInfo.tintColor} />;
-//       },
-//       tabBarColor: Colors.accentColor,
-//       tabBarLabel:
-//         Platform.OS === 'android' ? (
-//           <Text style={{ fontFamily: 'open-sans-bold' }}>Delivery</Text>
-//         ) : (
-//           'Delivery'
-//         )
-//     }
-//   }
-// };
+
 
 
 
 
 const TabNavigator = createBottomTabNavigator({
-  Home: { 
-    screen: MealsNavigator,
+  Home: {
+    screen: FirstNavigator,
     navigationOptions: ({tintColor}) => ({
       title:  'Home',
       tabBarIcon: <Icon name={Platform.OS === 'ios' ? 'ios-home' : 'ios-restaurant'} size={25}
@@ -287,7 +293,7 @@ const TabNavigator = createBottomTabNavigator({
   Favorites: { 
     screen: FavNavigator,
     navigationOptions: ({tintColor}) => ({
-      title:  'Favorites',
+      title:  'Favoritesh',
       tabBarIcon: <MaterialIcons name={Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'favorite'} size={25} color={tintColor}  />,
     }),
   },
@@ -304,6 +310,7 @@ const TabNavigator = createBottomTabNavigator({
   initialRouteName: 'Home',
   tabBarOptions: {
       labelPosition: 'below-icon',
+      labelStyle: { fontSize: 13 },
       activeTintColor: Colors.accentColor,
       inactiveTintColor: Colors.themeColor,
       // font: 'open-sans',
@@ -350,6 +357,7 @@ const FiltersNavigator = createStackNavigator(
   }
 );
 
+
 const MainNavigator = createDrawerNavigator(
   {
     SplashScreen: {
@@ -378,6 +386,12 @@ const MainNavigator = createDrawerNavigator(
         drawerLabel: 'Meals'
       }
     },
+    // TopFavs:{
+    //     screen: AppNavigator,
+    //     navigationOptions: {
+    //       drawerLabel: 'Home'
+    //     }
+    //   },
     Filters: FiltersNavigator,
     Profile: ProfileScreen,
     AboutUs: AboutUsScreen,
@@ -386,6 +400,7 @@ const MainNavigator = createDrawerNavigator(
     My_Order: My_OrderScreen,
     PrivacyPolicy: PrivacyPolicyScreen,
     TermCondition: TermConditionScreen
+    //Forms: Forms
     
 },
   {
@@ -398,6 +413,26 @@ const MainNavigator = createDrawerNavigator(
   }
 );
 
+// const MiniNavigator = createDrawerNavigator(
+//   {
+//     TopFavs:{
+//         screen: AppNavigator,
+//         navigationOptions: {
+//           drawerLabel: 'Dine'
+//         }
+//       }
+//   },
+//   {
+//     contentOptions: {
+//       activeTintColor: Colors.accentColor,
+//       labelStyle: {
+//         //fontFamily: 'open-sans-bold'
+//       }
+//     }
+//   }
+//   // {
 
+//   // }
+//   );
 
 export default createAppContainer(MainNavigator);
