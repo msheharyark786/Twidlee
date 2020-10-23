@@ -27,7 +27,7 @@ import BbqScreen from '../screens/BbqScreen';
           backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
         },
         headerTitleStyle: {
-          //fontFamily: 'open-sans-bold'
+          fontWeight:'bold'
         },
         headerBackTitleStyle: {
           //fontFamily: 'open-sans'
@@ -125,7 +125,7 @@ import BbqScreen from '../screens/BbqScreen';
               tabBarColor: Colors.accentColor,
               tabBarLabel:
                 Platform.OS === 'android' ? (
-                  <Text style={{ fontFamily: 'open-sans-bold' }}>Pakistani</Text>
+                  <Text style={{ fontFamily: 'open-sans-bold' }}>Desi</Text>
                 ) : (
                   'Pakistani'
                 )
@@ -197,7 +197,7 @@ import BbqScreen from '../screens/BbqScreen';
               activeTintColor: Colors.accentColor,
               inactiveTintColor: Colors.themeColor,
               // font: 'open-sans',
-              // fontFamily: 'open-sans-bold',
+              fontWeight:'bold',
               style: {
                 height: 50,
                 // Colors:Colors.accentColor,
@@ -220,7 +220,7 @@ import BbqScreen from '../screens/BbqScreen';
             contentOptions: {
               activeTintColor: Colors.accentColor,
               labelStyle: {
-                //fontFamily: 'open-sans-bold'
+                fontWeight:'bold',
               }
             }
           }

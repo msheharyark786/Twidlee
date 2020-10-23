@@ -1,24 +1,45 @@
-import React from 'react';
+import React from 'react'
 import { View, Text, StyleSheet } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+
+import HeaderButton from '../components/HeaderButton';
 
 function TermConditionScreen() {
     return (
         <View style={styles.screen}>
             <Text>
-                Terms and Conditions
+                No History Record
             </Text>
         </View>
     )
 }
 
+TermConditionScreen.navigationOptions = navData => {
+    return {
+      headerTitle: 'Terms & Conditions',
+      headerLeft: ()=>(
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+          <Item
+            title="Menu"
+            iconName="ios-menu"
+            onPress={() => {
+              navData.navigation.toggleDrawer();
+            }}
+          />
+        </HeaderButtons>
+      )
+    };
+  };
+
 const styles=StyleSheet.create({
-    screen:{
-      flex:1,
-      fontSize:20,
-      justifyContent:'center',
-      paddingLeft:120,
-      fontFamily:'open-sans-bold'
-    }
+  screen:{
+    flex:1,
+    fontSize:20,
+    justifyContent:'center',
+    paddingLeft:120,
+    fontFamily:'open-sans-bold'
+
+}
 })
 
 export default TermConditionScreen

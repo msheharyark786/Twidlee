@@ -51,6 +51,14 @@ const SignupScreen = (props) => {
         routeName:'Categories' 
         })
     }
+    else{
+      alert("try again , You dont follow the rules")
+    }
+
+    setEmail("");
+    setPassword("");
+    setPhoneNumber("");
+    setUsername("");
 
   }
 
@@ -60,7 +68,7 @@ const SignupScreen = (props) => {
         <Logos />
       </View>
 
-      <View style={styles.footer}>
+      <View style={styles.footer} >
 
         <KeyboardAvoidingView
            behavior="padding"
@@ -86,8 +94,8 @@ const SignupScreen = (props) => {
             secureTextEntry={true}
             autoCapitalize="none"
             required={true}
-            minLength={6}
             placeholderTextColor="white"
+            minLength={6}
             errorMessage="Please enter Minimum 6 characters password"
             value={password}
             onChangeText={(value) => setPassword(value)}
@@ -113,7 +121,7 @@ const SignupScreen = (props) => {
             required={true}
             autoCapitalize="none"
             placeholderTextColor="#ffffff"
-            keyboardType="number-pad"
+            keyboardType="name-phone-pad"
             minLength={11}
             errorMessage="Please enter a valid Phone number"
             value={phoneNumber}
@@ -131,7 +139,7 @@ const SignupScreen = (props) => {
 
 
           <View style={styles.signupContianer}>
-            <Text style={styles.signupText}> Already have an account!</Text>
+          <Text style={styles.signupText}> Already have an account!</Text>
 
 
           <TouchableOpacity
@@ -140,7 +148,7 @@ const SignupScreen = (props) => {
             onPress={() => {
             props.navigation.navigate({routeName: 'LoginScreen'});
             }}>
-            <Text style={styles.buttonText}> Sign in</Text>
+            <Text style={styles.buttonText}> Sign In</Text>
           </TouchableOpacity>
 
           </View>
@@ -154,21 +162,18 @@ const SignupScreen = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //justifyContent: 'center',
-     alignItems: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#FF5722',
   },
 
   inputArea:{
-    //justifyContent: 'center',
-    // alignItems: 'center',
     marginVertical:10,
     height: 40, 
     width:230,
     backgroundColor: 'rgba(255,255,255,0.3)', 
     borderRadius:25,
     paddingHorizontal:30,
-    //padding:10,
 },
 
 signupButtonText:{
@@ -178,64 +183,60 @@ signupButtonText:{
   textAlign:'center',
 },
 
-  signupContianer: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
   signupText: {
-    
-    fontSize:16, 
+    fontSize:12, 
     color:'black',
     fontWeight:'500',
     textAlign:'center',
+    marginVertical:10
     },
-  signupButton: {
 
-    // alignItems: 'center',
-    // justifyContent: 'center',
+  signupButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal:60,
+    marginVertical:10,
     width:100,
     height:30,
     backgroundColor: '#FF5722',
     borderRadius:25,
-    marginVertical:10, 
-    fontSize:16, 
-    marginRight:30,
-
   },
+
   header: {
     flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
   footer: {
     flex: 3,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#ffaf49',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    paddingVertical: 30,
-    paddingHorizontal: 40,
+    paddingVertical: 10,
+    paddingHorizontal: 60,
   },
 
-  button:{
-    width:100,
+  button: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal:10,
+    //marginVertical:20,
+    width:90,
     height:30,
     backgroundColor: '#FF5722',
     borderRadius:25,
-    marginVertical:20, 
-    fontSize:20,  
-},
+  },
 
-buttonText:{
-    fontSize:20, 
+  buttonText: {    
     color:'#ffffff',
     fontWeight:'bold',
-    textAlign:'center',
-   
-},
+    fontSize: 20
+  },
+
+  signupContianer:{
+    flexDirection:'row',
+    marginVertical:35,
+  }
+
+  
 });
 export default SignupScreen;

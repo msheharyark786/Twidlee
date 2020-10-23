@@ -41,6 +41,9 @@ const LoginScreen = (props) => {
           console.log("else part ,  This is Incorrect...")
           alert("Please write correct email or password")
       }
+
+      setEmail("");  
+      setPassword("");
       
     }
 
@@ -59,9 +62,9 @@ const LoginScreen = (props) => {
             style={styles.inputArea}
             underlineColorAndroid="rgba(0, 0, 0, 0)"
             placeholder="Email"
+            autoCapitalize="none"
             placeholderTextColor="#ffffff"
             keyboardType="email-address"
-            autoCapitalize="none"
             value={email}
             onChangeText={(e) => setEmail(e)}
             initialValue=""
@@ -81,13 +84,14 @@ const LoginScreen = (props) => {
             onChangeText={(e) => setPassword(e)}
             initialValue=""
           />
-          {/* <Text style={{color:'white'}}>{data.email}</Text> */}
+          
           </KeyboardAvoidingView>
           <TouchableOpacity style={styles.button}
             onPress={() => {handleLogin()} }
             >
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
+          
         </View>
 
       
@@ -122,7 +126,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   signupText: {
-    fontSize: 16,
+    fontSize: 14,
+    fontWeight: 'bold',
     // color:'rgba(255,255,255, 0.7)',
     color: 'black',
   },

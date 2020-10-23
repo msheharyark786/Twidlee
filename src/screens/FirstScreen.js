@@ -31,7 +31,18 @@ import Colors from '../constants/Colors';
           //fontFamily: 'open-sans'
         },
         headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
-        headerTitle: 'Aa Screen'
+        headerTitle: 'A Screen',
+        headerLeft:()=>(
+                  <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                    <Item
+                      title="Menu"
+                      iconName="ios-menu"
+                      onPress={() => {
+                        navData.navigation.toggleDrawer();
+                      }}
+                    />
+                  </HeaderButtons>
+                )
       };
     const DineNavigator = createStackNavigator(
         {
@@ -146,7 +157,10 @@ import Colors from '../constants/Colors';
             TopFavs:{
                 screen: AppNavigator,
                 navigationOptions: {
-                  drawerLabel: 'Delivery'
+                  drawerLabel: 'Delivery',
+                  // title: '',
+                  // headerShown: false,
+                  // headerMode: 'none'
                 }
               }
           },
@@ -154,7 +168,7 @@ import Colors from '../constants/Colors';
             contentOptions: {
               activeTintColor: Colors.accentColor,
               labelStyle: {
-                //fontFamily: 'open-sans-bold'
+                //fontWeight:'bold'
               }
             }
           }

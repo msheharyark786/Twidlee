@@ -183,7 +183,7 @@ function AccountScreen(props) {
 AccountScreen.navigationOptions = navData => {
     return {
       headerTitle: 'My Account',
-      headerLeft: (
+      headerLeft:()=> (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
           <Item
             title="Menu"

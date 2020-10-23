@@ -17,7 +17,7 @@ function HistoryScreen() {
 HistoryScreen.navigationOptions = navData => {
     return {
       headerTitle: 'History',
-      headerLeft: (
+      headerLeft: ()=>(
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
           <Item
             title="Menu"

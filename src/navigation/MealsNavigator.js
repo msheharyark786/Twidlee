@@ -39,6 +39,7 @@ import ChineseScreen from '../screens/ChineseScreen';
 import DealScreen from '../screens/DealScreen';
 import PakistaniScreen from '../screens/PakistaniScreen';
 import BbqScreen from '../screens/BbqScreen';
+import Header from '../components/Header';
 //import Forms from '../components/Forms';
 
 
@@ -48,21 +49,28 @@ import SignupScreen from '../screens/SignupScreen';
 import SplashScreen from '../screens/SplashScreen';
 
 import Colors from '../constants/Colors';
+//import { Header } from 'react-native/Libraries/NewAppScreen';
 
 
  
 const defaultStackNavOptions = {
   headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : '',
+    
   },
   headerTitleStyle: {
-    //fontFamily: 'open-sans-bold'
+    //fontFamily: 'open-sans-bold',
+    //paddingLeft:100,
+    
+    fontWeight:'bold',
+    //justifyContent:'center'
   },
   headerBackTitleStyle: {
-    //fontFamily: 'open-sans'
+    //fontFamily: 'open-sans',
+    //paddingLeft:100,
   },
   headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
-  headerTitle: 'A Screen'
+  headerTitle: 'Restaurants'
 };
 
 // const MealsNavigator = createStackNavigator(
@@ -97,6 +105,7 @@ const FavNavigator = createStackNavigator(
 
 const FirstNavigator = createStackNavigator(
   {
+    //Header: Header,
     First: {
       screen:FirstScreen
     },
@@ -293,7 +302,7 @@ const TabNavigator = createBottomTabNavigator({
   Favorites: { 
     screen: FavNavigator,
     navigationOptions: ({tintColor}) => ({
-      title:  'Favoritesh',
+      title:  'Favorites',
       tabBarIcon: <MaterialIcons name={Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'favorite'} size={25} color={tintColor}  />,
     }),
   },
@@ -314,7 +323,7 @@ const TabNavigator = createBottomTabNavigator({
       activeTintColor: Colors.accentColor,
       inactiveTintColor: Colors.themeColor,
       // font: 'open-sans',
-      // fontFamily: 'open-sans-bold',
+      fontWeight:'bold',
       style: {
         height: 50,
         backgroundColor: Colors.primaryColor,
@@ -407,7 +416,7 @@ const MainNavigator = createDrawerNavigator(
     contentOptions: {
       activeTintColor: Colors.accentColor,
       labelStyle: {
-        //fontFamily: 'open-sans-bold'
+        fontWeight:'bold'
       }
     }
   }

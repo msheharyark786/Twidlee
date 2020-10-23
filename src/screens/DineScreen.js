@@ -8,7 +8,7 @@ function DineScreen(props) {
     return (
         <View style={styles.screen}>
             <Text>
-                Dine In Screen;
+                Oops... Data Not Found;
             </Text>
         </View>
     )
@@ -32,11 +32,12 @@ DineScreen.navigationOptions = navData => {
   };
 
 const styles=StyleSheet.create({
-    screen:{
-        flex:1,
-        fontSize:20,
-        alignContent:'center'
-    }
+  screen:{
+    flex:1,
+    fontSize:20,
+    paddingLeft:130,
+    justifyContent:'center'
+}
 })
 
 export default DineScreen
