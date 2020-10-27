@@ -1,5 +1,5 @@
 import Category from '../models/category';
-import Meal from '../models/meal';
+import Desi_Meal from '../models/Desi_Meal';
 
 export const CATEGORIES = [
   new Category('c1', 'Tanawal Restaurant', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSqXJ2dAfwsEfPtKMY9Hx9B0ljQVtfFUHIV6A&usqp=CAU'),
@@ -14,21 +14,20 @@ export const CATEGORIES = [
   new Category('c10', 'Howdy', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcMuljBrWL7jyb3NpwG7d6N0Eo1-G1uxWdLg&usqp=CAU')
 ];
 
-export const MEALS = [
-  new Meal(
-    'm1a',
+export const Desi_MEALS = [
+  new Desi_Meal(
+    'n1a',
     ['c1'],
-    'Deal 1',
-    'For 3 Persons',
-    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118653547_205409600919035_5084380285642382220_o.jpg?_nc_cat=106&ccb=2&_nc_sid=8bfeb9&_nc_ohc=xfl-KLVwU6kAX-1cvhK&_nc_ht=scontent.flhe15-1.fna&oh=53a860ee9238cc39ecee890a1b9719f3&oe=5FBD120F',
-    499,
+    'Chicken Handi',
+    'Half KG',
+    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/117643939_202446297882032_4221326379336286783_o.jpg?_nc_cat=106&ccb=2&_nc_sid=9267fe&_nc_ohc=TARRcpLO2ZoAX-Ke7nu&_nc_ht=scontent.flhe15-1.fna&oh=91adeb2953899b72cb08b5b8441a536c&oe=5FBC6790',
+    'Price RS. 400/-',
     [
-      '4 Tomatoes',
-      '1 Tablespoon of Olive Oil',
-      '1 Onion',
-      '250g Spaghetti',
+      'Chicken Handi without bone',
+      'Half KG',
+      'Salad',
       'Spices',
-      'Cheese (optional)'
+      'Butter (optional)'
     ],
     // [
     //   'Cut the tomatoes and the onion into small pieces.',
@@ -45,20 +44,20 @@ export const MEALS = [
     // true
   ),
 
-  new Meal(
-    'm1b',
+  new Desi_Meal(
+    'n1b',
     ['c1'],
-    'Deal 2', 
-    'For 5 Persons',
-    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118691355_205431470916848_4451869051084445219_o.jpg?_nc_cat=101&ccb=2&_nc_sid=8bfeb9&_nc_ohc=HPBAwAaNh30AX-vi39M&_nc_oc=AQn0b3ByZXBSTBeb3jTzUg31hF8vfP0PTq1HDYc7nUpe-087E42XAHz6RnxLdRDUHsw&_nc_ht=scontent.flhe15-1.fna&oh=b9a7fae4c2cae3932e9e391dd417d8da&oe=5FBAE0F9',
-    999,
+    'Mix Vegetable', 
+    'For 2 Persons',
+    'https://i0.wp.com/mytastycurry.com/wp-content/uploads/2017/03/mix-veg-.jpg?w=600&ssl=1',
+    'Price RS. 120/-',
     [
-      'Chicken Kabab (6 pieces)',
-      'Malai Boti (8 pieces)',
-      'Chicken Tikka Leg/Breast (1 pieces)',
-      'Chicken Boti (8 pieces)',
-      'Roghani Nan(4 pieces)',
-      'Drink 1.5 Liter'
+      'Aloo',
+      'Matar',
+      'Gajar',
+      'Spices',
+      'Salad',
+      'Raita'
     ],
     // [
     //   'Cut the tomatoes and the onion into small pieces.',
@@ -77,15 +76,14 @@ export const MEALS = [
 
  
 
-  new Meal(
-    'm2',
+  new Desi_Meal(
+    'n2',
     ['c2'],
-    'Deal 1',
-    'For 2 Persons',
+    'Toast Hawaii',
+    'simple',
     'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
-    699,
+    10,
     [
-      'Toast Hawaii',
       '1 Slice White Bread',
       '1 Slice Ham',
       '1 Slice Pineapple',
@@ -103,15 +101,14 @@ export const MEALS = [
     // false
   ),
 
-  new Meal(
-    'm3',
+  new Desi_Meal(
+    'n3',
     ['c3'],
-    'Deal 1',
-    'For 2 Persons',
+    'Classic Hamburger',
+    'simple',
     'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
-    625,
+    45,
     [
-      'Classic Hamburger',
       '300g Cattle Hack',
       '1 Tomato',
       '1 Cucumber',
@@ -132,15 +129,14 @@ export const MEALS = [
     // true
   ),
 
-  new Meal(
-    'm4',
+  new Desi_Meal(
+    'n4',
     ['c4'],
-    'Deal 1',
-    'For 2 Persons',
+    'Wiener Schnitzel',
+    'challenging',
     'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
-    1299,
+    60,
     [
-      'Wiener Schnitzel',
       '8 Veal Cutlets',
       '4 Eggs',
       '200g Bread Crumbs',
@@ -165,15 +161,14 @@ export const MEALS = [
     // false
   ),
 
-  new Meal(
-    'm5',
+  new Desi_Meal(
+    'n5',
     ['c5'],
-    'Deal 1',
-    'For 3 Persons',
+    'Salad with Smoked Salmon',
+    'simple',
     'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
-    99,
+    15,
     [
-      'Salad with Smoked Salmon',
       'Arugula',
       "Lamb's Lettuce",
       'Parsley',
@@ -197,15 +192,14 @@ export const MEALS = [
     // true
   ),
 
-  new Meal(
-    'm6',
+  new Desi_Meal(
+    'n6',
     ['c6'],
-    'Deal 1',
-    'For 4 Persons',
+    'Delicious Orange Mousse',
+    'hard',
     'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
-    1899,
+    240,
     [
-      'Delicious Orange Mousse',
       '4 Sheets of Gelatine',
       '150ml Orange Juice',
       '80g Sugar',
@@ -230,15 +224,14 @@ export const MEALS = [
     // false
   ),
 
-  new Meal(
-    'm7',
+  new Desi_Meal(
+    'n7',
     ['c7'],
-    'Deal 1',
-    'For 5 Persons',
-    'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.mamachocolateblog.com%2Fdelicious-dish-tuesday-recipe-link-up-4th-of-july-edition.html&psig=AOvVaw1sKnUBlo2FDArMPjoU2Prp&ust=1603872528167000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIix7Pio1OwCFQAAAAAdAAAAABAJ',
-    1500,
+    'Pancakes',
+    'simple',
+    'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
+    20,
     [
-      'Pancakes',
       '1 1/2 Cups all-purpose Flour',
       '3 1/2 Teaspoons Baking Powder',
       '1 Teaspoon Salt',
@@ -259,15 +252,14 @@ export const MEALS = [
     // false
   ),
 
-  new Meal(
-    'm8',
+  new Desi_Meal(
+    'n8',
     ['c8'],
-    'Deal 1',
-    'For 5 Persons',
+    'Creamy Indian Chicken Curry',
+    'challenging',
     'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
-    1100,
+    35,
     [
-      'Creamy Indian Chicken Curry',
       '4 Chicken Breasts',
       '1 Onion',
       '2 Cloves of Garlic',
@@ -290,15 +282,14 @@ export const MEALS = [
     // true
   ),
 
-  new Meal(
-    'm9',
+  new Desi_Meal(
+    'n9',
     ['c9'],
-    'Deal 1',
-    'For 4 Persons',
+    'Chocolate Souffle',
+    'hard',
     'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
-    800,
+    45,
     [
-      'Chocolate Souffle',
       '1 Teaspoon melted Butter',
       '2 Tablespoons white Sugar',
       '2 Ounces 70% dark Chocolate, broken into pieces',
@@ -336,15 +327,14 @@ export const MEALS = [
     // true,
     // false
   ),
-  new Meal(
-    'm10',
+  new Desi_Meal(
+    'n10',
     ['c10'],
-    'Deal 1',
-    'For 2 Perons',
+    'Asparagus Salad with Cherry Tomatoes',
+    'simple',
     'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
-    1900,
+    30,
     [
-      'Asparagus Salad with Cherry Tomatoes',
       'White and Green Asparagus',
       '30g Pine Nuts',
       '300g Cherry Tomatoes',

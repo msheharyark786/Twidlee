@@ -7,7 +7,9 @@ const DefaultText = props => {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: 'open-sans'
+    fontFamily: '16',
+    fontStyle:'italic',
+    fontWeight:'bold'
   }
 }); 
  

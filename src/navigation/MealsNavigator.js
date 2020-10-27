@@ -40,13 +40,16 @@ import DealScreen from '../screens/DealScreen';
 import PakistaniScreen from '../screens/PakistaniScreen';
 import BbqScreen from '../screens/BbqScreen';
 import Header from '../components/Header';
+import PaymentScreen from '../screens/PaymentScreen';
 //import Forms from '../components/Forms';
-
+import HeaderButton from '../components/HeaderButton'; 
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import LoginScreen from '../screens/LoginScreen';
 import SignUp from '../screens/signUp';
 import SignupScreen from '../screens/SignupScreen';
 import SplashScreen from '../screens/SplashScreen';
+import HeaderIamgeScreen from '../screens/HeaderImageScreen';
 
 import Colors from '../constants/Colors';
 //import { Header } from 'react-native/Libraries/NewAppScreen';
@@ -70,7 +73,18 @@ const defaultStackNavOptions = {
     //paddingLeft:100,
   },
   headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
-  headerTitle: 'Restaurants'
+  headerTitle: 'Restaurants',
+  // headerLeft:()=>(
+  //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+  //     <Item
+  //       title="Menu"
+  //       iconName="ios-menu"
+  //       // onPress={() => {
+  //       //   navData.navigation.toggleDrawer();
+  //       // }}
+  //     />
+  //   </HeaderButtons>
+  // )
 };
 
 // const MealsNavigator = createStackNavigator(
@@ -109,6 +123,7 @@ const FirstNavigator = createStackNavigator(
     First: {
       screen:FirstScreen
     },
+    HeaderImage: HeaderIamgeScreen,
     SecondTop:{
       screen: SecondTopScreen
     },
@@ -369,46 +384,43 @@ const FiltersNavigator = createStackNavigator(
 
 const MainNavigator = createDrawerNavigator(
   {
-    SplashScreen: {
-      screen: SplashScreen,
-      navigationOptions: {
-        title: '',
-        headerShown: false,
-      }},
-      LoginScreen:{
-        screen: LoginScreen,
-        navigationOptions: {
-        title: '',
-        headerShown: false,
-        headerMode: 'none'
-      }},
-      SignupScreen:{
-        screen: SignupScreen,
-        navigationOptions: {
-        title: '',
-        headerShown: false,
-        headerMode: 'none'
-      }},
+    // SplashScreen: {
+    //   screen: SplashScreen,
+    //   navigationOptions: {
+    //     title: '',
+    //     headerShown: false,
+    //   }},
+    //   LoginScreen:{
+    //     screen: LoginScreen,
+    //     navigationOptions: {
+    //     title: '',
+    //     headerShown: false,
+    //     headerMode: 'none'
+    //   }},
+    //   SignupScreen:{
+    //     screen: SignupScreen,
+    //     navigationOptions: {
+    //     title: '',
+    //     headerShown: false,
+    //     headerMode: 'none'
+    //   }},
     MealsFavs: {
       screen: TabNavigator,
       navigationOptions: {
-        drawerLabel: 'Meals'
+        drawerLabel: 'Meals',
+        title: '',
+        headerShown: false,
+        headerMode: 'none'
       }
     },
-    // TopFavs:{
-    //     screen: AppNavigator,
-    //     navigationOptions: {
-    //       drawerLabel: 'Home'
-    //     }
-    //   },
     Filters: FiltersNavigator,
-    Profile: ProfileScreen,
-    AboutUs: AboutUsScreen,
-    Address: AddressScreen,
-    ChangePassword: ChangePasswordScreen,
-    My_Order: My_OrderScreen,
-    PrivacyPolicy: PrivacyPolicyScreen,
-    TermCondition: TermConditionScreen
+    // Profile: ProfileScreen,
+    // AboutUs: AboutUsScreen,
+    // Address: AddressScreen,
+    // ChangePassword: ChangePasswordScreen,
+    // My_Order: My_OrderScreen,
+    // PrivacyPolicy: PrivacyPolicyScreen,
+    // TermCondition: TermConditionScreen
     //Forms: Forms
     
 },

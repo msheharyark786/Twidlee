@@ -15,6 +15,7 @@ import DineScreen from '../screens/DineScreen';
 import HeaderButton from '../components/HeaderButton'; 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors';
+import HeaderIamge from '../components/HeaderImage';
 //import PakistaniScreen from '../screens/PakistaniScreen';
 
 

@@ -121,7 +121,7 @@ const SignupScreen = (props) => {
             required={true}
             autoCapitalize="none"
             placeholderTextColor="#ffffff"
-            keyboardType="name-phone-pad"
+            keyboardType="numeric"
             minLength={11}
             errorMessage="Please enter a valid Phone number"
             value={phoneNumber}
@@ -186,7 +186,7 @@ signupButtonText:{
   signupText: {
     fontSize:12, 
     color:'black',
-    fontWeight:'500',
+    fontWeight:'bold',
     textAlign:'center',
     marginVertical:10
     },

@@ -29,7 +29,7 @@ const CategoryGridTile = props => {
                   {props.title}
                 </Text>
               </View>
-            </ImageBackground>
+            </ImageBackground> 
           </View>
         {/* </View> */}
       </TouchableCmp>

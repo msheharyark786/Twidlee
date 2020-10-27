@@ -4,13 +4,16 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ImageBackground
+  ImageBackground,
+  ScrollView,
+  Image
 } from 'react-native';
 
 import DefaultText from './DefaultText';
 
 const MealItem = props => {
   return (
+    <ScrollView>
     <View style={styles.mealItem}>
       <TouchableOpacity onPress={props.onSelectMeal}>
         <View>
@@ -20,26 +23,27 @@ const MealItem = props => {
               style={styles.bgImage}
             >
               <View style={styles.titleContainer}>
-                <Text style={styles.title} numberOfLines={1}>
+                <Text style={styles.title} numberOfLines={1}> 
                   {props.title}
                 </Text>
               </View>
             </ImageBackground>
           </View>
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <DefaultText>{props.duration}m</DefaultText>
-            <DefaultText>{props.complexity.toUpperCase()}</DefaultText>
-            <DefaultText>{props.affordability.toUpperCase()}</DefaultText>
+            <DefaultText>{props.persons}</DefaultText>
+            <DefaultText>Rs. {props.price}/-</DefaultText>
+            
           </View>
         </View>
       </TouchableOpacity>
     </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   mealItem: {
-    height: 200,
+    height: 300,
     width: '100%',
     backgroundColor: '#f5f5f5',
     borderRadius: 10,
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   mealHeader: {
-    height: '85%'
+    height: '80%'
   },
   mealDetail: {
     paddingHorizontal: 10,
@@ -69,7 +73,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12
   },
   title: {
-    fontFamily: 'open-sans-bold',
+    fontWeight: 'bold',
     fontSize: 20,
     color: 'white',
     textAlign: 'center'

@@ -18,11 +18,12 @@ import ChineseScreen from '../screens/ChineseScreen';
 import DealScreen from '../screens/DealScreen';
 import PakistaniScreen from '../screens/PakistaniScreen';
 import BbqScreen from '../screens/BbqScreen';
+import HeaderIamge from '../components/HeaderImage';
 
 
 
 
-    const defaultStackNavOptions = {
+    const defaultStackNavOption = {
         headerStyle: {
           backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
         },
@@ -41,18 +42,19 @@ import BbqScreen from '../screens/BbqScreen';
             // Categories: {
             //     screen: CategoriesScreen
             //   },
+            //HeaderIm: HeaderIamge,
             CategoryMeals: {
                 screen: CategoryMealsScreen
             },
             MealDetail: MealDetailScreen,
-            Pakistani: PakistaniScreen,
+            //Pakistani: PakistaniScreen,
           
           //MealDetail: MealDetailScreen
         },
-        {
-          // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOptions
-        }
+        // {
+        //   // initialRouteName: 'Categories',
+        //   defaultNavigationOptions: defaultStackNavOption
+        // }
       );
       const PakNavigator = createStackNavigator(
         {
@@ -62,7 +64,7 @@ import BbqScreen from '../screens/BbqScreen';
         },
         {
           // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOptions
+          defaultNavigationOptions: defaultStackNavOption
         }
       );
       
@@ -74,7 +76,7 @@ import BbqScreen from '../screens/BbqScreen';
         },
         {
           // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOptions
+          defaultNavigationOptions: defaultStackNavOption
         }
       );
       const ChineseNavigator = createStackNavigator(
@@ -85,7 +87,7 @@ import BbqScreen from '../screens/BbqScreen';
         },
         {
           // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOptions
+          defaultNavigationOptions: defaultStackNavOption
         }
       );
       const TandoorNavigator = createStackNavigator(
@@ -96,7 +98,7 @@ import BbqScreen from '../screens/BbqScreen';
         },
         {
           // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOptions
+          defaultNavigationOptions: defaultStackNavOption
         }
       );
       const ChooseNavigator = createMaterialTopTabNavigator(  
@@ -212,8 +214,12 @@ import BbqScreen from '../screens/BbqScreen';
            Favs:{
                 screen: ChooseNavigator,
                 navigationOptions: {
-                  drawerLabel: 'Deal'
+                  drawerLabel: 'Deal',
+                  headerShown: false,
+                  headerMode: 'none'
+                  
                 }
+                
               }
           },
           {

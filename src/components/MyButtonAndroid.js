@@ -35,15 +35,20 @@ const styles=StyleSheet.create({
         
     },
     buttonContainer:{
-        borderRadius:20,
+        // width:5,
+        // height:100,
+        borderRadius:10,
         // overflow:'hidden'
 
     },
     buttonText:{
         color: 'white',
-        fontFamily:'open-sans',
-        fontSize:16,
-        fontWeight:'bold'
+        //fontFamily:'',
+        //fontStyle:'italic',
+        fontSize:17,
+        fontWeight:'bold',
+        // justifyContent:'center',
+        // alignItems:'center'
     }
 
 })

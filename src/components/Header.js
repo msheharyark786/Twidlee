@@ -5,7 +5,7 @@ import Colors from '../constants/Colors';
 const Header = props=> {
     return (
         <View style={styles.header}>
-            <Text style={styles.tittle}>{props.title} </Text>
+            <Text style={styles.tittle}>{props.title}</Text>
         </View>
     )
 }
