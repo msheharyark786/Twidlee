@@ -11,12 +11,16 @@ import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
+import BbqMealDetailScreen from '../screens/BbqMealDetailScreen';
+import ChineseMealDetailScreen from '../screens/ChineseMealDetailScreen';
+import TandoorMealDetailScreen from '../screens/TandoorMealDetailScreen';
+import DesiMealDetailScreen from '../screens/DesiMealDetailScreen';
 import DineScreen from '../screens/DineScreen';
 import Colors from '../constants/Colors';
 import TandoorScreen from '../screens/TandoorScreen';
-import ChineseScreen from '../screens/ChineseScreen';
+import ChineseScreen from './ChineseScreen';
 import DealScreen from '../screens/DealScreen';
-import PakistaniScreen from '../screens/PakistaniScreen';
+import DesiScreen from './DesiScreen';
 import BbqScreen from '../screens/BbqScreen';
 import HeaderIamge from '../components/HeaderImage';
 
@@ -34,7 +38,7 @@ import HeaderIamge from '../components/HeaderImage';
           //fontFamily: 'open-sans'
         },
         headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
-        headerTitle: 'A Screen'
+        headerTitle: ''
       };
     const DealNavigator = createStackNavigator(
         {
@@ -43,22 +47,35 @@ import HeaderIamge from '../components/HeaderImage';
             //     screen: CategoriesScreen
             //   },
             //HeaderIm: HeaderIamge,
+            
             CategoryMeals: {
-                screen: CategoryMealsScreen
+                screen: CategoryMealsScreen,
+                navigationOptions: {
+                  title: '',
+                  headerShown: false,
+                },
             },
             MealDetail: MealDetailScreen,
             //Pakistani: PakistaniScreen,
           
           //MealDetail: MealDetailScreen
         },
-        // {
-        //   // initialRouteName: 'Categories',
-        //   defaultNavigationOptions: defaultStackNavOption
-        // }
-      );
-      const PakNavigator = createStackNavigator(
         {
-            Pakistani: PakistaniScreen,
+          // initialRouteName: 'Categories',
+          defaultNavigationOptions: defaultStackNavOption
+        }
+      );
+      const DesiNavigator = createStackNavigator(
+        {
+          Desi: {
+            screen: DesiScreen,
+            navigationOptions: {
+                  title: '',
+                  headerShown: false,
+                },
+          },
+          DesiMealDetail: DesiMealDetailScreen
+            
           
           //MealDetail: MealDetailScreen
         },
@@ -70,8 +87,14 @@ import HeaderIamge from '../components/HeaderImage';
       
       const BbqNavigator = createStackNavigator(
         {
-          Bbq: BbqScreen,
-          //MealDetail: MealDetailScreen
+          Bbq: {
+            screen:BbqScreen,
+            navigationOptions: {
+              title: '',
+              headerShown: false,
+            },
+          },
+          BbqMealDetailScreen: BbqMealDetailScreen
           
         },
         {
@@ -81,8 +104,14 @@ import HeaderIamge from '../components/HeaderImage';
       );
       const ChineseNavigator = createStackNavigator(
         {
-            Chinese: ChineseScreen,
-          //MealDetail: MealDetailScreen
+            Chinese: {
+              screen: ChineseScreen,
+              navigationOptions: {
+                title: '',
+                headerShown: false,
+              },
+            },
+            ChineseMealDetailScreen: ChineseMealDetailScreen
           
         },
         {
@@ -92,8 +121,14 @@ import HeaderIamge from '../components/HeaderImage';
       );
       const TandoorNavigator = createStackNavigator(
         {
-            Tandoor: TandoorScreen,
-          //MealDetail: MealDetailScreen
+            Tandoor: {
+              screen: TandoorScreen,
+              navigationOptions: {
+                title: '',
+                headerShown: false,
+              },
+            },
+            TandoorMealDetailScreen: TandoorMealDetailScreen
           
         },
         {
@@ -112,14 +147,14 @@ import HeaderIamge from '../components/HeaderImage';
                   tabBarColor: Colors.accentColor,
                   tabBarLabel:
                     Platform.OS === 'android' ? (
-                      <Text>Deal</Text>
+                      <Text style={{}}>Deals</Text>
                     ) : (
                       'Deal'
                     )
                 }
               },
-          Pakistani: {
-            screen: PakNavigator,
+          Desi: {
+            screen: DesiNavigator,
             navigationOptions: {
               tabBarIcon: tabInfo => {
                 // return <Text>Dine In</Text> ;
@@ -127,9 +162,9 @@ import HeaderIamge from '../components/HeaderImage';
               tabBarColor: Colors.accentColor,
               tabBarLabel:
                 Platform.OS === 'android' ? (
-                  <Text style={{ fontFamily: 'open-sans-bold' }}>Desi</Text>
+                  <Text style={{}}>Desi</Text>
                 ) : (
-                  'Pakistani'
+                  'Desi'
                 )
             }
           },
@@ -142,7 +177,7 @@ import HeaderIamge from '../components/HeaderImage';
               tabBarColor: Colors.accentColor,
               tabBarLabel:
                 Platform.OS === 'android' ? (
-                  <Text style={{ fontFamily: 'open-sans-bold' }}>Bbq</Text>
+                  <Text style={{}}>Bbq</Text>
                 ) : (
                   'Bbq'
                 )
@@ -157,7 +192,7 @@ import HeaderIamge from '../components/HeaderImage';
               tabBarColor: Colors.accentColor,
               tabBarLabel:
                 Platform.OS === 'android' ? (
-                  <Text style={{ fontFamily: 'open-sans-bold' }}>Chinese</Text>
+                  <Text style={{ }}>Chinese</Text>
                 ) : (
                   'Chinese'
                 )
@@ -169,10 +204,10 @@ import HeaderIamge from '../components/HeaderImage';
               tabBarIcon: tabInfo => {
                 // return <Text>Dine In</Text> ;
               },
-              tabBarColor: Colors.accentColor,
+              //tabBarColor: Colors.accentColor,
               tabBarLabel:
                 Platform.OS === 'android' ? (
-                  <Text style={{ fontFamily: 'open-sans-bold' }}>Tandoor</Text>
+                  <Text style={{}}>Tandoor</Text>
                 ) : (
                   'Tandoor'
                 )
@@ -196,10 +231,10 @@ import HeaderIamge from '../components/HeaderImage';
             //     color:Colors.themeColor,
             //     fontSize:30
             //   },
-              activeTintColor: Colors.accentColor,
-              inactiveTintColor: Colors.themeColor,
+              // activeTintColor: 'red',
+              // inactiveTintColor: Colors.themeColor,
               // font: 'open-sans',
-              fontWeight:'bold',
+              //fontWeight:'bold',
               style: {
                 height: 50,
                 // Colors:Colors.accentColor,
@@ -222,14 +257,14 @@ import HeaderIamge from '../components/HeaderImage';
                 
               }
           },
-          {
-            contentOptions: {
-              activeTintColor: Colors.accentColor,
-              labelStyle: {
-                fontWeight:'bold',
-              }
-            }
-          }
+          // {
+          //   contentOptions: {
+          //     activeTintColor: 'red',
+          //     labelStyle: {
+          //       fontWeight:'bold',
+          //     }
+          //   }
+          // }
     );
     // return (
     //     <View style={styles.HomeView}>

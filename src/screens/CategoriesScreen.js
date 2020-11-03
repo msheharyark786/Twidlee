@@ -11,6 +11,8 @@ import Colors from '../constants/Colors';
 import HeaderButton from '../components/HeaderButton'; 
 import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
+//import Pakistani from '../screens/PakistaniScreen';
+//import HeaderImage from '../components/HeaderImage';
 
 const CategoriesScreen = props => {
   const renderGridItem = itemData => {
@@ -20,12 +22,80 @@ const CategoriesScreen = props => {
         image={itemData.item.imageUrl} 
         // color={itemData.item.color}
         onSelect={() => {
+          {
           props.navigation.navigate({
             routeName: ('CategoryMeals'),
             params: {
               categoryId: itemData.item.id
             }
+            
           });
+          }
+          {
+            props.navigation.navigate({
+              routeName: ('Desi'),
+              params: {
+                categoryId: itemData.item.id
+              }
+            });
+          }
+          {
+            props.navigation.navigate({
+              routeName: ('Desi'),
+              params: {
+                categoryId: itemData.item.id
+              }
+            });
+          }
+          {
+            props.navigation.navigate({
+              routeName: ('Bbq'),
+              params: {
+                categoryId: itemData.item.id
+              }
+            });
+          }
+          {
+            props.navigation.navigate({
+              routeName: ('Bbq'),
+              params: {
+                categoryId: itemData.item.id
+              }
+            });
+          }
+          {
+            props.navigation.navigate({
+              routeName: ('Chinese'),
+              params: {
+                categoryId: itemData.item.id
+              }
+            });
+          }
+          {
+            props.navigation.navigate({
+              routeName: ('Chinese'),
+              params: {
+                categoryId: itemData.item.id
+              }
+            });
+          }
+          {
+            props.navigation.navigate({
+              routeName: ('Tandoor'),
+              params: {
+                categoryId: itemData.item.id
+              }
+            });
+          }
+          {
+            props.navigation.navigate({
+              routeName: ('Tandoor'),
+              params: {
+                categoryId: itemData.item.id
+              }
+            });
+          }
+          
         }}
       />
      

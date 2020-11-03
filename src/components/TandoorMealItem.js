@@ -11,7 +11,7 @@ import {
 
 import DefaultText from './DefaultText';
 
-const MealItem = props => {
+const TandoorMealItem = props => {
   return (
     <ScrollView>
     <View style={styles.mealItem}>
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default MealItem;
+export default TandoorMealItem;

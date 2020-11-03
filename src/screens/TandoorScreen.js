@@ -1,42 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { CATEGORIES,Tandoor_MEALS } from '../data/Tandoor_Data';
+import TandoorMealList from '../components/TandoorMealList';
 
-import HeaderButton from '../components/HeaderButton';
 
-function TandoorScreen(props) {
-    return (
-        <View style={styles.screen}>
-            <Text>
-                Tandoor Screen
-            </Text>
-        </View>
-    )
+const TandoorScreen = props => {
+    const catId = props.navigation.getParam('categoryId');
+
+  const displayedMeals = Tandoor_MEALS.filter(
+    meal => meal.categoryIds.indexOf(catId) >= 0
+  );
+
+  return <TandoorMealList listData={displayedMeals} navigation={props.navigation} />
 }
 
-TandoorScreen.navigationOptions = navData => {
-    return {
-      headerTitle: 'Tandoor',
-      headerLeft:()=> (
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title="Menu"
-            iconName="ios-menu"
-            onPress={() => {
-              navData.navigation.toggleDrawer();
-            }}
-          />
-        </HeaderButtons>
-      )
-    };
-  };
+TandoorScreen.navigationOptions = navigationData => {
+  const catId = navigationData.navigation.getParam('categoryId');
 
-const styles=StyleSheet.create({
-    screen:{
-        flex:1,
-        fontSize:20,
-        alignContent:'center'
-    }
-})
+  const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
+  console.log("Tandoor")
+  console.log(selectedCategory);
+  // return {
+  //   headerTitle: selectedCategory.title
+  // };
+};
+
+
 
 export default TandoorScreen

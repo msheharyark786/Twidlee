@@ -3,7 +3,7 @@ import React from 'react';
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 import MealList from '../components/MealList';
 //import SecondTopScreen from '../screens/SecondTopScreen'
-import { View } from 'react-native-animatable';
+//import { View } from 'react-native-animatable';
 
 const CategoryMealScreen = props => {
     
@@ -22,9 +22,9 @@ CategoryMealScreen.navigationOptions = navigationData => {
 
   const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
 
-  return {
-    headerTitle: selectedCategory.title
-  };
+  // return {
+  //   headerTitle: selectedCategory.title
+  // };
 };
 
 export default CategoryMealScreen;

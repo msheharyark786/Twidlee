@@ -37,10 +37,11 @@ import SecondTopScreen from '../screens/SecondTopScreen';
 import TandoorScreen from '../screens/TandoorScreen';
 import ChineseScreen from '../screens/ChineseScreen';
 import DealScreen from '../screens/DealScreen';
-import PakistaniScreen from '../screens/PakistaniScreen';
+import Desi from '../screens/DesiScreen';
 import BbqScreen from '../screens/BbqScreen';
 import Header from '../components/Header';
 import PaymentScreen from '../screens/PaymentScreen';
+import DesiMealDetailScreen from '../screens/DesiMealDetailScreen'
 //import Forms from '../components/Forms';
 import HeaderButton from '../components/HeaderButton'; 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -72,39 +73,11 @@ const defaultStackNavOptions = {
     //fontFamily: 'open-sans',
     //paddingLeft:100,
   },
+  headerTitle:'',
   headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
-  headerTitle: 'Restaurants',
-  // headerLeft:()=>(
-  //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
-  //     <Item
-  //       title="Menu"
-  //       iconName="ios-menu"
-  //       // onPress={() => {
-  //       //   navData.navigation.toggleDrawer();
-  //       // }}
-  //     />
-  //   </HeaderButtons>
-  // )
+  
 };
 
-// const MealsNavigator = createStackNavigator(
-//   {
-//     // Categories: {
-//     //   screen: CategoriesScreen
-//     // },
-//     // CategoryMeals: {
-//     //   screen: CategoryMealsScreen
-//     // },
-//     First: {
-//       screen:FirstScreen
-//     },
-//      MealDetail: MealDetailScreen
-//   },
-//   {
-//     // initialRouteName: 'Categories',
-//     defaultNavigationOptions: defaultStackNavOptions
-//   }
-// );
 
 const FavNavigator = createStackNavigator(
   {
@@ -119,12 +92,24 @@ const FavNavigator = createStackNavigator(
 
 const FirstNavigator = createStackNavigator(
   {
-    //Header: Header,
+    // Header:{
+    //   screen: Header,
+    // }
+
     First: {
+      navigationOptions: {
+        title: '',
+        headerShown: false,
+      },
       screen:FirstScreen
+       
     },
-    HeaderImage: HeaderIamgeScreen,
+    //HeaderImage: HeaderIamgeScreen,
     SecondTop:{
+      navigationOptions: {
+        title: '',
+        headerShown: false,
+      },
       screen: SecondTopScreen
     },
     // CategoryMeals: {
@@ -170,117 +155,6 @@ const AccNavigator = createStackNavigator(
     defaultNavigationOptions: defaultStackNavOptions
   }
 );
-
-// const DineNavigator = createStackNavigator(
-//   {
-//     // Dine: DineScreen,
-//     Categories: {
-//         screen: CategoriesScreen
-//       },
-//       CategoryMeals: {
-//         screen: CategoryMealsScreen
-//       },
-//       MealDetail: MealDetailScreen
-//     //MealDetail: MealDetailScreen
-//   },
-//   {
-//     // initialRouteName: 'Categories',
-//     defaultNavigationOptions: defaultStackNavOptions
-//   }
-// );
-
-// const DeliveryNavigator = createStackNavigator(
-//   {
-//     Delivery: DeliveryScreen,
-//     //MealDetail: MealDetailScreen
-//   },
-//   {
-//     // initialRouteName: 'Categories',
-//     defaultNavigationOptions: defaultStackNavOptions
-//   }
-// );
-
-// const tabScreenConfig = {
-//   Home: {
-//     screen: MealsNavigator,
-//     navigationOptions: {
-//       tabBarIcon: tabInfo => {
-//         return (
-//           <Ionicons name="ios-restaurant" size={25} color={tabInfo.tintColor} />
-//         );
-//       },
-//       tabBarColor: Colors.primaryColor,
-//       tabBarLabel:
-//         Platform.OS === 'android' ? (
-//           <Text style={{ fontFamily: 'open-sans-bold' }}>Home</Text>
-//         ) : (
-//           'Meals'
-//         )
-//     }
-//   },
-//   Reservations: {
-//     screen: ReserveNavigator,
-//     navigationOptions: {
-//       tabBarIcon: tabInfo => {
-//         return <SimpleLineIcons name="present" size={24} color={tabInfo.tintColor} />;
-        
-//       },
-      
-//       tabBarLabel:
-//         Platform.OS === 'android' ? (
-//           <Text style={{ fontFamily: 'open-sans-bold' }}>Reservations</Text>
-//         ) : (
-//           'Reservation'
-//         )
-//     }
-    
-//   },
-//   History: {
-//     screen: HisNavigator,
-//     navigationOptions: {
-//       tabBarIcon: tabInfo => {
-//         return <MaterialIcons name="history" size={24} color={tabInfo.tintColor} />;
-//       },
-//       //tabBarColor: Colors.accentColor,
-//       tabBarLabel:
-//         Platform.OS === 'android' ? (
-//           <Text style={{ fontFamily: 'open-sans-bold' }}>History</Text>
-//         ) : (
-//           'History'
-//         )
-//     }
-//   },
-//   Favorites: {
-//     screen: FavNavigator,
-//     navigationOptions: {
-//       tabBarIcon: tabInfo => {
-//         return <MaterialIcons name="favorite" size={24} color={tabInfo.tintColor} />;
-//       },
-//       tabBarColor: Colors.accentColor,
-//       tabBarLabel:
-//         Platform.OS === 'android' ? (
-//           <Text style={{ fontFamily: 'open-sans-bold' }}>Favorites</Text>
-//         ) : (
-//           'Favorites'
-//         )
-//     }
-//   },
-//   Account: {
-//     screen: AccNavigator,
-//     navigationOptions: {
-//       tabBarIcon: tabInfo => {
-//         return <MaterialCommunityIcons name="account" size={24} color={tabInfo.tintColor} />;
-//       },
-//       //Color: 'red',
-//       tabBarLabel:
-//         Platform.OS === 'android' ? (
-//           <Text style={{ fontFamily: 'open-sans-bold', color:'red' }}>Account</Text>
-//         ) : (
-//           'Account'
-//         )
-//     }
-//   }
-// };
 
 
 
@@ -414,13 +288,13 @@ const MainNavigator = createDrawerNavigator(
       }
     },
     Filters: FiltersNavigator,
-    // Profile: ProfileScreen,
-    // AboutUs: AboutUsScreen,
-    // Address: AddressScreen,
-    // ChangePassword: ChangePasswordScreen,
-    // My_Order: My_OrderScreen,
-    // PrivacyPolicy: PrivacyPolicyScreen,
-    // TermCondition: TermConditionScreen
+    Profile: ProfileScreen,
+    AboutUs: AboutUsScreen,
+    Address: AddressScreen,
+    ChangePassword: ChangePasswordScreen,
+    My_Order: My_OrderScreen,
+    PrivacyPolicy: PrivacyPolicyScreen,
+    TermCondition: TermConditionScreen
     //Forms: Forms
     
 },

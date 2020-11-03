@@ -16,7 +16,7 @@ import HeaderButton from '../components/HeaderButton';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors';
 import HeaderIamge from '../components/HeaderImage';
-//import PakistaniScreen from '../screens/PakistaniScreen';
+//import DesiScreen from '../screens/DesiScreen';
 
 
 
@@ -32,18 +32,7 @@ import HeaderIamge from '../components/HeaderImage';
           //fontFamily: 'open-sans'
         },
         headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
-        headerTitle: 'A Screen',
-        headerLeft:()=>(
-                  <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                    <Item
-                      title="Menu"
-                      iconName="ios-menu"
-                      onPress={() => {
-                        navData.navigation.toggleDrawer();
-                      }}
-                    />
-                  </HeaderButtons>
-                )
+        headerTitle: '',
       };
     const DineNavigator = createStackNavigator(
         {
@@ -101,7 +90,7 @@ import HeaderIamge from '../components/HeaderImage';
                   tabBarColor: Colors.accentColor,
                   tabBarLabel:
                     Platform.OS === 'android' ? (
-                      <Text>Delivery</Text>
+                      <Text style={{ fontWeight: 'bold', fontSize:20  }}>Delivery</Text>
                     ) : (
                       'Delivery'
                     )
@@ -116,7 +105,7 @@ import HeaderIamge from '../components/HeaderImage';
               tabBarColor: Colors.accentColor,
               tabBarLabel:
                 Platform.OS === 'android' ? (
-                  <Text style={{ fontFamily: 'open-sans-bold' }}>Dine In</Text>
+                  <Text style={{ fontWeight: 'bold', fontSize:20 }}>Dine In</Text>
                 ) : (
                   'Dine'
                 )

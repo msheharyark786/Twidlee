@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import { MEALS } from '../data/dummy-data';
+import { Tandoor_MEALS } from '../data/Tandoor_Data';
+//import { MEALS } from '../data/dummy-data';
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
 import My_Button from '../components/MyButtonAndroid';
@@ -23,11 +24,12 @@ const ListItem = props => {
   );
 };
 
-const MealDetailScreen = props => {
+const TandoorMealDetailScreen = props => {
   const mealId = props.navigation.getParam('mealId');
 
-  const selectedMeal = MEALS.find(meal => meal.id === mealId);
-
+  const selectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId);
+  // console.log("Tandoor Meal Detail")
+  // console.log(selectedMeal.id);
   return (
     <ScrollView>
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
@@ -36,7 +38,7 @@ const MealDetailScreen = props => {
         <DefaultText>Rs. {selectedMeal.price}/-</DefaultText>
         
       </View>
-      <Text style={styles.title}>Deal Detail</Text>
+      <Text style={styles.title}>Order Detail</Text>
       {selectedMeal.dealDetail.map(detail => (
         <ListItem key={detail}>{detail}</ListItem>
       ))}
@@ -49,11 +51,11 @@ const MealDetailScreen = props => {
   );
 };
 
-MealDetailScreen.navigationOptions = navigationData => {
+TandoorMealDetailScreen.navigationOptions = navigationData => {
   const mealId = navigationData.navigation.getParam('mealId');
-  const selectedMeal = MEALS.find(meal => meal.id === mealId);
+  const selectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId);
   return {
-    headerTitle: selectedMeal.title,
+    headerTitle:selectedMeal.title,
     headerRight:()=> (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
@@ -92,4 +94,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default MealDetailScreen;
+export default TandoorMealDetailScreen;

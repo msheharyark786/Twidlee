@@ -21,7 +21,7 @@ export const Desi_MEALS = [
     'Chicken Handi',
     'Half KG',
     'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/117643939_202446297882032_4221326379336286783_o.jpg?_nc_cat=106&ccb=2&_nc_sid=9267fe&_nc_ohc=TARRcpLO2ZoAX-Ke7nu&_nc_ht=scontent.flhe15-1.fna&oh=91adeb2953899b72cb08b5b8441a536c&oe=5FBC6790',
-    'Price RS. 400/-',
+    400,
     [
       'Chicken Handi without bone',
       'Half KG',
@@ -49,8 +49,8 @@ export const Desi_MEALS = [
     ['c1'],
     'Mix Vegetable', 
     'For 2 Persons',
-    'https://i0.wp.com/mytastycurry.com/wp-content/uploads/2017/03/mix-veg-.jpg?w=600&ssl=1',
-    'Price RS. 120/-',
+    'https://zuranazrecipe.com/wp-content/uploads/2016/01/IMG_0375-copy1.jpg',
+    120,
     [
       'Aloo',
       'Matar',

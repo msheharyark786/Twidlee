@@ -1,5 +1,5 @@
 import Category from '../models/category';
-import Meal from '../models/meal';
+import Chinese_Meal from '../models/chinese_meal';
 
 export const CATEGORIES = [
   new Category('c1', 'Tanawal Restaurant', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSqXJ2dAfwsEfPtKMY9Hx9B0ljQVtfFUHIV6A&usqp=CAU'),
@@ -14,21 +14,19 @@ export const CATEGORIES = [
   new Category('c10', 'Howdy', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTcMuljBrWL7jyb3NpwG7d6N0Eo1-G1uxWdLg&usqp=CAU')
 ];
 
-export const MEALS = [
-  new Meal(
-    'm1a',
+export const Chinese_MEALS = [
+  new Chinese_Meal(
+    'ch1a',
     ['c1'],
-    'Deal 1',
+    'Chowmein',
     'For 3 Persons',
-    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118653547_205409600919035_5084380285642382220_o.jpg?_nc_cat=106&ccb=2&_nc_sid=8bfeb9&_nc_ohc=xfl-KLVwU6kAX-1cvhK&_nc_ht=scontent.flhe15-1.fna&oh=53a860ee9238cc39ecee890a1b9719f3&oe=5FBD120F',
-    499,
+    'https://www.recipetineats.com/wp-content/uploads/2018/08/Chow-Mein_0.jpg',
+    189,
     [
-      'Chicken Kabab 4 pc',
-      'Malai Boti 4 pc',
-      'Tikka Boti 6 pc',
-      'Drink 1 Liter',
-      'Salad',
-      'Raita'
+      'Chowmein for 2 persons',
+      'Chicken',
+      'Vegetable',
+      'Souces',
     ],
     // [
     //   'Cut the tomatoes and the onion into small pieces.',
@@ -45,20 +43,18 @@ export const MEALS = [
     // true
   ),
 
-  new Meal(
-    'm1b',
+  new Chinese_Meal(
+    'ch1b',
     ['c1'],
-    'Deal 2', 
-    'For 5 Persons',
-    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118691355_205431470916848_4451869051084445219_o.jpg?_nc_cat=101&ccb=2&_nc_sid=8bfeb9&_nc_ohc=HPBAwAaNh30AX-vi39M&_nc_oc=AQn0b3ByZXBSTBeb3jTzUg31hF8vfP0PTq1HDYc7nUpe-087E42XAHz6RnxLdRDUHsw&_nc_ht=scontent.flhe15-1.fna&oh=b9a7fae4c2cae3932e9e391dd417d8da&oe=5FBAE0F9',
-    999,
+    'Vegetable Chinese Manchurian', 
+    'For 3 Persons',
+    'http://1.bp.blogspot.com/-zV8X0FusfL8/UpRocUQCrgI/AAAAAAAABqA/FbbkN4Ct3n4/s1600/SDC13277-001.JPG',
+    610,
     [
-      'Chicken Kabab (6 pieces)',
-      'Malai Boti (8 pieces)',
-      'Chicken Tikka Leg/Breast (1 pieces)',
-      'Chicken Boti (8 pieces)',
-      'Roghani Nan(4 pieces)',
-      'Drink 1.5 Liter'
+      'Spicy',
+      'Vegetable',
+      'Chicken',
+      'Noodles',
     ],
     // [
     //   'Cut the tomatoes and the onion into small pieces.',
@@ -77,8 +73,8 @@ export const MEALS = [
 
  
 
-  new Meal(
-    'm2',
+  new Chinese_Meal(
+    'ch2',
     ['c2'],
     'Deal 1',
     'For 2 Persons',
@@ -103,8 +99,8 @@ export const MEALS = [
     // false
   ),
 
-  new Meal(
-    'm3',
+  new Chinese_Meal(
+    'ch3',
     ['c3'],
     'Deal 1',
     'For 2 Persons',
@@ -132,8 +128,8 @@ export const MEALS = [
     // true
   ),
 
-  new Meal(
-    'm4',
+  new Chinese_Meal(
+    'ch4',
     ['c4'],
     'Deal 1',
     'For 2 Persons',
@@ -165,8 +161,8 @@ export const MEALS = [
     // false
   ),
 
-  new Meal(
-    'm5',
+  new Chinese_Meal(
+    'ch5',
     ['c5'],
     'Deal 1',
     'For 3 Persons',
@@ -197,8 +193,8 @@ export const MEALS = [
     // true
   ),
 
-  new Meal(
-    'm6',
+  new Chinese_Meal(
+    'ch6',
     ['c6'],
     'Deal 1',
     'For 4 Persons',
@@ -230,8 +226,8 @@ export const MEALS = [
     // false
   ),
 
-  new Meal(
-    'm7',
+  new Chinese_Meal(
+    'ch7',
     ['c7'],
     'Deal 1',
     'For 5 Persons',
@@ -259,8 +255,8 @@ export const MEALS = [
     // false
   ),
 
-  new Meal(
-    'm8',
+  new Chinese_Meal(
+    'ch8',
     ['c8'],
     'Deal 1',
     'For 5 Persons',
@@ -290,8 +286,8 @@ export const MEALS = [
     // true
   ),
 
-  new Meal(
-    'm9',
+  new Chinese_Meal(
+    'ch9',
     ['c9'],
     'Deal 1',
     'For 4 Persons',
@@ -336,8 +332,8 @@ export const MEALS = [
     // true,
     // false
   ),
-  new Meal(
-    'm10',
+  new Chinese_Meal(
+    'ch10',
     ['c10'],
     'Deal 1',
     'For 2 Perons',
