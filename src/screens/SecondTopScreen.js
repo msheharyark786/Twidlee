@@ -23,6 +23,7 @@ import DealScreen from '../screens/DealScreen';
 import DesiScreen from './DesiScreen';
 import BbqScreen from '../screens/BbqScreen';
 import HeaderIamge from '../components/HeaderImage';
+import PaymentScreen from '../screens/PaymentScreen'
 
 
 
@@ -56,13 +57,14 @@ import HeaderIamge from '../components/HeaderImage';
                 },
             },
             MealDetail: MealDetailScreen,
+            PaymentScreen: PaymentScreen
             //Pakistani: PakistaniScreen,
           
           //MealDetail: MealDetailScreen
         },
         {
           // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOption
+          //defaultNavigationOptions: defaultStackNavOption
         }
       );
       const DesiNavigator = createStackNavigator(
@@ -81,7 +83,7 @@ import HeaderIamge from '../components/HeaderImage';
         },
         {
           // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOption
+          //defaultNavigationOptions: defaultStackNavOption
         }
       );
       

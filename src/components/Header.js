@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 import Colors from '../constants/Colors';
+import HeaderButton from '../components/HeaderButton'; 
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 const Header = props=> {
     return (

@@ -12,13 +12,30 @@ const MealList = props => {
         price={itemData.item.price}
         persons={itemData.item.persons}
         
-        onSelectMeal={() => {
+        onSelectMeal={() => {{
           props.navigation.navigate({
-            routeName: 'MealDetail',
-            params: { 
+            routeName: ('MealDetail'),
+            params: {
               mealId: itemData.item.id
             }
-          });
+          });}
+          // {
+          //   props.navigation.navigate({
+          //     routeName: ('PaymentScreen'),
+          //     params: {
+          //       mealId: itemData.item.id
+          //     }
+          //   });
+          // }
+          // {
+          //   props.navigation.navigate({
+          //     routeName: ('PaymentScreen'),
+          //     params: {
+          //       mealId: itemData.item.id
+          //     }
+          //   });
+          // }
+          
         }}
       />
     );

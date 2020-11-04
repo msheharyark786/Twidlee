@@ -11,6 +11,7 @@ import  Icon  from 'react-native-vector-icons/Ionicons';
 import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -24,6 +25,7 @@ import ReservationScreen from '../screens/ReservationScreen';
 import FiltersScreen from '../screens/FiltersScreen';
 import DineScreen from '../screens/DineScreen';
 import DeliveryScreen from '../screens/DeliveryScreen';
+
 import ProfileScreen from '../screens/ProfileScreen';
 import AboutUsScreen from '../screens/AboutUsScreen';
 import AddressScreen from '../screens/AddressScreen';
@@ -73,7 +75,18 @@ const defaultStackNavOptions = {
     //fontFamily: 'open-sans',
     //paddingLeft:100,
   },
-  headerTitle:'',
+  headerTitle: 'Meal Categories',
+    headerLeft:()=>(
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            //navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
   headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
   
 };
@@ -94,13 +107,13 @@ const FirstNavigator = createStackNavigator(
   {
     // Header:{
     //   screen: Header,
-    // }
+    // },
 
     First: {
-      navigationOptions: {
-        title: '',
-        headerShown: false,
-      },
+      // navigationOptions: {
+      //   title: '',
+      //   headerShown: false,
+      // },
       screen:FirstScreen
        
     },

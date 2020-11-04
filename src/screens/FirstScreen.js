@@ -25,14 +25,14 @@ import HeaderIamge from '../components/HeaderImage';
         headerStyle: {
           backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
         },
-        headerTitleStyle: {
-          //fontFamily: 'open-sans-bold'
-        },
-        headerBackTitleStyle: {
-          //fontFamily: 'open-sans'
-        },
-        headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
-        headerTitle: '',
+        // headerTitleStyle: {
+        //   //fontFamily: 'open-sans-bold'
+        // },
+        // headerBackTitleStyle: {
+        //   //fontFamily: 'open-sans'
+        // },
+        // headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
+        // headerTitle: '',
       };
     const DineNavigator = createStackNavigator(
         {
@@ -64,7 +64,11 @@ import HeaderIamge from '../components/HeaderImage';
         //   SecondTop:SecondTopScreen,
         //   Pakistani: PakistaniScreen,
           Categories: {
-            screen: CategoriesScreen
+            screen: CategoriesScreen,
+            navigationOptions: {
+              title: '',
+              headerShown: false,
+            },
           },
         //   SecondTop:{
         //     screen: SecondTopScreen

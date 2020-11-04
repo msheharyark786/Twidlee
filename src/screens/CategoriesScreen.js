@@ -13,7 +13,7 @@ import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
 //import Pakistani from '../screens/PakistaniScreen';
 //import HeaderImage from '../components/HeaderImage';
-
+//import TandoorScreen from '../screens/TandoorScreen';
 const CategoriesScreen = props => {
   const renderGridItem = itemData => {
     return (
@@ -114,22 +114,22 @@ const CategoriesScreen = props => {
   );
 };
 
-CategoriesScreen.navigationOptions = navData => {
-  return {
-    headerTitle: 'Meal Categories',
-    headerLeft:()=>(
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Menu"
-          iconName="ios-menu"
-          onPress={() => {
-            navData.navigation.toggleDrawer();
-          }}
-        />
-      </HeaderButtons>
-    )
-  };
-};
+// CategoriesScreen.navigationOptions = navData => {
+//   return {
+//     headerTitle: 'Meal Categories',
+//     headerLeft:()=>(
+//       <HeaderButtons HeaderButtonComponent={HeaderButton}>
+//         <Item
+//           title="Menu"
+//           iconName="ios-menu"
+//           onPress={() => {
+//             navData.navigation.toggleDrawer();
+//           }}
+//         />
+//       </HeaderButtons>
+//     )
+//   };
+// };
  
 const styles = StyleSheet.create({
   screen: {

@@ -13,8 +13,8 @@ import { MEALS } from '../data/dummy-data';
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
 import My_Button from '../components/MyButtonAndroid';
-import PaymentScreen from '../screens/PaymentScreen';
-import  Icon  from 'react-native-vector-icons/Ionicons';
+
+
 const ListItem = props => {
   return (
     <View style={styles.listItem}>
@@ -25,7 +25,6 @@ const ListItem = props => {
 
 const MealDetailScreen = props => {
   const mealId = props.navigation.getParam('mealId');
-
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
 
   return (
@@ -33,18 +32,23 @@ const MealDetailScreen = props => {
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
       <View style={styles.details}>
         <DefaultText>{selectedMeal.persons}</DefaultText>
-        <DefaultText>Rs. {selectedMeal.price}/-</DefaultText>
+        <DefaultText>Rs.{selectedMeal.price}/-</DefaultText>
         
       </View>
       <Text style={styles.title}>Deal Detail</Text>
       {selectedMeal.dealDetail.map(detail => (
         <ListItem key={detail}>{detail}</ListItem>
       ))}
-      <My_Button>ORDER NOW</My_Button>
-      {/* <Text style={styles.title}>Steps</Text>
-      {selectedMeal.steps.map(step => (
-        <ListItem key={step}>{step}</ListItem>
-      ))} */}
+      <My_Button
+       onPress={() => {
+        props.navigation.navigate({
+          routeName: ('PaymentScreen'),
+          params: {
+            mealId: selectedMeal.id
+          }
+        });
+      }}>ORDER NOW</My_Button>
+      
     </ScrollView>
   );
 };
