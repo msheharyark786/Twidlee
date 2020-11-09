@@ -83,69 +83,36 @@ import HeaderIamge from '../components/HeaderImage';
           defaultNavigationOptions: defaultStackNavOptions
         }
       );
-      const AppNavigator = createMaterialTopTabNavigator(  
-          {
-            Delivery: {
-                screen: DeliveryNavigator,
-                navigationOptions: {
-                  tabBarIcon: tabInfo => {
-                    // return <MaterialCommunityIcons name="account" size={24} color={tabInfo.tintColor} />;
-                  },
-                  tabBarColor: Colors.accentColor,
-                  tabBarLabel:
-                    Platform.OS === 'android' ? (
-                      <Text style={{ fontWeight: 'bold', fontSize:20  }}>Delivery</Text>
-                    ) : (
-                      'Delivery'
-                    )
-                }
-              },
+      const AppNavigator = createMaterialTopTabNavigator( 
+        {
+          Delivery: {
+            screen: DeliveryNavigator,
+            navigationOptions: {
+              title:'Delivery'
+            }
+          },
           Dine: {
             screen: DineNavigator,
             navigationOptions: {
-              tabBarIcon: tabInfo => {
-                // return <Text>Dine In</Text> ;
-              },
-              tabBarColor: Colors.accentColor,
-              tabBarLabel:
-                Platform.OS === 'android' ? (
-                  <Text style={{ fontWeight: 'bold', fontSize:20 }}>Dine In</Text>
-                ) : (
-                  'Dine'
-                )
+              title:'Dine In',
             }
-          }
-          
-        },
-        {  
-          // tabBarOptions: {  
-          //     activeTintColor: 'white',  
-          //     showIcon: true,  
-          //     showLabel:false,  
-          //     style: {  
-          //         backgroundColor:'red'  
-          //     }  
-        //   },  
-          initialRouteName: 'Delivery',
-          tabBarOptions: {
-              //labelPosition: 'b',
-              labelStyle:{
-                color:Colors.themeColor,
-                fontSize:30
-              },
-              activeTintColor: Colors.accentColor,
-              inactiveTintColor: Colors.themeColor,
-              // font: 'open-sans',
-              // fontFamily: 'open-sans-bold',
-              style: {
-                height: 50,
-                // Colors:Colors.accentColor,
-                backgroundColor: Colors.primaryColor,
-               }
+          },
+        },{
+          tabBarOptions:{
+            activeTintColor:Colors.accentColor,
+            inactiveTintColor: Colors.themeColor,
+            indicatorStyle: {
+              backgroundColor: Colors.accentColor,
+            }, 
+            style: {
+              height: 45,
+              backgroundColor: Colors.primaryColor,
             },
-        } 
-        
-    );
+            labelStyle: { fontSize: 14, fontWeight:"bold" },
+            
+          }
+        }); 
+    //       
     const MinNavigator = createDrawerNavigator(
           {
             TopFavs:{
@@ -160,10 +127,10 @@ import HeaderIamge from '../components/HeaderImage';
           },
           {
             contentOptions: {
-              activeTintColor: Colors.accentColor,
-              labelStyle: {
-                //fontWeight:'bold'
-              }
+              //activeTintColor: Colors.accentColor,
+              // labelStyle: {
+              //   fontWeight:'bold'
+              // }
             }
           }
     );

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
+//import { Header } from 'react-navigation-stack';
 //import { Text, View } from 'react-native';
 // import * as Font from 'expo-font';
 //import { AppLoading } from 'expo';
 //import { useScreens } from 'react-native-screens';
-
+// import Header from './src/components/Header';
 import MealsNavigator from './src/navigation/MealsNavigator';
 
 // useScreens();

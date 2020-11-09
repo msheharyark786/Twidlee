@@ -1,17 +1,60 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet ,TouchableOpacity ,Image, ScrollView, Switch } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { MEALS } from '../data/dummy-data';
 import MealDetailScreen from './MealDetailScreen';
 import Colors from '../constants/Colors';
 import { RadioButton } from 'react-native-paper';
 import My_Buttons from '../components/MyButtonAndroid';
 
+
+import { Bbq_MEALS } from '../data/Bbq_Data';
+import { Chinese_MEALS } from '../data/Chinese_Data';
+import { Desi_MEALS } from '../data/Desi_Data';
+import { Tandoor_MEALS } from '../data/Tandoor_Data';
+import { MEALS } from '../data/dummy-data';
+
 const PaymentScreen = (props) =>{
     
    const mealId = props.navigation.getParam('mealId');
-   const selectedMeal = MEALS.find(meal => meal.id === mealId);
-   var selectedPrice = selectedMeal.price;
+
+   
+   const tandoorSelectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId); 
+   const chineseSelectedMeal = Chinese_MEALS.find(meal => meal.id === mealId);
+   const desiSelectedMeal =  Desi_MEALS.find(meal => meal.id === mealId); 
+   const bbqSelectedMeal =  Bbq_MEALS.find(meal => meal.id === mealId);
+   const dealSelectedMeal = MEALS.find(meal => meal.id === mealId);
+
+    if(dealSelectedMeal!=null)
+    {
+        //console.log(dealSelectedMeal.price)
+        var selectedPrice = dealSelectedMeal.price;
+        var selectedImage =  dealSelectedMeal.imageUrl;
+        //console.log(dealSelectedMeal.price,dealSelectedMeal.imageUrl)
+    }
+    else if(tandoorSelectedMeal!=null)
+    {
+        var selectedPrice = tandoorSelectedMeal.price;
+        var selectedImage = tandoorSelectedMeal.imageUrl;
+        //console.log(tandoorSelectedMeal.price, tandoorSelectedMeal.imageUrl)
+    }
+    else if(chineseSelectedMeal!=null)
+    {
+        var selectedPrice = chineseSelectedMeal.price;
+        var selectedImage = chineseSelectedMeal.imageUrl;
+        //console.log(chineseSelectedMeal.price, chineseSelectedMeal.imageUrl)
+    }
+    else if( desiSelectedMeal!=null)
+    {
+        var selectedPrice =  desiSelectedMeal.price;
+        var selectedImage =  desiSelectedMeal.imageUrl;
+        //console.log(desiSelectedMeal.price, desiSelectedMeal.imageUrl)
+    }
+    else if(bbqSelectedMeal!=null)
+    {
+        var selectedPrice = bbqSelectedMeal.price;
+        var selectedImage = bbqSelectedMeal.imageUrl;
+        //console.log(bbqSelectedMeal.price, bbqSelectedMeal.imageUrl)
+    }
 
 
     const MyIcon1 = <Icon name="minus" size={18} color="#EE0202" solid />;
@@ -55,7 +98,27 @@ const PaymentScreen = (props) =>{
 
    const SendData =() =>{
 
-    const data= selectedMeal.imageUrl;
+    if(dealSelectedMeal!=null)
+    {
+        var data= dealSelectedMeal.imageUrl;
+    }
+    else if(tandoorSelectedMeal!=null)
+    {
+        var data= tandoorSelectedMeal.imageUrl;
+    }
+    else if(chineseSelectedMeal!=null)
+    {
+        var data= chineseSelectedMeal.imageUrl;
+    }
+    else if(bbqSelectedMeal!=null)
+    {
+        var data= bbqSelectedMeal.imageUrl;
+    }
+    else if(desiSelectedMeal!=null)
+    {
+        var data= desiSelectedMeal.imageUrl;
+    }
+
     props.navigation.navigate({ routeName: ('Reservation'),
     params: {
       mealId: data,
@@ -69,7 +132,8 @@ const PaymentScreen = (props) =>{
         <ScrollView>
         <View style={styles.container}>
             <View style={styles.imageContainer}>
-             <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
+             <Image source={{ uri: selectedImage }} style={styles.image} />
+
                 <View style={styles.dealPlusMinus}>  
                     <TouchableOpacity
                     activeOpacity={0.7}
@@ -158,6 +222,25 @@ const PaymentScreen = (props) =>{
         </ScrollView>
     );}
 
+    // PaymentScreen.navigationOptions = navigationData => {
+    //     // const mealId = navigationData.navigation.getParam('mealId');
+    //     // const selectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId);
+    //     return {
+    //       headerTitle:"Payment Method",
+    //       headerRight:()=> (
+    //         <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //           <Item
+    //             title="Favorite"
+    //             iconName="ios-star"
+    //             onPress={() => {
+    //               console.log('Mark as favorite!');
+    //             }}
+    //           />
+    //         </HeaderButtons>
+    //       )
+    //     };
+    //   };
+
 const styles=StyleSheet.create({
 
     container:{
@@ -242,7 +325,6 @@ const styles=StyleSheet.create({
     },
 
     image: {
-        //width: '100%',
         height: 250,
         marginTop: 2,
         width: '95%',

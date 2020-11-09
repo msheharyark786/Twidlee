@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, FlatList, StyleSheet, Image } from 'react-native';
 
-import MealItem from './MealItem';
+//import MealItem from './MealItem';
 
 const HeaderImage = props => {
   const renderMealItem = itemData => {
     return (
         //title={itemData.item.title}
-        <Image source={{ uri: itemData.item.imageUrl }} style={styles.image} />
+        console.log("header image"),
+        <Image source={{ uri: "https://image.shutterstock.com/image-vector/welcome-poster-spectrum-brush-strokes-260nw-1146069941.jpg" }} style={styles.image} />
 
     //   <MealItem
     //     title={itemData.item.title} 

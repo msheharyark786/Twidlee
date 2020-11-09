@@ -1,5 +1,5 @@
 export default {
   primaryColor: '#FFFFFF',
-  accentColor: '#FF4C4C',
+  accentColor: '#EE0202',
   themeColor:'#808080'
 };

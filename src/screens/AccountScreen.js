@@ -5,6 +5,9 @@ import {
   ScrollView, 
   StyleSheet,
   TouchableOpacity,
+  Dimensions,
+    Image,
+    Platform,
   Button } from 'react-native';
 import Header from '../components/Header';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -20,169 +23,149 @@ import HeaderButton from '../components/HeaderButton';
 import Colors from '../constants/Colors';
 
 function AccountScreen(props) {
-  //const renderGridItem = itemData => {
+
   return (
     <View style={styles.screen}>
-      <Header title="Tanawal" />
-      <ScrollView>
+      
+      
         <View>
+        <ScrollView>
+        <View style={styles.header}>
+          <View style={styles.container}>
+             <Image
+              style={styles.image}
+              source={require('../images/profile.jpeg')}
+              />
+            <Text style={styles.logotext}>
+              Haseeb Sheikh
+            </Text>
+          <View style={styles.textData}>
+              <Text style={styles.text}>
+              haseebsheikh0066@gmail.com
+              </Text>
+              <Text style={styles.text}>
+              +923130441113
+            </Text>
+          </View>
+        </View>
+          
+        </View>
+
+        
+        <View style={styles.footer}>
+
+          
+          <View style={styles.line}>
+              <TouchableOpacity style={styles.button}  onPress={() => {
+              props.navigation.navigate({
+              routeName: 'Profile',
+              })}} >
+              <Icon name="person-outline"  size={20}
+              color={Colors.accentColor} />
+              <Text style={styles.textDatas}>Profile</Text>
+              </TouchableOpacity>
+          </View>
+      
+          
+          <View style={styles.line}>
+            <TouchableOpacity style={styles.button}  onPress={() => {
+            props.navigation.navigate({
+            routeName: 'Address',
+            // params: {
+            //   categoryId: itemData.item.id
+            // }
+            });
+            }} >       
+            <FontAwesome name='address-card' size={25}
+            color={Colors.accentColor} />
+              <Text style={styles.textDatas}>My Addresses</Text></TouchableOpacity> 
+            </View>
+          
+
+
+          <View style={styles.line}>
+          <TouchableOpacity style={styles.button}  onPress={() => {
+          props.navigation.navigate({
+          routeName: 'My_Order'
+          });
+          }} >
+            <FontAwesome name='history' size={25}
+            color={Colors.accentColor} />
+          <Text style={styles.textDatas}>My Orders</Text></TouchableOpacity>    
+        </View>
+
+
         <View style={styles.line}>
         <TouchableOpacity style={styles.button}  onPress={() => {
         props.navigation.navigate({
-          routeName: 'Profile',
-          // params: {
-          //   categoryId: itemData.item.id
-          // }
+          routeName: 'TermCondition'
         });
-      }} >
-        <View>
-        <Icon name='card-outline' size={25}
-      color={Colors.accentColor} /></View>
-      <View>
-      <Text>Profile</Text></View></TouchableOpacity>
-      
-      </View>
+        }} >
+        <FontAwesome name='ban' size={25}
+        color={Colors.accentColor} />
+        <Text style={styles.textDatas}>Terms & Conditions</Text></TouchableOpacity>
+        </View>
 
-      <View style={styles.line}>
-        <TouchableOpacity style={styles.button}  onPress={() => {
-        props.navigation.navigate({
-          routeName: 'Address',
-          // params: {
-          //   categoryId: itemData.item.id
-          // }
-        });
-      }} >
-        
-        <Entypo name='address' size={25}
-      color={Colors.accentColor} />
-      <View>
-      <Text>My Addresses</Text></View></TouchableOpacity>
-      
-      </View>
 
-      <View style={styles.line}>
-        <TouchableOpacity style={styles.button}  onPress={() => {
-        props.navigation.navigate({
-          routeName: 'My_Order',
-          // params: {
-          //   categoryId: itemData.item.id
-          // }
-        });
-      }} >
-        <View>
-        <Icon name='card-outline' size={25}
-      color={Colors.accentColor} /></View>
-      <View>
-      <Text>My Orders</Text></View></TouchableOpacity>
-      
-      </View>
-
-      <View style={styles.line}>
-        <TouchableOpacity style={styles.button}  onPress={() => {
-        props.navigation.navigate({
-          routeName: 'TermCondition',
-          // params: {
-          //   categoryId: itemData.item.id
-          // }
-        });
-      }} >
-        <View>
-        <Icon name='terminal-outline' size={25}
-      color={Colors.accentColor} /></View>
-      <View>
-      <Text>Terms & Conditions</Text></View></TouchableOpacity>
-      
-      </View>
-
-      <View style={styles.line}>
+        <View style={styles.line}>
         <TouchableOpacity style={styles.button}  onPress={() => {
         props.navigation.navigate({
           routeName: 'PrivacyPolicy',
-          // params: {
-          //   categoryId: itemData.item.id
-          // }
         });
-      }} >
-        <View>
+         }} >
         <MaterialIcons name='privacy-tip' size={25}
-      color={Colors.accentColor} /></View>
-      <View>
-      <Text>Privacy Policy</Text></View></TouchableOpacity>
-      
-      </View>
+        color={Colors.accentColor} />
+        <Text style={styles.textDatas}>Privacy Policy</Text></TouchableOpacity>
+        </View>
 
-      <View style={styles.line}>
+        <View style={styles.line}>
         <TouchableOpacity style={styles.button}  onPress={() => {
         props.navigation.navigate({
-          routeName: 'AboutUs',
-          // params: {
-          //   categoryId: itemData.item.id
-          // }
+          routeName: 'AboutUs'
         });
-      }} >
-        <View>
+        }} >
         <Icon name='information-circle-outline' size={25}
-      color={Colors.accentColor} /></View>
-      <View>
-      <Text>About Us</Text></View></TouchableOpacity>
-      
-      </View>
+        color={Colors.accentColor} />
+        <Text style={styles.textDatas}>About Us</Text></TouchableOpacity>
+        </View>
 
-      <View style={styles.line}>
+
+        <View style={styles.line}>
         <TouchableOpacity style={styles.button}  onPress={() => {
         props.navigation.navigate({
-          routeName: 'ChangePassword',
-          // params: {
-          //   categoryId: itemData.item.id
-          // }
+          routeName: 'ChangePassword'
         });
       }} >
-        <View>
-        <MaterialCommunityIcons name='key-change' size={25}
-      color={Colors.accentColor} /></View>
-      <View>
-      <Text>Change Password</Text></View></TouchableOpacity>
-      
+        <MaterialCommunityIcons name='key' size={25}
+      color={Colors.accentColor} />
+      <Text style={styles.textDatas}>Change Password</Text></TouchableOpacity>     
       </View>
 
-      <View style={styles.line}>
+
+      <View style={styles.line}> 
         <TouchableOpacity style={styles.button}  onPress={() => {
         props.navigation.navigate({
           routeName: 'LoginScreen',
-          // params: {
-          //   categoryId: itemData.item.id
-          // }
         });
       }} >
-        
         <SimpleLineIcons name="logout" size={25} 
-      
       color={Colors.accentColor} />
-      
-      <Text>Logout</Text></TouchableOpacity>
-      
+      <Text style={styles.textDatas}>Logout</Text></TouchableOpacity>   
       </View>
       </View>
-
       </ScrollView>
+      </View>
+      
+
+
     </View>
   )
-  // return (
-  //   <View style={styles.list}>
-  //     <FlatList
-  //       data={CATEGORIES}
-  //       keyExtractor={(item, index) => item.id}
-  //       renderItem={renderGridItem}
-  //       style={{ width: '100%' }}
-  //     />
-  //   </View>
-  // );
-  // }
 }
  
 AccountScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'My Account',
+      headerTitle: 'Twidlee',
+     
       headerLeft:()=> (
         <HeaderButtons HeaderButtonComponent={HeaderButton}>
           <Item
@@ -197,35 +180,84 @@ AccountScreen.navigationOptions = navData => {
     };
   };
 
+
+
+
 const styles=StyleSheet.create({
   screen:{
-    flex:1
+    flex:1,
+    justifyContent: 'center'
   },
-  textContainer:{
-    fontSize:20,
-    justifyContent:'center',
-    paddingLeft:120
-  },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: Colors.primaryColor,
-    padding: 10
-  },
-  countContainer: {
-    alignItems: "center",
-    padding: 10
-  },
-  line:{
-    borderBottomColor:'grey',
-    borderBottomWidth:1,
-    //alignItems:'flex-start'
-  }
 
+  header:{
+    //backgroundColor:'#FF5722',
+    flex: 3,
+    justifyContent: "center",
+    alignItems: "center",
+    //marginBottom:10
+  },
+
+  footer:{
+    borderWidth:0.5,
+    borderColor:"#b0bec5",
+    flex: 2,  
+    //marginTop:10
+  },
+
+  textDatas:{
+    marginLeft:15,
+  },
+
+  button: {
+    paddingTop: 15,
+    flexDirection: 'row',
+  },
+
+  line:{
+    
+    padding: 5,
+    paddingLeft:15,
+    borderColor:"#b0bec5",
+    borderWidth:0.5,
+  },
+
+  container:{
+    flexGrow:1,
+    justifyContent: 'center',
+    alignItems:'center',
+    paddingTop:10,
+    paddingBottom:10,
+  },
+
+  logotext:{
+      marginVertical:5,
+      fontSize:24,
+      color:"#EE0202",
+      fontStyle:"italic",
+      //fontStyle:"oblique",
+      fontWeight:"bold"
+  },
+
+  textData:{
+    marginVertical:3,
+    justifyContent: 'center',
+    alignItems:'center',
+  },
+
+  text:{
+    alignItems:'center',
+    fontSize:16,
+    color:'black',
+  },
+
+  image:{
+    width: 130,
+    height: 130,
+    marginTop: 2,
+    borderWidth:1,
+    borderColor:'#EE0202',
+    borderRadius:65,
+  }
 
 })
 export default AccountScreen

@@ -1,5 +1,20 @@
-import React from 'react';
-import { Platform, View, Text, StyleSheet } from 'react-native';
+import React, {useRef} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  StatusBar,
+  Platform,
+} from 'react-native';
+import HeaderImageScrollView, {
+  TriggeringView,
+} from 'react-native-image-header-scroll-view';
+
+import * as Animatable from 'react-native-animatable';
+//import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 //import MyNavigator from './MyNavigator';
 import {  
   createAppContainer
@@ -24,9 +39,11 @@ import DesiScreen from './DesiScreen';
 import BbqScreen from '../screens/BbqScreen';
 import HeaderIamge from '../components/HeaderImage';
 import PaymentScreen from '../screens/PaymentScreen'
+import HeaderImageScreen from './HeaderImageScreen';
 
 
-
+// const itemData = route.params.itemData;
+// const navTitleView = useRef(null);
 
     const defaultStackNavOption = {
         headerStyle: {
@@ -39,6 +56,12 @@ import PaymentScreen from '../screens/PaymentScreen'
           //fontFamily: 'open-sans'
         },
         headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
+        // headerBackground:() => (
+        //   <Image
+        //     //style={StyleSheet.absoluteFill}
+        //     source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/3/36/Hopetoun_falls.jpg' }}
+        //   />
+        // ),
         headerTitle: ''
       };
     const DealNavigator = createStackNavigator(
@@ -57,13 +80,19 @@ import PaymentScreen from '../screens/PaymentScreen'
                 },
             },
             MealDetail: MealDetailScreen,
-            PaymentScreen: PaymentScreen
+            PaymentScreen: {
+              screen:PaymentScreen,
+              navigationOptions: {
+                title: '',
+                headerShown: false,
+              },
+            }
             //Pakistani: PakistaniScreen,
           
           //MealDetail: MealDetailScreen
         },
         {
-          // initialRouteName: 'Categories',
+          //initialRouteName: 'Deal',
           //defaultNavigationOptions: defaultStackNavOption
         }
       );
@@ -76,14 +105,21 @@ import PaymentScreen from '../screens/PaymentScreen'
                   headerShown: false,
                 },
           },
-          DesiMealDetail: DesiMealDetailScreen
+          DesiMealDetail: DesiMealDetailScreen,
+          PaymentScreen: {
+            screen:PaymentScreen,
+            navigationOptions: {
+              title: '',
+              headerShown: false,
+            },
+          }
             
           
           //MealDetail: MealDetailScreen
         },
         {
-          // initialRouteName: 'Categories',
-          //defaultNavigationOptions: defaultStackNavOption
+          //initialRouteName: 'Deal',
+          defaultNavigationOptions: defaultStackNavOption
         }
       );
       
@@ -96,11 +132,18 @@ import PaymentScreen from '../screens/PaymentScreen'
               headerShown: false,
             },
           },
-          BbqMealDetailScreen: BbqMealDetailScreen
+          BbqMealDetailScreen: BbqMealDetailScreen,
+          PaymentScreen: {
+            screen:PaymentScreen,
+            navigationOptions: {
+              title: '',
+              headerShown: false,
+            },
+          }
           
         },
         {
-          // initialRouteName: 'Categories',
+          //initialRouteName: 'Deal',
           defaultNavigationOptions: defaultStackNavOption
         }
       );
@@ -113,11 +156,18 @@ import PaymentScreen from '../screens/PaymentScreen'
                 headerShown: false,
               },
             },
-            ChineseMealDetailScreen: ChineseMealDetailScreen
+            ChineseMealDetailScreen: ChineseMealDetailScreen,
+            PaymentScreen: {
+              screen:PaymentScreen,
+              navigationOptions: {
+                title: '',
+                headerShown: false,
+              },
+            }
           
         },
         {
-          // initialRouteName: 'Categories',
+          //initialRouteName: 'Deal',
           defaultNavigationOptions: defaultStackNavOption
         }
       );
@@ -130,143 +180,119 @@ import PaymentScreen from '../screens/PaymentScreen'
                 headerShown: false,
               },
             },
-            TandoorMealDetailScreen: TandoorMealDetailScreen
+            TandoorMealDetailScreen: TandoorMealDetailScreen,
+            PaymentScreen: {
+              screen:PaymentScreen,
+              navigationOptions: {
+                title: '',
+                headerShown: false,
+              },
+            }
           
         },
         {
-          // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOption
+          //initialRouteName: 'Deal',
+          //defaultNavigationOptions: defaultStackNavOption
         }
       );
+      // const ShowHeaderNavigator=createStackNavigator({
+      //   HeaderImageScreen:HeaderImageScreen,
+        
+      // });
+        
+      
+
       const ChooseNavigator = createMaterialTopTabNavigator(  
           {
+            
             Deal: {
                 screen: DealNavigator,
                 navigationOptions: {
-                  tabBarIcon: tabInfo => {
+                  title:"Deals",
+                  headerTitle: () => <LogoTitle />,
+                
+                  
+                  //tabBarIcon: tabInfo => {
                     // return <MaterialCommunityIcons name="account" size={24} color={tabInfo.tintColor} />;
-                  },
-                  tabBarColor: Colors.accentColor,
-                  tabBarLabel:
-                    Platform.OS === 'android' ? (
-                      <Text style={{}}>Deals</Text>
-                    ) : (
-                      'Deal'
-                    )
+                  //},
+                  
+                  // tabBarLabel:
+                  //   Platform.OS === 'android' ? (
+                  //     <Text style={{}}>Deals</Text>
+                  //   ) : (
+                  //     'Deal'
+                  //   )
                 }
               },
           Desi: {
             screen: DesiNavigator,
             navigationOptions: {
-              tabBarIcon: tabInfo => {
-                // return <Text>Dine In</Text> ;
-              },
-              tabBarColor: Colors.accentColor,
-              tabBarLabel:
-                Platform.OS === 'android' ? (
-                  <Text style={{}}>Desi</Text>
-                ) : (
-                  'Desi'
-                )
+              title:"Pakistani"
             }
           },
           Bbq: {
             screen: BbqNavigator,
             navigationOptions: {
-              tabBarIcon: tabInfo => {
-                // return <Text>Dine In</Text> ;
-              },
-              tabBarColor: Colors.accentColor,
-              tabBarLabel:
-                Platform.OS === 'android' ? (
-                  <Text style={{}}>Bbq</Text>
-                ) : (
-                  'Bbq'
-                )
+              title:"BBQ"
             }
           },
           Chinese: {
             screen: ChineseNavigator,
             navigationOptions: {
-              tabBarIcon: tabInfo => {
-                // return <Text>Dine In</Text> ;
-              },
-              tabBarColor: Colors.accentColor,
-              tabBarLabel:
-                Platform.OS === 'android' ? (
-                  <Text style={{ }}>Chinese</Text>
-                ) : (
-                  'Chinese'
-                )
+              title:"Chinese"
             }
           },
           Tandoor: {
             screen: TandoorNavigator,
             navigationOptions: {
-              tabBarIcon: tabInfo => {
-                // return <Text>Dine In</Text> ;
-              },
-              //tabBarColor: Colors.accentColor,
-              tabBarLabel:
-                Platform.OS === 'android' ? (
-                  <Text style={{}}>Tandoor</Text>
-                ) : (
-                  'Tandoor'
-                )
+              title:"Tandoor"
             }
           }
           
         },
         {  
-          // tabBarOptions: {  
-          //     activeTintColor: 'white',  
-          //     showIcon: true,  
-          //     showLabel:false,  
-          //     style: {  
-          //         backgroundColor:'red'  
-          //     }  
-        //   },  
           initialRouteName: 'Deal',
-          tabBarOptions: {
-              //labelPosition: 'b',
-            //   labelStyle:{
-            //     color:Colors.themeColor,
-            //     fontSize:30
-            //   },
-              // activeTintColor: 'red',
-              // inactiveTintColor: Colors.themeColor,
-              // font: 'open-sans',
-              //fontWeight:'bold',
-              style: {
-                height: 50,
-                // Colors:Colors.accentColor,
-                backgroundColor: Colors.primaryColor,
-               }
+          tabBarOptions:{
+            activeTintColor:Colors.accentColor,
+            inactiveTintColor: Colors.themeColor,
+            scrollEnabled: true,
+            //swipeEnabled:true,
+            indicatorStyle: {
+              backgroundColor: Colors.accentColor,
+            }, 
+            
+            labelStyle: { fontWeight:"bold", fontSize:15 },
+            style: {
+              height: 50,
+              backgroundColor: Colors.primaryColor,
             },
-        } 
+            
+          //   navigationOptions: {
+          //     header: {
+          //       visible: true,
+          //     },
+          //  },
+            
+          }
+        }
+        //} 
         
-    );
+      );
     const MenuNavigator = createDrawerNavigator(
           {
+            
+            
            Favs:{
                 screen: ChooseNavigator,
                 navigationOptions: {
-                  drawerLabel: 'Deal',
+                 drawerLabel: 'Deal',
                   headerShown: false,
-                  headerMode: 'none'
-                  
+                  headerMode: 'none',
+                  // style:{flex:2}
                 }
                 
               }
           },
-          // {
-          //   contentOptions: {
-          //     activeTintColor: 'red',
-          //     labelStyle: {
-          //       fontWeight:'bold',
-          //     }
-          //   }
-          // }
     );
     // return (
     //     <View style={styles.HomeView}>

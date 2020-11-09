@@ -5,7 +5,8 @@ import {
   Image,
   Text,
   Button,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
@@ -39,15 +40,22 @@ const MealDetailScreen = props => {
       {selectedMeal.dealDetail.map(detail => (
         <ListItem key={detail}>{detail}</ListItem>
       ))}
-      <My_Button
-       onPress={() => {
-        props.navigation.navigate({
-          routeName: ('PaymentScreen'),
-          params: {
-            mealId: selectedMeal.id
-          }
-        });
-      }}>ORDER NOW</My_Button>
+
+            <View style={styles.buttonView}>
+                <TouchableOpacity
+                style={styles.button}
+                activeOpacity={0.5}
+                onPress={() => {
+                  props.navigation.navigate({
+                    routeName: ('PaymentScreen'),
+                    params: {
+                      mealId: selectedMeal.id
+                    }
+                  });
+                }}>
+                <Text style={styles.buttonText}>ORDER NOW</Text>
+                </TouchableOpacity>
+            </View>
       
     </ScrollView>
   );
@@ -93,7 +101,29 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderWidth: 1,
     padding: 10
-  }
+  },
+
+  buttonView:{
+    marginTop:30,
+    alignItems: 'center', 
+    paddingBottom:10 
+},
+
+button: {
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginHorizontal:10,
+  width:'70%',
+  height:40,
+  backgroundColor: '#FF5722',
+  borderRadius:25,
+},
+
+buttonText: {    
+  color:'#ffffff',
+  fontWeight:'bold',
+  fontSize: 20
+}
 });
 
 export default MealDetailScreen;

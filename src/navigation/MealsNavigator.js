@@ -11,6 +11,7 @@ import  Icon  from 'react-native-vector-icons/Ionicons';
 import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 //import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 //import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -54,7 +55,9 @@ import SignupScreen from '../screens/SignupScreen';
 import SplashScreen from '../screens/SplashScreen';
 import HeaderIamgeScreen from '../screens/HeaderImageScreen';
 
+
 import Colors from '../constants/Colors';
+import ImageAnimationScreen from '../screens/ImageAnimationScreen';
 //import { Header } from 'react-native/Libraries/NewAppScreen';
 
 
@@ -66,16 +69,17 @@ const defaultStackNavOptions = {
   },
   headerTitleStyle: {
     //fontFamily: 'open-sans-bold',
-    //paddingLeft:100,
-    
+    //paddingLeft:105,
+    alignContent:'center',
     fontWeight:'bold',
-    //justifyContent:'center'
+    //justifyContent:'space-between'
   },
   headerBackTitleStyle: {
     //fontFamily: 'open-sans',
     //paddingLeft:100,
   },
-  headerTitle: 'Meal Categories',
+  
+  headerTitle: 'Restaurants',
     headerLeft:()=>(
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
@@ -99,32 +103,39 @@ const FavNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    defaultNavigationOptions: defaultStackNavOptions
+    //defaultNavigationOptions: defaultStackNavOptions
   }
 );
 
 const FirstNavigator = createStackNavigator(
   {
-    // Header:{
-    //   screen: Header,
-    // },
+    
 
     First: {
-      // navigationOptions: {
-      //   title: '',
-      //   headerShown: false,
-      // },
+      navigationOptions: {
+        // title: '',
+        // headerShown: false,
+      },
       screen:FirstScreen
        
     },
-    //HeaderImage: HeaderIamgeScreen,
-    SecondTop:{
-      navigationOptions: {
-        title: '',
-        headerShown: false,
-      },
-      screen: SecondTopScreen
+    // HeaderIamgeScreen: {
+    //   navigationOptions: {
+    //     title: '',
+    //     headerShown: false,
+    //   },
+    //   screen: HeaderIamgeScreen,
+    // },
+    ImageAnimationScreen:{
+      screen: ImageAnimationScreen,
     },
+    // SecondTop:{
+    //   navigationOptions: {
+    //     title: '',
+    //     headerShown: false,
+    //   },
+    //   screen: SecondTopScreen
+    // },
     // CategoryMeals: {
     //   screen: CategoryMealsScreen
     // },
@@ -143,7 +154,7 @@ const ReserveNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    defaultNavigationOptions: defaultStackNavOptions
+    //defaultNavigationOptions: defaultStackNavOptions
   }
 );
 
@@ -154,7 +165,7 @@ const HisNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    defaultNavigationOptions: defaultStackNavOptions
+    //defaultNavigationOptions: defaultStackNavOptions
   }
 );
 
@@ -165,7 +176,7 @@ const AccNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    defaultNavigationOptions: defaultStackNavOptions
+    //defaultNavigationOptions: defaultStackNavOptions
   }
 );
 
@@ -177,54 +188,78 @@ const AccNavigator = createStackNavigator(
 const TabNavigator = createBottomTabNavigator({
   Home: {
     screen: FirstNavigator,
-    navigationOptions: ({tintColor}) => ({
-      title:  'Home',
-      tabBarIcon: <Icon name={Platform.OS === 'ios' ? 'ios-home' : 'ios-restaurant'} size={25}
-      color={tintColor} />,
-     // tabBarLabel:<Text style={{ fontFamily: 'open-sans-bold', color:Colors.accentColor }}>Home</Text>
-    }),
-    },
+    navigationOptions : {
+      tabBarLabel: 'Home',
+      tabBarIcon: ({focused, tintColor }) => (
+          <Icon
+              focused={focused}
+              name={Platform.OS === 'ios' ? 'ios-home' : 'ios-restaurant'}
+              style={{ fontSize:27, color: tintColor }}
+          />
+      )}
+  },
   Reservations: { 
     screen: ReserveNavigator,
-    navigationOptions: ({tintColor}) => ({
-      title:  'Reservation',
-      tabBarIcon: <SimpleLineIcons name="present" size={25} 
-      
-      color={tintColor} />,
-    }),
+    navigationOptions : {
+      tabBarLabel: 'Reservation',
+      tabBarIcon: ({focused, tintColor }) => (
+          <MaterialIcons
+              focused={focused}
+              name={Platform.OS === 'ios' ? 'ios-home' : 'bookmarks'}
+              style={{ fontSize:30, color: tintColor }}
+  
+          />
+      )}
   },
   History: { 
     screen: HisNavigator,
-    navigationOptions: ({tintColor}) => ({
-      title:  'History',
-      tabBarIcon: <MaterialIcons name={Platform.OS === 'ios' ? 'ios-calendar' : 'history'} size={25}
-      color={tintColor} />,
-    }),
+    navigationOptions : {
+      tabBarLabel: 'History',
+      tabBarIcon: ({focused, tintColor }) => (
+          <MaterialIcons
+              focused={focused}
+              name={Platform.OS === 'ios' ? 'ios-home' : 'history'}
+              style={{ fontSize:30, color: tintColor }}
+  
+          />
+      )}
   },
   Favorites: { 
     screen: FavNavigator,
-    navigationOptions: ({tintColor}) => ({
-      title:  'Favorites',
-      tabBarIcon: <MaterialIcons name={Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'favorite'} size={25} color={tintColor}  />,
-    }),
+    navigationOptions : {
+      tabBarLabel: 'Favorites',
+      tabBarIcon: ({focused, tintColor }) => (
+          <MaterialIcons
+              focused={focused}
+              name={Platform.OS === 'ios' ? 'ios-home' : 'favorite'}
+              style={{ fontSize:30, color: tintColor }}
+  
+          />
+      )}
   },
   Account: { 
     screen: AccNavigator,
-    navigationOptions: ({tintColor}) => ({
-      title:  'Account',
-      tabBarIcon: <MaterialCommunityIcons name={Platform.OS === 'ios' ? 'ios-information-circle-outline' : 'account'} size={25} color={tintColor}  />,
-    }),
- }
+    navigationOptions : {
+      tabBarLabel: 'Account',
+      tabBarIcon: ({focused, tintColor }) => (
+          <MaterialCommunityIcons
+              focused={focused}
+              name={Platform.OS === 'ios' ? 'ios-home' : 'account'}
+              style={{ fontSize:30, color: tintColor }}
+  
+          />
+      )}
+  }
   
 },
 {
   initialRouteName: 'Home',
   tabBarOptions: {
-      labelPosition: 'below-icon',
-      labelStyle: { fontSize: 13 },
       activeTintColor: Colors.accentColor,
       inactiveTintColor: Colors.themeColor,
-      // font: 'open-sans',
+      labelPosition: 'below-icon',
+      labelStyle: { fontSize: 11,fontWeight:"bold" },
+      //swipeEnabled:true,
       fontWeight:'bold',
       style: {
         height: 50,
@@ -261,9 +296,9 @@ const FiltersNavigator = createStackNavigator(
     Filters: FiltersScreen
   },
   {
-    // navigationOptions: {
-    //   drawerLabel: 'Filters!!!!'
-    // },
+    navigationOptions: {
+      drawerLabel: 'Filters!!!!'
+    },
     defaultNavigationOptions: defaultStackNavOptions
   }
 );
@@ -313,11 +348,12 @@ const MainNavigator = createDrawerNavigator(
 },
   {
     contentOptions: {
-      activeTintColor: Colors.accentColor,
-      labelStyle: {
-        fontWeight:'bold'
-      }
-    }
+      //color:'White'
+      iconContainerStyle: {
+        opacity: 1,
+      },
+    },
+    //drawerBackgroundColor: '#262A2C',
   }
 );
 
