@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   TouchableOpacity,
   View,
@@ -8,43 +8,60 @@ import {
   ImageBackground,
   TouchableNativeFeedback 
 } from 'react-native';
+import StarRating from 'react-native-star-rating';
+import Card from '../components/Card';
+// import DefaultText from './DefaultText';
 
-const CategoryGridTile = props => {
+const ReviewsScreen = props => {
   let TouchableCmp = TouchableOpacity;
 
   if (Platform.OS === 'android' && Platform.Version >= 21) {
     TouchableCmp = TouchableNativeFeedback;
   } 
+
+  const [starCounter, setStarCount] = useState(3.5);
+
+  const onStarRatingPress=(rating)=> {
+   
+     setStarCount(rating)
+  }
+
   return (
+      
     <View style={styles.gridItem}>
-      <TouchableCmp style={{ flex: 1 }} onPress={props.onSelect}>
-        {/* <View style={{ ...styles.container, ...{ ImageBackground: props.image } }}> */}
-        <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
-            <ImageBackground
-              source={{ uri: props.image }}
-              style={styles.bgImage}
-            >
-              <View style={styles.titleContainer}>
-                <Text style={styles.title} numberOfLines={1}>
-                  {props.title}
-                </Text>
+        <Card style={styles.summeryContainer}>
+     
+
+              <View style={styles.starStyling}>
+              <StarRating
+              disabled={false}
+              maxStars={5}
+              rating={starCounter}
+              fullStarColor={'#e3a600'}
+              selectedStar={(rating) => onStarRatingPress(rating)}
+               />
               </View>
-            </ImageBackground> 
-          </View>
-        {/* </View> */}
-      </TouchableCmp>
-      <Text></Text>
+              </Card>
     </View>
+    
   );
 };
 
 const styles = StyleSheet.create({
+
+  starStyling:{
+    flex:1,
+    marginLeft:10,
+    marginRight:0,
+    width: '90%',
+  },
   gridItem: {
-    //flex: 1,
-    height: 200,
+    flex: 1,
+    height: 300,
     width: '100%',
-    backgroundColor: '#f5f5f5',
-    borderRadius: 10,
+    //backgroundColor: 'rgba(0,0,0,0.5)',
+   //backgroundColor: 'transparent',
+    //borderRadius: 10,
     overflow:
       Platform.OS === 'android' && Platform.Version >= 21
         ? 'hidden'
@@ -60,6 +77,11 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginVertical: 10
   },
+  summeryContainer:{
+    marginTop:20,
+    alignItems:'center',
+    height:200
+},
   container: {
     flex: 1,
     borderRadius: 10,
@@ -75,7 +97,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     justifyContent: 'flex-end',
-    
+    //backgroundColor: 'transparent',
+    //backgroundColor: 'rgba(0,0,0,0.5)',
   },
   title: {
     fontFamily: 'open-sans-bold',
@@ -83,13 +106,15 @@ const styles = StyleSheet.create({
     textAlign: 'right'
   },
   mealRow: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    //backgroundColor: 'rgba(0,0,0,0.5)',
   },
   mealHeader: {
-    height: '85%'
+    height: '85%',
+    //backgroundColor: 'rgba(0,0,0,0.5)',
   },
   titleContainer: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    
     paddingVertical: 5,
     paddingHorizontal: 12
   },
@@ -98,7 +123,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: 'white',
     textAlign: 'center'
-  }
+  },
+  
 });
 
-export default CategoryGridTile;
+export default ReviewsScreen;

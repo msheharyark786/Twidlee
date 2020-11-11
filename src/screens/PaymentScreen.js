@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet ,TouchableOpacity ,Image, ScrollView, Switch } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Iconn from 'react-native-vector-icons/FontAwesome5';
 import MealDetailScreen from './MealDetailScreen';
 import Colors from '../constants/Colors';
 import { RadioButton } from 'react-native-paper';
@@ -61,7 +62,7 @@ const PaymentScreen = (props) =>{
     const MyIcon2 = <Icon name="plus" size={18} color="#EE0202" solid />;
     const Visa = <Icon name="cc-visa"  size={30} color="#512DA8" solid />;
     const masterCard = <Icon name="cc-mastercard"  size={30} color="#616161" solid />;
-    const cash = <Icon name="money-bill-wave"  size={30} color="#A0BC1E" solid />;
+    const cash = <Iconn name="money-bill-wave"  size={30} color="#A0BC1E" solid />;
     
 
     const [count, setCount] = useState(1);
@@ -286,11 +287,13 @@ const styles=StyleSheet.create({
     PaymentStyle:{
         fontSize:20,
         fontWeight:'bold',
-        paddingLeft:160,
+        paddingLeft:140,
+    
     },
 
     optionsContainer:{
         marginTop:12,
+        //marginRight:10,
         paddingTop:2,
         borderColor:"#EE0202",
         borderWidth: 1,
@@ -298,7 +301,7 @@ const styles=StyleSheet.create({
         marginLeft:20,
         marginRight:20,
         borderRadius: 10,
-        paddingLeft:7,
+        paddingLeft:2,
         backgroundColor: '#ffffff' , 
     },
 
@@ -336,6 +339,7 @@ const styles=StyleSheet.create({
           flexDirection: 'row',
           paddingTop:10,
           marginLeft:5,
+         // marginRight:10
 
       },
 

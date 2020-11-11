@@ -4,7 +4,7 @@ import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import HeaderButton from '../components/HeaderButton';
 
-function TermConditionScreen() {
+function AboutUsScreen() {
     return (
       <View style={styles.container}>
 
@@ -46,20 +46,20 @@ function TermConditionScreen() {
     )
 }
 
-TermConditionScreen.navigationOptions = navData => {
+AboutUsScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'Terms & Conditions',
-      headerLeft: ()=>(
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title="Menu"
-            iconName="ios-menu"
-            onPress={() => {
-              navData.navigation.toggleDrawer();
-            }}
-          />
-        </HeaderButtons>
-      )
+      headerTitle: () => 'AboutUs ',
+      // headerLeft: ()=>(
+      //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      //     <Item
+      //       title="Menu"
+      //       iconName="ios-menu"
+      //       onPress={() => {
+      //         navData.navigation.toggleDrawer();
+      //       }}
+      //     />
+      //   </HeaderButtons>
+      // )
     };
   };
 
@@ -96,4 +96,4 @@ text:{
 
 })
 
-export default TermConditionScreen
+export default AboutUsScreen

@@ -30,6 +30,7 @@ const CategoriesScreen = props => {
               routeName: ('Desi'),
               params: {
                 categoryId: itemData.item.id
+                
               }
             });
           }

@@ -37,6 +37,7 @@ import TermConditionScreen from '../screens/TermConditionScreen';
 import FirstScreen from '../screens/FirstScreen';
 import AuthScreen from '../screens/AuthScreen';
 import SecondTopScreen from '../screens/SecondTopScreen';
+import ThreeTopScreen from '../navigation/ThreeTopScreen';
 import TandoorScreen from '../screens/TandoorScreen';
 import ChineseScreen from '../screens/ChineseScreen';
 import DealScreen from '../screens/DealScreen';
@@ -62,7 +63,7 @@ import ImageAnimationScreen from '../screens/ImageAnimationScreen';
 
 
  
-const defaultStackNavOptions = {
+const defaultStackNavOptions ={
   headerStyle: {
     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : '',
     
@@ -80,17 +81,17 @@ const defaultStackNavOptions = {
   },
   
   headerTitle: 'Restaurants',
-    headerLeft:()=>(
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Menu"
-          iconName="ios-menu"
-          onPress={() => {
-            //navData.navigation.toggleDrawer();
-          }}
-        />
-      </HeaderButtons>
-    ),
+    // headerLeft:()=>(
+    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item
+    //       title="Menu"
+    //       iconName="ios-menu"
+    //       onPress={() => {
+    //         //navData.navigation.toggleDrawer();
+    //       }}
+    //     />
+    //   </HeaderButtons>
+    // ),
   headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
   
 };
@@ -128,7 +129,18 @@ const FirstNavigator = createStackNavigator(
     // },
     ImageAnimationScreen:{
       screen: ImageAnimationScreen,
+      navigationOptions: {
+      headerBackTitleVisible: false,
+          headerTitle: ()=>(false),
+          headerTransparent: true,
+          headerTintColor: '#fff',
+          //headerShown:false
+      }
     },
+    // ThreeTopScreen:{
+    // screen:ThreeTopScreen,
+
+    // }
     // SecondTop:{
     //   navigationOptions: {
     //     title: '',

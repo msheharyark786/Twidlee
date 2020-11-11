@@ -8,13 +8,13 @@ import {
   StatusBar,
   Platform,
 } from 'react-native';
-import HeaderImageScrollView, {
-  TriggeringView,
-} from 'react-native-image-header-scroll-view';
+// import HeaderImageScrollView, {
+//   TriggeringView,
+// } from 'react-native-image-header-scroll-view';
 
-import * as Animatable from 'react-native-animatable';
+// import * as Animatable from 'react-native-animatable';
 //import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+//import FontAwesome from 'react-native-vector-icons/FontAwesome';
 //import MyNavigator from './MyNavigator';
 import {  
   createAppContainer
@@ -42,8 +42,7 @@ import PaymentScreen from '../screens/PaymentScreen'
 import HeaderImageScreen from './HeaderImageScreen';
 
 
-// const itemData = route.params.itemData;
-// const navTitleView = useRef(null);
+
 
     const defaultStackNavOption = {
         headerStyle: {
@@ -209,7 +208,7 @@ import HeaderImageScreen from './HeaderImageScreen';
                 screen: DealNavigator,
                 navigationOptions: {
                   title:"Deals",
-                  headerTitle: () => <LogoTitle />,
+                  //headerTitle: () => <LogoTitle />,
                 
                   
                   //tabBarIcon: tabInfo => {

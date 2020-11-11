@@ -2,7 +2,7 @@ import Category from '../models/category';
 import Meal from '../models/meal';
 
 export const CATEGORIES = [
-  new Category('c1', 'Tanawal Restaurant', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSqXJ2dAfwsEfPtKMY9Hx9B0ljQVtfFUHIV6A&usqp=CAU'),
+  new Category('c1', 'Tanawal Restaurant', 'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118674653_205664577560204_4075498891986836920_o.jpg?_nc_cat=101&ccb=2&_nc_sid=a26aad&_nc_eui2=AeHiZd4dyzBp6-guLj6lPrKU7bKxi9iQEhDtsrGL2JASEI0QShvp2qGMOslOt8NC3mK8l9YnPklbup2uXhI-HLNT&_nc_ohc=4zW66720bG0AX_F87vC&_nc_ht=scontent.flhe15-1.fna&oh=3534001f585e530437bb6bc18963f096&oe=5FCE383F'),
   new Category('c2', 'Lahore Hotel', 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg'),
   new Category('c3', 'Burger King', 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBOI7bg-cgtWA6BuiXbbBzy0w8QfW8FEIiyg&usqp=CAU'),
   new Category('c4', 'Bandu Khan', 'https://cbsnews3.cbsistatic.com/hub/i/r/2015/11/19/643ee752-384b-4e87-acc7-4bad9ec230b3/resize/620x465/50c8bd937542d550e768eb6321847f34/fake-food-display-09.jpg'),
