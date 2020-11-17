@@ -1,4 +1,4 @@
-import React, {useRef,useEffect} from 'react';
+import React, {useRef,useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -10,6 +10,8 @@ import {
   ImageBackground,
   SafeAreaView,
   TouchableOpacity,
+  Animated,
+  FlatList,
   ScrollView
   //YellowBox
 } from 'react-native';
@@ -17,7 +19,8 @@ import {
     createAppContainer
     
   } from 'react-navigation';
-  import {createStackNavigator} from 'react-navigation-stack';
+  
+  import {createStackNavigator, Header} from 'react-navigation-stack';
   import {createDrawerNavigator} from 'react-navigation-drawer'
   import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
   import SecondTopScreen from '../screens/SecondTopScreen';
@@ -120,6 +123,7 @@ const ThreeTopNavigator = createMaterialTopTabNavigator(
 
 const ThreeNavigator = createDrawerNavigator(
   {
+    //{ImageAnimationScreen()},
     ThreeFavs:{
         screen: ThreeTopNavigator,
         navigationOptions: {
@@ -144,13 +148,23 @@ const ImageAnimationScreen = (props) => {
     const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
     // console.log(catId);
     const navTitleView = useRef(null);
+    const [scrollY, setScrollY] = useState(new Animated.Value(0));
 
+    const H_MAX_HEIGHT = 300;
+    const H_MIN_HEIGHT = 100;
+    const H_SCROLL_DISTANCE = H_MAX_HEIGHT - H_MIN_HEIGHT;
+  
+    const headerScrollHeight = scrollY.interpolate({
+      inputRange: [0, H_SCROLL_DISTANCE],
+      outputRange: [H_MAX_HEIGHT, H_MIN_HEIGHT],
+      extrapolate: "clamp"
+    });
     // const displayedMeals = Desi_MEALS.filter(
     //   meal => meal.categoryIds.indexOf(catId) >= 0
     // );
   
     //return <DesiMealList listData={displayedMeals} navigation={props.navigation} />
-
+    // const renderItemDetail=()=>{
   return (
 
     <View style={styles.container}>
@@ -176,14 +190,37 @@ const ImageAnimationScreen = (props) => {
             <Text style={styles.navTitle}>{selectedCategory.title}</Text>
           </Animatable.View>
         )}>
-            <View style={{ height: 1000 }}>
+        
+          <View style={{ height: 1000 }}>
           <SafeAreaView>
          <TriggeringView
           //style={styles.section}
           onHide={() => navTitleView.current.fadeInUp(200)}
           onDisplay={() => navTitleView.current.fadeOut(100)}
+          scrollViewBackgroundColor="#ddddff"
           
         >
+
+        {/* <Animated.View
+          accessible={false}
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: 0,
+            height: headerScrollHeight,
+            width: "100%",
+            overflow: "hidden",
+            zIndex: 999,
+          }}
+        >
+          
+          <View style={styles.titleContainer}>
+            <Text style={styles.imageTitle}>{selectedCategory.title}</Text>
+          </View>
+            <Image source={{ uri:selectedCategory.imageUrl }} style={styles.image} />
+          
+        </Animated.View> */}
             
           {/* <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={styles.title}>Menu</Text>
@@ -199,17 +236,44 @@ const ImageAnimationScreen = (props) => {
       
         
         <View style={[styles.section, styles.sectionLarge]}>
-        <SecondTopScreen /> 
+       <ThreeTopScreen/>
+       
         </View>
         </TriggeringView>
         </SafeAreaView>
         </View>
-       
+        </HeaderImageScrollView> 
       
-      </HeaderImageScrollView> 
+      
 {/* <ThreeTopScreen />  */}
     </View>
   );
+  // return (
+  //   <View style={styles.container}>
+  //     <AnimatedFlatList
+  //       contentContainerStyle={{marginTop: 200}}
+  //       scrollEventThrottle={16} // <-- Use 1 here to make sure no events are ever missed
+  //       onScroll={Animated.event(
+  //         [{nativeEvent: {contentOffset: {y:scrollY}}}],
+  //         {useNativeDriver: true} // <-- Add this
+  //       )}
+  //       data={CATEGORIES}
+  //       renderItem={renderItem}
+  //       keyExtractor={(item, i) => i}/>
+  //     <Animated.View style={[styles.headerWrapper, {transform: [{translateY}]}]}/>
+  //   </View>
+  // )
+  // const renderItemDetail=()=>{
+
+  //   return (
+  //   <Animated.ScrollView
+  //   onScroll={Animated.event([
+  //   {nativeEvent: {contentOffset: { y: scrollY}}}],
+  //   {useNativeDriver: false})}
+  //   scrollEventThrottle={16}
+  //   >
+  //     )}
+    
 };
 
 
@@ -287,7 +351,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   sectionLarge: {
-    minHeight: 300,
+    minHeight: 700,
   },
 });
 export default ThreeNavigator;

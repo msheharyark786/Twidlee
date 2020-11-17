@@ -42,7 +42,7 @@ import HeaderIamge from '../components/HeaderImage';
         },
         {
           // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOptions
+          //defaultNavigationOptions: defaultStackNavOptions
         }
       );
     //   const SecondTopNavigator = createStackNavigator(
@@ -65,10 +65,11 @@ import HeaderIamge from '../components/HeaderImage';
         //   Pakistani: PakistaniScreen,
           Categories: {
             screen: CategoriesScreen,
-            navigationOptions: {
-              title: '',
-              headerShown: false,
-            },
+            // navigationOptions: {
+            //   title: '',
+            //   headerShown: false,
+            // },
+            
           },
         //   SecondTop:{
         //     screen: SecondTopScreen
@@ -80,7 +81,7 @@ import HeaderIamge from '../components/HeaderImage';
         },
         {
           // initialRouteName: 'Categories',
-          defaultNavigationOptions: defaultStackNavOptions
+          //defaultNavigationOptions: defaultStackNavOptions
         }
       );
       const AppNavigator = createMaterialTopTabNavigator( 
@@ -151,20 +152,31 @@ import HeaderIamge from '../components/HeaderImage';
 
 // }
 // FirstScreen.navigationOptions = navData => {
-//     return {
-//       headerTitle: 'Meal Categories',
-//       headerLeft:()=>(
-//         <HeaderButtons HeaderButtonComponent={HeaderButton}>
-//           <Item
-//             title="Menu"
-//             iconName="ios-menu"
-//             onPress={() => {
-//               navData.navigation.toggleDrawer();
-//             }}
-//           />
-//         </HeaderButtons>
-//       )
-//     };
+//   return {
+//     headerTitle: 'Restaurants',
+//     headerLeft:() =>(
+//       <HeaderButtons HeaderButtonComponent={HeaderButton}>
+//         <Item
+//           title="Menu"
+//           iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+//           onPress={() => {
+//             navData.navigation.toggleDrawer();
+//           }}
+//         />
+//       </HeaderButtons>
+//     ),
+//     headerRight: () =>(
+//       <HeaderButtons HeaderButtonComponent={HeaderButton}>
+//         <Item
+//           title="Cart"
+//           iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
+//           onPress={() => {
+//             navData.navigation.navigate('Cart');
+//           }}
+//         />
+//       </HeaderButtons>
+//     )
 //   };
+// };
 
 export default createAppContainer(MinNavigator);

@@ -63,37 +63,49 @@ import ImageAnimationScreen from '../screens/ImageAnimationScreen';
 
 
  
-const defaultStackNavOptions ={
-  headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : '',
+// const defaultStackNavOptions ={
+//   headerStyle: {
+//     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : '',
     
+//   },
+//   headerTitleStyle: {
+//     //fontFamily: 'open-sans-bold',
+//     //paddingLeft:105,
+//     alignContent:'center',
+//     fontWeight:'bold',
+//     //justifyContent:'space-between'
+//   },
+//   headerBackTitleStyle: {
+//     //fontFamily: 'open-sans',
+//     //paddingLeft:100,
+//   },
+  
+//   headerTitle: 'Restaurants',
+//     // headerLeft:()=>(
+//     //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+//     //     <Item
+//     //       title="Menu"
+//     //       iconName="ios-menu"
+//     //       onPress={() => {
+//     //         //navData.navigation.toggleDrawer();
+//     //       }}
+//     //     />
+//     //   </HeaderButtons>
+//     // ),
+//   headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
+  
+// };
+const defaultNavOptions = { 
+  headerStyle: {
+    backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
   },
   headerTitleStyle: {
-    //fontFamily: 'open-sans-bold',
-    //paddingLeft:105,
-    alignContent:'center',
-    fontWeight:'bold',
-    //justifyContent:'space-between'
+    fontWeight: 'bold'
   },
   headerBackTitleStyle: {
-    //fontFamily: 'open-sans',
-    //paddingLeft:100,
+    fontFamily: 'open-sans'
   },
-  
-  headerTitle: 'Restaurants',
-    // headerLeft:()=>(
-    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
-    //     <Item
-    //       title="Menu"
-    //       iconName="ios-menu"
-    //       onPress={() => {
-    //         //navData.navigation.toggleDrawer();
-    //       }}
-    //     />
-    //   </HeaderButtons>
-    // ),
-  headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primaryColor,
-  
+  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary
 };
 
 
@@ -104,7 +116,7 @@ const FavNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    //defaultNavigationOptions: defaultStackNavOptions
+   // defaultNavigationOptions: defaultNavOptions
   }
 );
 
@@ -113,9 +125,30 @@ const FirstNavigator = createStackNavigator(
     
 
     First: {
-      navigationOptions: {
-        // title: '',
-        // headerShown: false,
+      navigationOptions: (navData) = {
+        headerTitle: 'Restaurants',
+    // headerLeft:() =>(
+    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item
+    //       title="Menu"
+    //       iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+    //       onPress={() => {
+    //                     navData.navigation.navigate('Cart');
+    //                   }}
+    //     />
+    //   </HeaderButtons>
+    // ),
+    headerRight: () =>(
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Cart"
+          iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
+          onPress={() => {
+            navData.navigation.navigate('Cart');
+          }}
+        />
+      </HeaderButtons>
+    )
       },
       screen:FirstScreen
        
@@ -140,7 +173,7 @@ const FirstNavigator = createStackNavigator(
     // ThreeTopScreen:{
     // screen:ThreeTopScreen,
 
-    // }
+    // },
     // SecondTop:{
     //   navigationOptions: {
     //     title: '',
@@ -155,7 +188,16 @@ const FirstNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    defaultNavigationOptions: defaultStackNavOptions
+    // navigationOptions: {
+    //   drawerIcon: drawerConfig => (
+    //     <Icon
+    //       name={Platform.OS === 'android' ? 'cart-outline' : 'ios-cart'}
+    //       size={23}
+    //       color={drawerConfig.tintColor}
+    //     />
+    //   )
+    // },
+    //defaultNavigationOptions: defaultNavOptions
   }
 );
 
@@ -184,6 +226,13 @@ const HisNavigator = createStackNavigator(
 const AccNavigator = createStackNavigator(
   {
     Account: AccountScreen,
+    ProfileScreen: ProfileScreen,
+    AboutUs: AboutUsScreen,
+    Address: AddressScreen,
+    ChangePassword: ChangePasswordScreen,
+    My_Order: My_OrderScreen,
+    PrivacyPolicy: PrivacyPolicyScreen,
+    TermCondition: TermConditionScreen
     //MealDetail: MealDetailScreen
   },
   {
@@ -311,7 +360,7 @@ const FiltersNavigator = createStackNavigator(
     navigationOptions: {
       drawerLabel: 'Filters!!!!'
     },
-    defaultNavigationOptions: defaultStackNavOptions
+    defaultNavigationOptions: defaultNavOptions
   }
 );
 
@@ -339,33 +388,37 @@ const MainNavigator = createDrawerNavigator(
     //     headerMode: 'none'
     //   }},
     MealsFavs: {
-      screen: TabNavigator,
       navigationOptions: {
-        drawerLabel: 'Meals',
+        drawerLabel: 'Home',
         title: '',
         headerShown: false,
         headerMode: 'none'
-      }
+      },
+      screen: TabNavigator
     },
-    Filters: FiltersNavigator,
-    Profile: ProfileScreen,
-    AboutUs: AboutUsScreen,
-    Address: AddressScreen,
-    ChangePassword: ChangePasswordScreen,
-    My_Order: My_OrderScreen,
-    PrivacyPolicy: PrivacyPolicyScreen,
-    TermCondition: TermConditionScreen
+    Filters: {
+      navigationOptions: {
+        drawerLabel: 'Filter',
+        title: '',
+        headerShown: false,
+        headerMode: 'none'
+      },
+      screen: FiltersNavigator,
+    }
+    // 
     //Forms: Forms
-    
 },
   {
+    //initialRouteName:'MealsFavs',
     contentOptions: {
-      //color:'White'
+      //color:'White',
+      activeTintColor: Colors.accentColor,
       iconContainerStyle: {
         opacity: 1,
       },
     },
-    //drawerBackgroundColor: '#262A2C',
+    drawerBackgroundColor: Colors.primaryColor,
+    drawerWidth:200,
   }
 );
 

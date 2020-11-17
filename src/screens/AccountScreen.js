@@ -10,6 +10,13 @@ import {
     Platform,
   Button } from 'react-native';
 import Header from '../components/Header';
+import ProfileScreen from '../screens/ProfileScreen';
+import AboutUsScreen from '../screens/AboutUsScreen';
+import AddressScreen from '../screens/AddressScreen';
+import ChangePasswordScreen from '../screens/ChangePasswordScreen';
+import My_OrderScreen from '../screens/My_OrderScreen';
+import PrivacyPolicyScreen from '../screens/PrivacyPolicyScreen';
+import TermConditionScreen from '../screens/TermConditionScreen';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import  Icon  from 'react-native-vector-icons/Ionicons';
 import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -24,12 +31,46 @@ import Colors from '../constants/Colors';
 
 function AccountScreen(props) {
 
+
+  const nameEdit = props.navigation.getParam('n1');
+  const phoneEdit = props.navigation.getParam('p1');
+  const emailEdit = props.navigation.getParam('e1');
+
+  var name= " Haseeb Sheikh";
+  var email= "haseebsheikh0066@gmail.com";
+  var phone = '3130441113';
+
+  console.log("defult",nameEdit, phoneEdit, emailEdit)
+
+  // if((nameEdit!=null)&&(phoneEdit!=null)&&(emailEdit!=null)){
+
+  //   if(nameEdit!=null){
+
+  //     name= nameEdit;
+  //   }
+  //   else{console.log('name else ')}
+  //   if(phoneEdit!=null){     
+    
+  //   phone= phoneEdit;
+  //   }
+  //   else{console.log('phone else ')}
+  
+  //   if(emailEdit!=null){
+  
+  //   email= emailEdit;
+  //   }
+  //   else{console.log('email else ')}
+  
+
+  // }
+  
+ console.log("updated",name, phone, email)
+  
+
+
   return (
     <View style={styles.screen}>
-      
-      
-        <View>
-        <ScrollView>
+
         <View style={styles.header}>
           <View style={styles.container}>
              <Image
@@ -37,14 +78,14 @@ function AccountScreen(props) {
               source={require('../images/profile.jpeg')}
               />
             <Text style={styles.logotext}>
-              Haseeb Sheikh
+              {name}
             </Text>
           <View style={styles.textData}>
               <Text style={styles.text}>
-              haseebsheikh0066@gmail.com
+              {email}
               </Text>
               <Text style={styles.text}>
-              +923130441113
+              {phone}
             </Text>
           </View>
         </View>
@@ -54,11 +95,16 @@ function AccountScreen(props) {
         
         <View style={styles.footer}>
 
-          
+          <ScrollView>
           <View style={styles.line}>
               <TouchableOpacity style={styles.button}  onPress={() => {
               props.navigation.navigate({
-              routeName: 'Profile',
+              routeName: 'ProfileScreen',
+              params: {
+                name: name,
+                email: email,
+                phone: phone,
+              }
               })}} >
               <Icon name="person-outline"  size={20}
               color={Colors.accentColor} />
@@ -152,7 +198,7 @@ function AccountScreen(props) {
       color={Colors.accentColor} />
       <Text style={styles.textDatas}>Logout</Text></TouchableOpacity>   
       </View>
-      </View>
+    
       </ScrollView>
       </View>
       
@@ -183,81 +229,81 @@ AccountScreen.navigationOptions = navData => {
 
 
 
-const styles=StyleSheet.create({
-  screen:{
-    flex:1,
-    justifyContent: 'center'
-  },
-
-  header:{
-    //backgroundColor:'#FF5722',
-    flex: 3,
-    justifyContent: "center",
-    alignItems: "center",
-    //marginBottom:10
-  },
-
-  footer:{
-    borderWidth:0.5,
-    borderColor:"#b0bec5",
-    flex: 2,  
-    //marginTop:10
-  },
-
-  textDatas:{
-    marginLeft:15,
-  },
-
-  button: {
-    paddingTop: 15,
-    flexDirection: 'row',
-  },
-
-  line:{
-    
-    padding: 5,
-    paddingLeft:15,
-    borderColor:"#b0bec5",
-    borderWidth:0.5,
-  },
-
-  container:{
-    flexGrow:1,
-    justifyContent: 'center',
-    alignItems:'center',
-    paddingTop:10,
-    paddingBottom:10,
-  },
-
-  logotext:{
-      marginVertical:5,
-      fontSize:24,
-      color:"#EE0202",
-      fontStyle:"italic",
-      //fontStyle:"oblique",
-      fontWeight:"bold"
-  },
-
-  textData:{
-    marginVertical:3,
-    justifyContent: 'center',
-    alignItems:'center',
-  },
-
-  text:{
-    alignItems:'center',
-    fontSize:16,
-    color:'black',
-  },
-
-  image:{
-    width: 130,
-    height: 130,
-    marginTop: 2,
-    borderWidth:1,
-    borderColor:'#EE0202',
-    borderRadius:65,
-  }
-
-})
+  const styles=StyleSheet.create({
+    screen:{
+      flex:1,
+      justifyContent: 'center'
+    },
+  
+    header:{
+      //backgroundColor:'#FF5722',
+      flex: 3,
+      justifyContent: "center",
+      alignItems: "center",
+      //marginBottom:10
+    },
+  
+    footer:{
+      borderWidth:0.5,
+      borderColor:"#b0bec5",
+      flex: 2,  
+      //marginTop:10
+    },
+  
+    textDatas:{
+      marginLeft:15,
+    },
+  
+    button: {
+      paddingTop: 15,
+      flexDirection: 'row',
+    },
+  
+    line:{
+      
+      padding: 5,
+      paddingLeft:15,
+      borderColor:"#b0bec5",
+      borderWidth:0.5,
+    },
+  
+    container:{
+      flexGrow:1,
+      justifyContent: 'center',
+      alignItems:'center',
+      paddingTop:10,
+      paddingBottom:10,
+    },
+  
+    logotext:{
+        marginVertical:5,
+        fontSize:24,
+        color:"#EE0202",
+        fontStyle:"italic",
+        //fontStyle:"oblique",
+        fontWeight:"bold"
+    },
+  
+    textData:{
+      marginVertical:3,
+      justifyContent: 'center',
+      alignItems:'center',
+    },
+  
+    text:{
+      alignItems:'center',
+      fontSize:16,
+      color:'black',
+    },
+  
+    image:{
+      width: 130,
+      height: 130,
+      marginTop: 2,
+      borderWidth:1,
+      borderColor:'#EE0202',
+      borderRadius:65,
+    }
+  
+  })
 export default AccountScreen
