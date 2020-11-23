@@ -1,11 +1,19 @@
 import React, {useState} from 'react';
-//import { Header } from 'react-navigation-stack';
-//import { Text, View } from 'react-native';
-// import * as Font from 'expo-font';
-//import { AppLoading } from 'expo';
-//import { useScreens } from 'react-native-screens';
-// import Header from './src/components/Header';
+import { Provider } from 'react-redux';
+import store from './src/store';
 import MealsNavigator from './src/navigation/MealsNavigator';
+// import productsReducer from './src/store/reducers/products';
+// import cartReducer from './src/store/reducers/cart';
+// import ordersReducer from './src/store/reducers/orders';
+//import ShopNavigator from './src/navigation/ShopNavigator';
+
+// const rootReducer = combineReducers({ 
+//   products: productsReducer,
+//   cart: cartReducer,
+//   orders: ordersReducer
+// });
+
+// const store = createStore(rootReducer);
 
 // useScreens();
 
@@ -29,5 +37,9 @@ export default function App() {
   // }
  // <MealsNavigator />
 
-  return <MealsNavigator />;
+  return <Provider store={store}>
+    <MealsNavigator /> 
+    </Provider>
+
+{/* <ShopNavigator /> */}
 }

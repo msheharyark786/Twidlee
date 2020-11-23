@@ -9,25 +9,40 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { useSelector, useDispatch } from 'react-redux';
+import * as cartActions from '../store/actions/cart';
+// import * as cartActions from '../store/actions/cart';
 
 import { MEALS } from '../data/dummy-data';
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
 import My_Button from '../components/MyButtonAndroid';
+import Products from '../components/Products';
+import { connect } from 'react-redux'
 
 
 const ListItem = props => {
+  
   return (
     <View style={styles.listItem}>
       <DefaultText>{props.children}</DefaultText>
     </View>
   );
 };
-
+const mapDispatchToProps = (dispatch) => {
+  return {
+      addItemToCart: (product) => dispatch({ type: 'ADD_TO_CART', payload: product })
+  }
+}
 const MealDetailScreen = props => {
+  const dispatch = useDispatch();
+  const productId = props.navigation.getParam('productId');
+  const selectedProduct = MEALS.find(meal => meal.id === mealId);
   const mealId = props.navigation.getParam('mealId');
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
-
+  const mealsidd=selectedMeal.id;
+  
+  //const dispatch = useDispatch();
   return (
     <ScrollView>
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
@@ -46,14 +61,14 @@ const MealDetailScreen = props => {
                 style={styles.button}
                 activeOpacity={0.5}
                 onPress={() => {
-                  props.navigation.navigate({
-                    routeName: ('PaymentScreen'),
-                    params: {
-                      mealId: selectedMeal.id
-                    }
-                  });
+                  dispatch(cartActions.addToCart(selectedProduct));
+                        // <View style={styles.container}>
+                        //     <Products products={selectedMeal} onPress={selectedMeal.addItemToCart} />
+                        // </View>
+                    
+                
                 }}>
-                <Text style={styles.buttonText}>ORDER NOW</Text>
+                <Text style={styles.buttonText}>Add to Cart</Text>
                 </TouchableOpacity>
             </View>
       
@@ -126,4 +141,5 @@ buttonText: {
 }
 });
 
-export default MealDetailScreen;
+
+export default connect(null, mapDispatchToProps)(MealDetailScreen);

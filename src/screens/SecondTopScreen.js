@@ -40,6 +40,7 @@ import BbqScreen from '../screens/BbqScreen';
 import HeaderIamge from '../components/HeaderImage';
 import PaymentScreen from '../screens/PaymentScreen'
 import HeaderImageScreen from './HeaderImageScreen';
+import Products from '../components/Products';
 
 
 
@@ -79,13 +80,15 @@ import HeaderImageScreen from './HeaderImageScreen';
                 },
             },
             MealDetail: MealDetailScreen,
-            PaymentScreen: {
-              screen:PaymentScreen,
-              navigationOptions: {
-                title: '',
-                headerShown: false,
-              },
-            }
+            Products:Products,
+            // PaymentScreen: {
+            //   screen:PaymentScreen,
+            //   navigationOptions: {
+            //     title: '',
+            //     headerShown: false,
+            //   },
+            // }
+            
             //Pakistani: PakistaniScreen,
           
           //MealDetail: MealDetailScreen

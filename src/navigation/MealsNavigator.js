@@ -56,9 +56,13 @@ import SignupScreen from '../screens/SignupScreen';
 import SplashScreen from '../screens/SplashScreen';
 import HeaderIamgeScreen from '../screens/HeaderImageScreen';
 
-
+import CartScreen from '../screens/CartScreen';
 import Colors from '../constants/Colors';
 import ImageAnimationScreen from '../screens/ImageAnimationScreen';
+import ShoppingCartIcon from '../components/ShoppingCartIcon';
+import { withNavigation } from 'react-navigation'
+
+import { connect } from 'react-redux'
 //import { Header } from 'react-native/Libraries/NewAppScreen';
 
 
@@ -105,7 +109,7 @@ const defaultNavOptions = {
   headerBackTitleStyle: {
     fontFamily: 'open-sans'
   },
-  headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primary
+  headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primary
 };
 
 
@@ -138,21 +142,14 @@ const FirstNavigator = createStackNavigator(
     //     />
     //   </HeaderButtons>
     // ),
-    headerRight: () =>(
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Cart"
-          iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
-          onPress={() => {
-            navData.navigation.navigate('Cart');
-          }}
-        />
-      </HeaderButtons>
+    headerRight:()=> (
+      <ShoppingCartIcon />
     )
       },
       screen:FirstScreen
        
     },
+    
     // HeaderIamgeScreen: {
     //   navigationOptions: {
     //     title: '',
@@ -160,20 +157,27 @@ const FirstNavigator = createStackNavigator(
     //   },
     //   screen: HeaderIamgeScreen,
     // },
-    ImageAnimationScreen:{
-      screen: ImageAnimationScreen,
-      navigationOptions: {
-      headerBackTitleVisible: false,
-          headerTitle: ()=>(false),
-          headerTransparent: true,
-          headerTintColor: '#fff',
-          //headerShown:false
-      }
-    },
-    // ThreeTopScreen:{
-    // screen:ThreeTopScreen,
-
+    // ImageAnimationScreen:{
+    //   screen: ImageAnimationScreen,
+    //   navigationOptions: {
+    //   headerBackTitleVisible: false,
+    //       headerTitle: ()=>(false),
+    //       headerTransparent: true,
+    //       headerTintColor: '#fff',
+    //       //headerShown:false
+    //   }
     // },
+    ThreeTopScreen:{
+      navigationOptions: (navData) = {
+        headerTitle: 'Restaurant Menu',
+        headerRight:()=> (
+          <ShoppingCartIcon />
+        )
+      },
+    screen:ThreeTopScreen,
+
+    },
+    Cart:CartScreen,
     // SecondTop:{
     //   navigationOptions: {
     //     title: '',
@@ -197,7 +201,7 @@ const FirstNavigator = createStackNavigator(
     //     />
     //   )
     // },
-    //defaultNavigationOptions: defaultNavOptions
+    defaultNavigationOptions: defaultNavOptions
   }
 );
 
