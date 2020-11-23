@@ -1,25 +1,26 @@
-import PRODUCTS from '../../data/dummy-data';
 import {
   DELETE_PRODUCT,
   CREATE_PRODUCT,
   UPDATE_PRODUCT
 } from '../actions/products';
-import Product from '../../models/product';
+import { MEALS } from '../../data/dummy-data';
+//import Product from '../../models/product';
+import Meal from '../../models/meal';
 
 const initialState = {
-  availableProducts: PRODUCTS,
-  userProducts: PRODUCTS.filter(prod => prod.ownerId === 'u1')
+  availableProducts: MEALS,
+  userProducts: MEALS.filter(meal => meal.id === 'm1a')
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case CREATE_PRODUCT:
-      const newProduct = new Product(
+      const newProduct = new Meal(
         new Date().toString(),
         'u1',
         action.productData.title,
         action.productData.imageUrl,
-        action.productData.description,
+        action.productData.dealDetail,
         action.productData.price
       );
       return {
@@ -29,20 +30,20 @@ export default (state = initialState, action) => {
       };
     case UPDATE_PRODUCT:
       const productIndex = state.userProducts.findIndex(
-        prod => prod.id === action.pid
+        meal => meal.id === action.pid
       );
-      const updatedProduct = new Product(
+      const updatedProduct = new Meal(
         action.pid,
-        state.userProducts[productIndex].ownerId,
+        state.userProducts[productIndex].mealId,
         action.productData.title,
         action.productData.imageUrl,
-        action.productData.description,
+        action.productData.dealDetail,
         state.userProducts[productIndex].price
       );
       const updatedUserProducts = [...state.userProducts];
       updatedUserProducts[productIndex] = updatedProduct;
       const availableProductIndex = state.availableProducts.findIndex(
-        prod => prod.id === action.pid
+        meal => meal.id === action.pid
       );
       const updatedAvailableProducts = [...state.availableProducts];
       updatedAvailableProducts[availableProductIndex] = updatedProduct;

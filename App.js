@@ -1,19 +1,23 @@
 import React, {useState} from 'react';
 import { Provider } from 'react-redux';
-import store from './src/store';
+import { createStore, combineReducers } from 'redux';
 import MealsNavigator from './src/navigation/MealsNavigator';
-// import productsReducer from './src/store/reducers/products';
-// import cartReducer from './src/store/reducers/cart';
-// import ordersReducer from './src/store/reducers/orders';
+// const store = createStore(rootReducer);
+import productsReducer from './src/store/reducers/products';
+import cartReducer from './src/store/reducers/cart';
+import ordersReducer from './src/store/reducers/orders';
+import CartCounter from './src/store/reducers/CartCounter';
 //import ShopNavigator from './src/navigation/ShopNavigator';
 
-// const rootReducer = combineReducers({ 
-//   products: productsReducer,
-//   cart: cartReducer,
-//   orders: ordersReducer
-// });
+const rootReducer = combineReducers({ 
+  
+  products: productsReducer,
+  CartCounter: CartCounter,
+  cart: cartReducer,
+  orders: ordersReducer
+});
 
-// const store = createStore(rootReducer);
+const store = createStore(rootReducer);
 
 // useScreens();
 

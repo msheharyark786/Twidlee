@@ -36,8 +36,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 const MealDetailScreen = props => {
   const dispatch = useDispatch();
-  const productId = props.navigation.getParam('productId');
-  const selectedProduct = MEALS.find(meal => meal.id === mealId);
+  // const productId = props.navigation.getParam('productId');
+  // const selectedProduct = MEALS.find(meal => meal.id === mealId);
   const mealId = props.navigation.getParam('mealId');
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
   const mealsidd=selectedMeal.id;
@@ -61,7 +61,7 @@ const MealDetailScreen = props => {
                 style={styles.button}
                 activeOpacity={0.5}
                 onPress={() => {
-                  dispatch(cartActions.addToCart(selectedProduct));
+                  dispatch(cartActions.addToCart(selectedMeal));
                         // <View style={styles.container}>
                         //     <Products products={selectedMeal} onPress={selectedMeal.addItemToCart} />
                         // </View>

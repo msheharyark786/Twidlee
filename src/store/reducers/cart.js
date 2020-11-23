@@ -41,9 +41,9 @@ export default (state = initialState, action) => {
         // need to reduce it, not erase it
         const updatedCartItem = new CartItem(
           selectedCartItem.quantity - 1,
-          selectedCartItem.productPrice,
-          selectedCartItem.productTitle,
-          selectedCartItem.sum - selectedCartItem.productPrice
+          selectedCartItem.price,
+          selectedCartItem.title,
+          selectedCartItem.sum - selectedCartItem.price
         );
         updatedCartItems = { ...state.items, [action.pid]: updatedCartItem };
       } else {
@@ -53,7 +53,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         items: updatedCartItems,
-        totalAmount: state.totalAmount - selectedCartItem.productPrice
+        totalAmount: state.totalAmount - selectedCartItem.price
       };
     case ADD_ORDER:
       return initialState;
