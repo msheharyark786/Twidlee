@@ -7,16 +7,17 @@ import {
   Platform
 } from 'react-native';
 import  Ionicons  from 'react-native-vector-icons/Ionicons';
+import Colors from '../constants/Colors';
 
 const CartItem = props => {
   return (
     <View style={styles.cartItem}>
       <View style={styles.itemData}>
-        <Text style={styles.quantity}>{props.quantity} </Text>
-        <Text style={styles.mainText}>{props.title}</Text>
+        <Text style={styles.quantity,{color:"green", fontWeight:'bold'}}>{props.quantity} </Text>
+        <Text style={styles.mainText,{color:'orange', fontWeight:'bold'}}>     {props.title}</Text>
       </View>
       <View style={styles.itemData}>
-        <Text style={styles.mainText}>${props.amount.toFixed(2)}</Text>
+        <Text style={styles.mainText}>Rs. {props.amount.toFixed(2)}</Text>
         {props.deletable && (
           <TouchableOpacity
             onPress={props.onRemove}

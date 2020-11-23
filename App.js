@@ -1,18 +1,15 @@
 import React, {useState} from 'react';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
+//import store from './src/store';
 import MealsNavigator from './src/navigation/MealsNavigator';
-// const store = createStore(rootReducer);
 import productsReducer from './src/store/reducers/products';
 import cartReducer from './src/store/reducers/cart';
 import ordersReducer from './src/store/reducers/orders';
-import CartCounter from './src/store/reducers/CartCounter';
 //import ShopNavigator from './src/navigation/ShopNavigator';
 
 const rootReducer = combineReducers({ 
-  
   products: productsReducer,
-  CartCounter: CartCounter,
   cart: cartReducer,
   orders: ordersReducer
 });

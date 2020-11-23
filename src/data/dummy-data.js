@@ -18,6 +18,7 @@ export const MEALS = [
   new Meal(
     'm1a',
     ['c1'],
+    1,
     'Deal 1',
     'For 3 Persons',
     'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118653547_205409600919035_5084380285642382220_o.jpg?_nc_cat=106&ccb=2&_nc_sid=8bfeb9&_nc_ohc=xfl-KLVwU6kAX-1cvhK&_nc_ht=scontent.flhe15-1.fna&oh=53a860ee9238cc39ecee890a1b9719f3&oe=5FBD120F',
@@ -48,9 +49,10 @@ export const MEALS = [
   new Meal(
     'm1b',
     ['c1'],
+    1,
     'Deal 2', 
     'For 5 Persons',
-    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118691355_205431470916848_4451869051084445219_o.jpg?_nc_cat=101&ccb=2&_nc_sid=8bfeb9&_nc_ohc=HPBAwAaNh30AX-vi39M&_nc_oc=AQn0b3ByZXBSTBeb3jTzUg31hF8vfP0PTq1HDYc7nUpe-087E42XAHz6RnxLdRDUHsw&_nc_ht=scontent.flhe15-1.fna&oh=b9a7fae4c2cae3932e9e391dd417d8da&oe=5FBAE0F9',
+    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118691355_205431470916848_4451869051084445219_o.jpg?_nc_cat=101&ccb=2&_nc_sid=8bfeb9&_nc_eui2=AeEwO3GjXRA0MM6Kl2ViFcVaa3MKcOxXQTtrcwpw7FdBO3WlimFAaD7UV7e5m5-tAFpiY1SKOk45tKxgzWt4HtCD&_nc_ohc=_RAbHjXu8-QAX9gKpO3&_nc_oc=AQlR3CKyHFSrL2zE2Hh9uZDS5MR-K2PKGErfzG1hy3Qlmf0WXImv0BfJmK-vrIrXj5c&_nc_ht=scontent.flhe15-1.fna&oh=383c8da8e48ed07f541132c084b6fca3&oe=5FE26DF9',
     999,
     [
       'Chicken Kabab (6 pieces)',
@@ -75,11 +77,12 @@ export const MEALS = [
     // true
   ),
 
- 
+  
 
   new Meal(
     'm2',
     ['c2'],
+    1,
     'Deal 1',
     'For 2 Persons',
     'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
@@ -106,6 +109,7 @@ export const MEALS = [
   new Meal(
     'm3',
     ['c3'],
+    1,
     'Deal 1',
     'For 2 Persons',
     'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
@@ -135,6 +139,7 @@ export const MEALS = [
   new Meal(
     'm4',
     ['c4'],
+    1,
     'Deal 1',
     'For 2 Persons',
     'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
@@ -168,6 +173,7 @@ export const MEALS = [
   new Meal(
     'm5',
     ['c5'],
+    1,
     'Deal 1',
     'For 3 Persons',
     'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
@@ -200,6 +206,7 @@ export const MEALS = [
   new Meal(
     'm6',
     ['c6'],
+    1,
     'Deal 1',
     'For 4 Persons',
     'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
@@ -233,6 +240,7 @@ export const MEALS = [
   new Meal(
     'm7',
     ['c7'],
+    1,
     'Deal 1',
     'For 5 Persons',
     'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.mamachocolateblog.com%2Fdelicious-dish-tuesday-recipe-link-up-4th-of-july-edition.html&psig=AOvVaw1sKnUBlo2FDArMPjoU2Prp&ust=1603872528167000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIix7Pio1OwCFQAAAAAdAAAAABAJ',
@@ -262,6 +270,7 @@ export const MEALS = [
   new Meal(
     'm8',
     ['c8'],
+    1,
     'Deal 1',
     'For 5 Persons',
     'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
@@ -293,6 +302,7 @@ export const MEALS = [
   new Meal(
     'm9',
     ['c9'],
+    1,
     'Deal 1',
     'For 4 Persons',
     'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
@@ -339,6 +349,7 @@ export const MEALS = [
   new Meal(
     'm10',
     ['c10'],
+    1,
     'Deal 1',
     'For 2 Perons',
     'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',

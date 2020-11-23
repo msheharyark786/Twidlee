@@ -17,7 +17,7 @@ const CategoryMealScreen = props => {
 // console.log(displayedMeals.price)
 
   return <MealList listData={displayedMeals} navigation={props.navigation} />
-    
+
 };
 
 CategoryMealScreen.navigationOptions = navigationData => {

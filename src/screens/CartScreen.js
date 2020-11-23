@@ -34,7 +34,7 @@ const CartScreen = props => {
         <Text style={styles.summaryText}>
           Total:{' '}
           <Text style={styles.amount}>
-            ${Math.round(cartTotalAmount.toFixed(2) * 100) / 100}
+            Rs. {Math.round(cartTotalAmount.toFixed(2) * 100) / 100}/-
           </Text>
         </Text>
         <Button
@@ -97,7 +97,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      removeItem: (product) => dispatch({ type: 'REMOVE_FROM_CART', payload: product })
+      removeItem: (product) => dispatch({ type: 'REMOVE_FROM_CART', product: product })
   }
 }
 

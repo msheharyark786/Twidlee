@@ -2,6 +2,7 @@ class Meal {
   constructor( 
     id,
     categoryIds,
+    offerId,
     title,
     persons,
     imageUrl,
@@ -15,6 +16,7 @@ class Meal {
   ) {
     this.id = id;
     this.categoryIds = categoryIds;
+    this.offerId=offerId
     this.title = title;
     this.imageUrl = imageUrl;
     this.dealDetail = dealDetail;

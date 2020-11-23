@@ -14,6 +14,7 @@ import * as cartActions from '../store/actions/cart';
 // import * as cartActions from '../store/actions/cart';
 
 import { MEALS } from '../data/dummy-data';
+import ShoppingCartIcon from '../components/ShoppingCartIcon';
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
 import My_Button from '../components/MyButtonAndroid';
@@ -29,11 +30,11 @@ const ListItem = props => {
     </View>
   );
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-      addItemToCart: (product) => dispatch({ type: 'ADD_TO_CART', payload: product })
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//       addItemToCart: (product) => dispatch({ type: 'ADD_TO_CART', payload: product })
+//   }
+// }
 const MealDetailScreen = props => {
   const dispatch = useDispatch();
   // const productId = props.navigation.getParam('productId');
@@ -41,8 +42,9 @@ const MealDetailScreen = props => {
   const mealId = props.navigation.getParam('mealId');
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
   const mealsidd=selectedMeal.id;
-  
+  var count=0;
   //const dispatch = useDispatch();
+  if(selectedMeal.offerId===1){
   return (
     <ScrollView>
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
@@ -61,6 +63,8 @@ const MealDetailScreen = props => {
                 style={styles.button}
                 activeOpacity={0.5}
                 onPress={() => {
+                  ///count++,
+                  //console.log(count);
                   dispatch(cartActions.addToCart(selectedMeal));
                         // <View style={styles.container}>
                         //     <Products products={selectedMeal} onPress={selectedMeal.addItemToCart} />
@@ -73,7 +77,7 @@ const MealDetailScreen = props => {
             </View>
       
     </ScrollView>
-  );
+  );}
 };
 
 MealDetailScreen.navigationOptions = navigationData => {
@@ -142,4 +146,4 @@ buttonText: {
 });
 
 
-export default connect(null, mapDispatchToProps)(MealDetailScreen);
+export default MealDetailScreen;
