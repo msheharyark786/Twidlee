@@ -140,17 +140,17 @@ CategoriesScreen.navigationOptions = navData => {
         />
       </HeaderButtons>
     ),
-    headerRight: () =>(
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Cart"
-          iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
-          onPress={() => {
-            navData.navigation.navigate('Cart');
-          }}
-        />
-      </HeaderButtons>
-    )
+    // headerRight: () =>(
+    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item
+    //       title="Cart"
+    //       iconName={Platform.OS === 'android' ? 'md-cart' : 'ios-cart'}
+    //       onPress={() => {
+    //         navData.navigation.navigate('Cart');
+    //       }}
+    //     />
+    //   </HeaderButtons>
+    // )
   };
 };
 

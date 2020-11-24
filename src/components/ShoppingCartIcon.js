@@ -6,28 +6,33 @@ import {
     Platform
 } from "react-native";
 
-import { withNavigation } from 'react-navigation'
 
+
+import { withNavigation } from 'react-navigation'
+import { useSelector, useDispatch } from 'react-redux';
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Ionicons'
 //import { Colors } from "react-native/Libraries/NewAppScreen";
 import Colors from '../constants/Colors';
+const ShoppingCartIcon = (props) => {
 
-const ShoppingCartIcon = (props) => (
+    const cartTotalLenght = useSelector(state => state.cart.count );
+    return(
     <View style={[{ padding: 5 }, Platform.OS == 'android' ? styles.iconContainer : null]}>
         <View style={{
             position: 'absolute', height: 30, width: 30, borderRadius: 15, backgroundColor: 'rgba(95,197,123,0.8)', right: 25, bottom: 15, alignItems: 'center', justifyContent: 'center', zIndex: 2000,
 
         }}>
-        <Text style={{ color: 'white', fontWeight: 'bold' }}>{props.cart.length}</Text>
+        <Text style={{ color: 'white', fontWeight: 'bold' }}>{cartTotalLenght}</Text>
         </View>
         <Icon onPress={() => props.navigation.navigate('Cart')} name="ios-cart" size={30} color={Colors.themeColor} />
     </View>
-)
+    )
+    }
 
 const mapStateToProps = (state) => {
     return {
-        cart: state
+        cartItems: state
     }
 }
 

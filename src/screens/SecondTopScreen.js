@@ -26,10 +26,6 @@ import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
-import BbqMealDetailScreen from '../screens/BbqMealDetailScreen';
-import ChineseMealDetailScreen from '../screens/ChineseMealDetailScreen';
-import TandoorMealDetailScreen from '../screens/TandoorMealDetailScreen';
-import DesiMealDetailScreen from '../screens/DesiMealDetailScreen';
 import DineScreen from '../screens/DineScreen';
 import Colors from '../constants/Colors';
 import TandoorScreen from '../screens/TandoorScreen';
@@ -40,7 +36,7 @@ import BbqScreen from '../screens/BbqScreen';
 import HeaderIamge from '../components/HeaderImage';
 import PaymentScreen from '../screens/PaymentScreen'
 import HeaderImageScreen from './HeaderImageScreen';
-import Products from '../components/Products';
+
 
 
 
@@ -80,7 +76,7 @@ import Products from '../components/Products';
                 },
             },
             MealDetail: MealDetailScreen,
-            Products:Products,
+           // Products:Products,
             // PaymentScreen: {
             //   screen:PaymentScreen,
             //   navigationOptions: {
@@ -107,7 +103,7 @@ import Products from '../components/Products';
                   headerShown: false,
                 },
           },
-          DesiMealDetail: DesiMealDetailScreen,
+          MealDetail: MealDetailScreen,
           PaymentScreen: {
             screen:PaymentScreen,
             navigationOptions: {
@@ -134,7 +130,7 @@ import Products from '../components/Products';
               headerShown: false,
             },
           },
-          BbqMealDetailScreen: BbqMealDetailScreen,
+          MealDetail: MealDetailScreen,
           PaymentScreen: {
             screen:PaymentScreen,
             navigationOptions: {
@@ -158,7 +154,7 @@ import Products from '../components/Products';
                 headerShown: false,
               },
             },
-            ChineseMealDetailScreen: ChineseMealDetailScreen,
+            MealDetail: MealDetailScreen,
             PaymentScreen: {
               screen:PaymentScreen,
               navigationOptions: {
@@ -182,7 +178,7 @@ import Products from '../components/Products';
                 headerShown: false,
               },
             },
-            TandoorMealDetailScreen: TandoorMealDetailScreen,
+            MealDetail: MealDetailScreen,
             PaymentScreen: {
               screen:PaymentScreen,
               navigationOptions: {

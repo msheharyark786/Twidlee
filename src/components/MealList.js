@@ -5,12 +5,15 @@ import MealItem from './MealItem';
 
 const MealList = props => {
   const renderMealItem = itemData => {
+    //console.log(item.item.offerId);
+    if(itemData.item.type==="Deals"){
     return (
       <MealItem
         title={itemData.item.title} 
         image={itemData.item.imageUrl}
         price={itemData.item.price}
         persons={itemData.item.persons}
+        //offerId={itemData.item.offerId}
         
         onSelectMeal={() => {{
           props.navigation.navigate({
@@ -39,6 +42,8 @@ const MealList = props => {
         }}
       />
     );
+      }
+      
   };
 
   return (

@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 
-import TandoorMealItem from './TandoorMealItem';
 
+import MealItem from './MealItem';
 const TandoorMealList = props => {
   const renderMealItem = itemData => {
+    if(itemData.item.type==='Tandoor'){
     return (
-      <TandoorMealItem
+      <MealItem
         title={itemData.item.title} 
         image={itemData.item.imageUrl}
         price={itemData.item.price}
@@ -14,7 +15,7 @@ const TandoorMealList = props => {
         
         onSelectMeal={() => {
           props.navigation.navigate({
-            routeName: 'TandoorMealDetailScreen',
+            routeName: 'MealDetail',
             params: { 
               mealId: itemData.item.id
             }
@@ -22,6 +23,7 @@ const TandoorMealList = props => {
         }}
       />
     );
+      }
   };
 
   return (

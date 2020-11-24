@@ -18,8 +18,8 @@ import ShoppingCartIcon from '../components/ShoppingCartIcon';
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
 import My_Button from '../components/MyButtonAndroid';
-import Products from '../components/Products';
-import { connect } from 'react-redux'
+
+
 
 
 const ListItem = props => {
@@ -44,7 +44,7 @@ const MealDetailScreen = props => {
   const mealsidd=selectedMeal.id;
   var count=0;
   //const dispatch = useDispatch();
-  if(selectedMeal.offerId===1){
+  
   return (
     <ScrollView>
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
@@ -77,7 +77,7 @@ const MealDetailScreen = props => {
             </View>
       
     </ScrollView>
-  );}
+  );
 };
 
 MealDetailScreen.navigationOptions = navigationData => {

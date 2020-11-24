@@ -1,12 +1,13 @@
 import React from 'react';
-import { CATEGORIES,Chinese_MEALS } from '../data/Chinese_Data';
+// import { CATEGORIES,Chinese_MEALS } from '../data/Chinese_Data';
+import { CATEGORIES, MEALS } from '../data/dummy-data';
 import ChineseMealList from '../components/ChineseMealList';
 
 
 const ChineseScreen = props => {
     const catId = props.navigation.getParam('categoryId');
 
-  const displayedMeals = Chinese_MEALS.filter(
+  const displayedMeals = MEALS.filter(
     meal => meal.categoryIds.indexOf(catId) >= 0
   );
 

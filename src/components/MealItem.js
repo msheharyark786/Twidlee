@@ -12,9 +12,11 @@ import {
 import DefaultText from './DefaultText';
 
 const MealItem = props => {
+ 
   return (
     <ScrollView>
     <View style={styles.mealItem}>
+    
       <TouchableOpacity onPress={props.onSelectMeal}>
         <View>
           <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
@@ -36,9 +38,11 @@ const MealItem = props => {
           </View>
         </View>
       </TouchableOpacity>
+
     </View>
     </ScrollView>
   );
+  
 };
 
 const styles = StyleSheet.create({

@@ -7,6 +7,7 @@ import CartItem from '../components/CartItem';
 import Card from '../components/Card';
 import * as cartActions from '../store/actions/cart';
 import * as ordersActions from '../store/actions/orders';
+import ShoppingCartIcon from '../components/ShoppingCartIcon';
 import { connect } from 'react-redux'
 
 const CartScreen = props => {
@@ -25,7 +26,9 @@ const CartScreen = props => {
     return transformedCartItems.sort((a, b) =>
       a.mealId > b.mealId ? 1 : -1
     );
-  });
+    
+  }
+  );
   const dispatch = useDispatch();
 
   return (
@@ -43,6 +46,7 @@ const CartScreen = props => {
           disabled={cartItems.length === 0}
           onPress={() => {
             dispatch(ordersActions.addOrder(cartItems, cartTotalAmount));
+            
           }}
         />
       </Card>

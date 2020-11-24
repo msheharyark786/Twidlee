@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 
-import DesiMealItem from './DesiMealItem';
 
+import MealItem from './MealItem';
 const DesiMealList = props => {
   const renderMealItem = itemData => {
+    if(itemData.item.type==='Pakistani'){
     return (
-      <DesiMealItem
+      <MealItem
         title={itemData.item.title} 
         image={itemData.item.imageUrl}
         price={itemData.item.price}
@@ -14,7 +15,7 @@ const DesiMealList = props => {
         
         onSelectMeal={() => {
           props.navigation.navigate({
-            routeName: 'DesiMealDetail',
+            routeName: 'MealDetail',
             params: { 
               mealId: itemData.item.id
             }
@@ -22,6 +23,7 @@ const DesiMealList = props => {
         }}
       />
     );
+      }
   };
 
   return (

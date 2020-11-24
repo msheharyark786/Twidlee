@@ -45,7 +45,7 @@ import Desi from '../screens/DesiScreen';
 import BbqScreen from '../screens/BbqScreen';
 import Header from '../components/Header';
 import PaymentScreen from '../screens/PaymentScreen';
-import DesiMealDetailScreen from '../screens/DesiMealDetailScreen'
+
 //import Forms from '../components/Forms';
 import HeaderButton from '../components/HeaderButton'; 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';

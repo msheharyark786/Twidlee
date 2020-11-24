@@ -8,10 +8,10 @@ import { RadioButton } from 'react-native-paper';
 import My_Buttons from '../components/MyButtonAndroid';
 
 
-import { Bbq_MEALS } from '../data/Bbq_Data';
-import { Chinese_MEALS } from '../data/Chinese_Data';
-import { Desi_MEALS } from '../data/Desi_Data';
-import { Tandoor_MEALS } from '../data/Tandoor_Data';
+//import { Bbq_MEALS } from '../data/Bbq_Data';
+//import { Chinese_MEALS } from '../data/Chinese_Data';
+// import { Desi_MEALS } from '../data/Desi_Data';
+//import { Tandoor_MEALS } from '../data/Tandoor_Data';
 import { MEALS } from '../data/dummy-data';
 
 const PaymentScreen = (props) =>{
@@ -19,10 +19,10 @@ const PaymentScreen = (props) =>{
    const mealId = props.navigation.getParam('mealId');
 
    
-   const tandoorSelectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId); 
-   const chineseSelectedMeal = Chinese_MEALS.find(meal => meal.id === mealId);
-   const desiSelectedMeal =  Desi_MEALS.find(meal => meal.id === mealId); 
-   const bbqSelectedMeal =  Bbq_MEALS.find(meal => meal.id === mealId);
+   //const tandoorSelectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId); 
+  // const chineseSelectedMeal = Chinese_MEALS.find(meal => meal.id === mealId);
+   //const desiSelectedMeal =  Desi_MEALS.find(meal => meal.id === mealId); 
+   //const bbqSelectedMeal =  Bbq_MEALS.find(meal => meal.id === mealId);
    const dealSelectedMeal = MEALS.find(meal => meal.id === mealId);
 
     if(dealSelectedMeal!=null)
@@ -32,30 +32,30 @@ const PaymentScreen = (props) =>{
         var selectedImage =  dealSelectedMeal.imageUrl;
         //console.log(dealSelectedMeal.price,dealSelectedMeal.imageUrl)
     }
-    else if(tandoorSelectedMeal!=null)
-    {
-        var selectedPrice = tandoorSelectedMeal.price;
-        var selectedImage = tandoorSelectedMeal.imageUrl;
-        //console.log(tandoorSelectedMeal.price, tandoorSelectedMeal.imageUrl)
-    }
-    else if(chineseSelectedMeal!=null)
-    {
-        var selectedPrice = chineseSelectedMeal.price;
-        var selectedImage = chineseSelectedMeal.imageUrl;
-        //console.log(chineseSelectedMeal.price, chineseSelectedMeal.imageUrl)
-    }
-    else if( desiSelectedMeal!=null)
-    {
-        var selectedPrice =  desiSelectedMeal.price;
-        var selectedImage =  desiSelectedMeal.imageUrl;
-        //console.log(desiSelectedMeal.price, desiSelectedMeal.imageUrl)
-    }
-    else if(bbqSelectedMeal!=null)
-    {
-        var selectedPrice = bbqSelectedMeal.price;
-        var selectedImage = bbqSelectedMeal.imageUrl;
-        //console.log(bbqSelectedMeal.price, bbqSelectedMeal.imageUrl)
-    }
+    // else if(tandoorSelectedMeal!=null)
+    // {
+    //     var selectedPrice = tandoorSelectedMeal.price;
+    //     var selectedImage = tandoorSelectedMeal.imageUrl;
+    //     //console.log(tandoorSelectedMeal.price, tandoorSelectedMeal.imageUrl)
+    // }
+    // else if(chineseSelectedMeal!=null)
+    // {
+    //     var selectedPrice = chineseSelectedMeal.price;
+    //     var selectedImage = chineseSelectedMeal.imageUrl;
+    //     //console.log(chineseSelectedMeal.price, chineseSelectedMeal.imageUrl)
+    // }
+    // else if( desiSelectedMeal!=null)
+    // {
+    //     var selectedPrice =  desiSelectedMeal.price;
+    //     var selectedImage =  desiSelectedMeal.imageUrl;
+    //     //console.log(desiSelectedMeal.price, desiSelectedMeal.imageUrl)
+    // }
+    // else if(bbqSelectedMeal!=null)
+    // {
+    //     var selectedPrice = bbqSelectedMeal.price;
+    //     var selectedImage = bbqSelectedMeal.imageUrl;
+    //     //console.log(bbqSelectedMeal.price, bbqSelectedMeal.imageUrl)
+    // }
 
 
     const MyIcon1 = <Icon name="minus" size={18} color="#EE0202" solid />;
@@ -103,22 +103,22 @@ const PaymentScreen = (props) =>{
     {
         var data= dealSelectedMeal.imageUrl;
     }
-    else if(tandoorSelectedMeal!=null)
-    {
-        var data= tandoorSelectedMeal.imageUrl;
-    }
-    else if(chineseSelectedMeal!=null)
-    {
-        var data= chineseSelectedMeal.imageUrl;
-    }
-    else if(bbqSelectedMeal!=null)
-    {
-        var data= bbqSelectedMeal.imageUrl;
-    }
-    else if(desiSelectedMeal!=null)
-    {
-        var data= desiSelectedMeal.imageUrl;
-    }
+    // else if(tandoorSelectedMeal!=null)
+    // {
+    //     var data= tandoorSelectedMeal.imageUrl;
+    // }
+    // else if(chineseSelectedMeal!=null)
+    // {
+    //     var data= chineseSelectedMeal.imageUrl;
+    // }
+    // else if(bbqSelectedMeal!=null)
+    // {
+    //     var data= bbqSelectedMeal.imageUrl;
+    // }
+    // else if(desiSelectedMeal!=null)
+    // {
+    //     var data= desiSelectedMeal.imageUrl;
+    // }
 
     props.navigation.navigate({ routeName: ('Reservation'),
     params: {

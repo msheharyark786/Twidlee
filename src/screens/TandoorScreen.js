@@ -1,12 +1,13 @@
 import React from 'react';
-import { CATEGORIES,Tandoor_MEALS } from '../data/Tandoor_Data';
+import { CATEGORIES, MEALS } from '../data/dummy-data';
+//import { CATEGORIES,Tandoor_MEALS } from '../data/Tandoor_Data';
 import TandoorMealList from '../components/TandoorMealList';
 
 
 const TandoorScreen = props => {
     const catId = props.navigation.getParam('categoryId');
 
-  const displayedMeals = Tandoor_MEALS.filter(
+  const displayedMeals = MEALS.filter(
     meal => meal.categoryIds.indexOf(catId) >= 0
   );
 
