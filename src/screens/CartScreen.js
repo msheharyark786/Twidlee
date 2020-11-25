@@ -62,6 +62,10 @@ const CartScreen = props => {
             onRemove={() => {
               dispatch(cartActions.removeFromCart(itemData.item.mealId));
             }}
+            // onAddable={() => {
+            //   //dispatch(cartActions.removeFromCart(itemData.item.mealId));
+            //   dispatch(cartActions.addToCart(itemData.item.mealId));
+            // }}
           />
         )}
       />

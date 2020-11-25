@@ -6,12 +6,14 @@ import MealsNavigator from './src/navigation/MealsNavigator';
 import productsReducer from './src/store/reducers/products';
 import cartReducer from './src/store/reducers/cart';
 import ordersReducer from './src/store/reducers/orders';
+import mealReducer from './src/store/reducers/mealReducer';
 //import ShopNavigator from './src/navigation/ShopNavigator';
 
 const rootReducer = combineReducers({ 
   products: productsReducer,
   cart: cartReducer,
-  orders: ordersReducer
+  orders: ordersReducer,
+  mealReducer:mealReducer
 });
 
 const store = createStore(rootReducer);

@@ -1,5 +1,6 @@
 import React from 'react';
-import { CATEGORIES, MEALS } from '../data/dummy-data';
+import { CATEGORIES} from '../data/dummy-data';
+import { useSelector, useDispatch } from 'react-redux';
 import MealList from '../components/MealList';
 import DesiMealList from '../components/DesiMealList';
 
@@ -9,23 +10,24 @@ import DesiMealList from '../components/DesiMealList';
 const CategoryMealScreen = props => {
     
   const catId = props.navigation.getParam('categoryId');
-
-  const displayedMeals = MEALS.filter(
+const availableMeals=useSelector(state=>state.mealReducer.meals);
+  const displayedMeals =availableMeals.filter(
     meal => meal.categoryIds.indexOf(catId) >= 0
   );
-  // const offerMeals= MEALS.filter(
-  //   meal => meal.offerId.indexOf(displayedMeals) >= 0
-  // );
-// console.log("cat Meals");
-// console.log(displayedMeals);
-// console.log(displayedMeals.price)
-//console.log(displayedMeals.offerId)
-
-  return (
-  <MealList listData={displayedMeals} navigation={props.navigation} />
-  //<DesiMealList listData={displayedMeals} navigation={props.navigation} />
   
-  )
+ 
+
+//console.log(displayedMeals);
+// console.log(displayedMeals.price)
+//console.log(offerMeals)
+
+    
+      return <MealList listData={displayedMeals} navigation={props.navigation} />
+    
+    // if(catId==='c2')
+    // {
+    //   return <DesiMealList listData={displayedMeals} navigation={props.navigation} />;
+    // }
 
 
 };

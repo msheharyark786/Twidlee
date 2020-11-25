@@ -10,7 +10,7 @@ import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
-import SecondTopScreen from '../screens/SecondTopScreen';
+import SecondTopScreen from './SecondTopScreen';
 import DineScreen from '../screens/DineScreen';
 import HeaderButton from '../components/HeaderButton'; 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';

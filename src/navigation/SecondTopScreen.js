@@ -29,13 +29,13 @@ import MealDetailScreen from '../screens/MealDetailScreen';
 import DineScreen from '../screens/DineScreen';
 import Colors from '../constants/Colors';
 import TandoorScreen from '../screens/TandoorScreen';
-import ChineseScreen from './ChineseScreen';
+import ChineseScreen from '../screens/ChineseScreen';
 import DealScreen from '../screens/DealScreen';
-import DesiScreen from './DesiScreen';
+import DesiScreen from '../screens/DesiScreen';
 import BbqScreen from '../screens/BbqScreen';
 import HeaderIamge from '../components/HeaderImage';
 import PaymentScreen from '../screens/PaymentScreen'
-import HeaderImageScreen from './HeaderImageScreen';
+import HeaderImageScreen from '../screens/HeaderImageScreen';
 
 
 
@@ -103,7 +103,13 @@ import HeaderImageScreen from './HeaderImageScreen';
                   headerShown: false,
                 },
           },
-          MealDetail: MealDetailScreen,
+          MealDetail:{
+            screen:MealDetailScreen,
+            // navigationOptions: {
+            //   title: '',
+            //   headerShown: false,
+            // },
+          } ,
           PaymentScreen: {
             screen:PaymentScreen,
             navigationOptions: {

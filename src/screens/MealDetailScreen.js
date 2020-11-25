@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   ScrollView,
   View,
@@ -13,13 +13,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as cartActions from '../store/actions/cart';
 // import * as cartActions from '../store/actions/cart';
 
-import { MEALS } from '../data/dummy-data';
+//import { useSelector, useDispatch } from 'react-redux';
 import ShoppingCartIcon from '../components/ShoppingCartIcon';
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
 import My_Button from '../components/MyButtonAndroid';
+import Category from '../models/category';
 
-
+var selectedCategory=[''];
 
 
 const ListItem = props => {
@@ -30,21 +31,17 @@ const ListItem = props => {
     </View>
   );
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//       addItemToCart: (product) => dispatch({ type: 'ADD_TO_CART', payload: product })
-//   }
-// }
+
 const MealDetailScreen = props => {
   const dispatch = useDispatch();
-  // const productId = props.navigation.getParam('productId');
-  // const selectedProduct = MEALS.find(meal => meal.id === mealId);
+  const availableMeals=useSelector(state=>state.mealReducer.meals);
   const mealId = props.navigation.getParam('mealId');
-  const selectedMeal = MEALS.find(meal => meal.id === mealId);
-  const mealsidd=selectedMeal.id;
-  var count=0;
-  //const dispatch = useDispatch();
-  
+  const selectedMeal = availableMeals.find(meal => meal.id === mealId);
+  useEffect(()=>{
+    props.navigation.setParams({mealTitle:selectedMeal.title});
+  }, [selectedMeal]
+  );
+  var activeCat=[''];
   return (
     <ScrollView>
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
@@ -63,9 +60,30 @@ const MealDetailScreen = props => {
                 style={styles.button}
                 activeOpacity={0.5}
                 onPress={() => {
-                  ///count++,
-                  //console.log(count);
-                  dispatch(cartActions.addToCart(selectedMeal));
+                  
+                  if((activeCat==''))
+                  {
+                    dispatch(cartActions.addToCart(selectedMeal));
+                    activeCat=selectedMeal.categoryIds;
+                  }
+                  if((selectedMeal.categoryIds==activeCat)){
+                    dispatch(cartActions.addToCart(selectedMeal));
+                    //activeCat=selectedMeal.categoryIds;
+                    //selectedCategory=selectedMeal.categoryIds;
+                    //console.log(selectedCategory);
+                  }
+                  console.log(activeCat)
+                  // else if((selectedCategory!==null)&&(selectedCategory===activeCat))
+                  // {
+                  //   dispatch(cartActions.addToCart(selectedMeal));
+                  // }
+                  if((selectedMeal.categoryIds!==activeCat)) 
+                  {
+                    alert("Your previous cart will be cleared if you proceed with this restaurant.")
+                  }
+                  
+                  
+
                         // <View style={styles.container}>
                         //     <Products products={selectedMeal} onPress={selectedMeal.addItemToCart} />
                         // </View>
@@ -82,9 +100,10 @@ const MealDetailScreen = props => {
 
 MealDetailScreen.navigationOptions = navigationData => {
   const mealId = navigationData.navigation.getParam('mealId');
-  const selectedMeal = MEALS.find(meal => meal.id === mealId);
+  const mealTitle=navigationData.navigation.getParam('mealTitle');
+  
   return {
-    headerTitle: selectedMeal.title,
+    headerTitle: mealTitle,
     headerRight:()=> (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
