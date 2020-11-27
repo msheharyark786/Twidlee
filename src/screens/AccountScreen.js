@@ -40,7 +40,7 @@ function AccountScreen(props) {
   var email= "haseebsheikh0066@gmail.com";
   var phone = '3130441113';
 
-  console.log("defult",nameEdit, phoneEdit, emailEdit)
+  //console.log("defult",nameEdit, phoneEdit, emailEdit)
 
   // if((nameEdit!=null)&&(phoneEdit!=null)&&(emailEdit!=null)){
 
@@ -64,7 +64,7 @@ function AccountScreen(props) {
 
   // }
   
- console.log("updated",name, phone, email)
+ //console.log("updated",name, phone, email)
   
 
 

@@ -6,7 +6,8 @@ import MealDetailScreen from './MealDetailScreen';
 import Colors from '../constants/Colors';
 import { RadioButton } from 'react-native-paper';
 import My_Buttons from '../components/MyButtonAndroid';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux'
 
 //import { Bbq_MEALS } from '../data/Bbq_Data';
 //import { Chinese_MEALS } from '../data/Chinese_Data';
@@ -17,13 +18,39 @@ import { MEALS } from '../data/dummy-data';
 const PaymentScreen = (props) =>{
     
    const mealId = props.navigation.getParam('mealId');
+   //const id=mealId.price;
+   //console.log('id   ', id);
+//    const availableMeals=useSelector(state=>state.mealReducer.meals);
+//    const selectedMeal = availableMeals.find(meal => meal.id === id);
+   //console.log(mealId,'    mealId')
+   const favMeals = useSelector(state => state.mealReducer. meals);
+   const totalAmount = props.navigation.getParam('totalAmount');
+    const dealSelectedMeal = MEALS.find(meal => meal.id === mealId);
 
-   
-   //const tandoorSelectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId); 
-  // const chineseSelectedMeal = Chinese_MEALS.find(meal => meal.id === mealId);
-   //const desiSelectedMeal =  Desi_MEALS.find(meal => meal.id === mealId); 
-   //const bbqSelectedMeal =  Bbq_MEALS.find(meal => meal.id === mealId);
-   const dealSelectedMeal = MEALS.find(meal => meal.id === mealId);
+  const availableMeals=useSelector(state=>state.cart.items);
+  console.log(availableMeals,'    mealId')
+
+  
+
+//   const cartItems = useSelector(state => {
+//     const transformedCartItems = [];
+//     for (const key in state.cart.items) {
+//       transformedCartItems.push({
+//         mealId: key,
+//         //id:items[key],
+//         title: state.cart.items[key].title,
+//         price: state.cart.items[key].price,
+//         quantity: state.cart.items[key].quantity,
+//         sum: state.cart.items[key].sum
+//       });
+//     }
+//     return transformedCartItems.sort((a, b) =>
+//       a.mealId > b.mealId ? 1 : -1
+//     );
+    
+//   }
+//   );
+
 
     if(dealSelectedMeal!=null)
     {
@@ -32,30 +59,7 @@ const PaymentScreen = (props) =>{
         var selectedImage =  dealSelectedMeal.imageUrl;
         //console.log(dealSelectedMeal.price,dealSelectedMeal.imageUrl)
     }
-    // else if(tandoorSelectedMeal!=null)
-    // {
-    //     var selectedPrice = tandoorSelectedMeal.price;
-    //     var selectedImage = tandoorSelectedMeal.imageUrl;
-    //     //console.log(tandoorSelectedMeal.price, tandoorSelectedMeal.imageUrl)
-    // }
-    // else if(chineseSelectedMeal!=null)
-    // {
-    //     var selectedPrice = chineseSelectedMeal.price;
-    //     var selectedImage = chineseSelectedMeal.imageUrl;
-    //     //console.log(chineseSelectedMeal.price, chineseSelectedMeal.imageUrl)
-    // }
-    // else if( desiSelectedMeal!=null)
-    // {
-    //     var selectedPrice =  desiSelectedMeal.price;
-    //     var selectedImage =  desiSelectedMeal.imageUrl;
-    //     //console.log(desiSelectedMeal.price, desiSelectedMeal.imageUrl)
-    // }
-    // else if(bbqSelectedMeal!=null)
-    // {
-    //     var selectedPrice = bbqSelectedMeal.price;
-    //     var selectedImage = bbqSelectedMeal.imageUrl;
-    //     //console.log(bbqSelectedMeal.price, bbqSelectedMeal.imageUrl)
-    // }
+    
 
 
     const MyIcon1 = <Icon name="minus" size={18} color="#EE0202" solid />;
@@ -66,13 +70,13 @@ const PaymentScreen = (props) =>{
     
 
     const [count, setCount] = useState(1);
-    const [payment, setPayment] = useState(selectedPrice);
+    const [payment, setPayment] = useState(totalAmount);
     const [checked, setChecked] = useState('second');
 
     const plusHandler=()=>{
 
          setCount(count + 1)
-         const p= selectedPrice + payment;
+         const p= totalAmount + payment;
          setPayment(p);
     }
 
@@ -83,19 +87,23 @@ const PaymentScreen = (props) =>{
         else{
             setCount(count - 1)
         } 
-        const p=  payment - selectedPrice ;
+        const p=  payment - totalAmount ;
         setPayment(p);
     }
 
     const Delivery=()=>{
-         var p= payment/10;
-         return p;
+         var d= totalAmount/10;
+         return d;
     }
 
     const gst=()=>{
-        var p= payment/16;
-        return p;
+        var g= totalAmount/16;
+        return g;
    }
+
+   var gstfee= gst();
+   var deleveryFee= Delivery();
+   const finalBill= totalAmount + gstfee + deleveryFee ;
 
    const SendData =() =>{
 
@@ -122,8 +130,8 @@ const PaymentScreen = (props) =>{
 
     props.navigation.navigate({ routeName: ('Reservation'),
     params: {
-      mealId: data,
-      totalAmount: payment
+      mealId: availableMeals,
+      totalAmount: finalBill
      }});
     
     }
@@ -132,28 +140,17 @@ const PaymentScreen = (props) =>{
         
         <ScrollView>
         <View style={styles.container}>
-            <View style={styles.imageContainer}>
-             <Image source={{ uri: selectedImage }} style={styles.image} />
+            {/* <View style={styles.imageContainer}>
+             <Image source={{ uri: selectedImage }} style={styles.image} /> */}
 
-                <View style={styles.dealPlusMinus}>  
-                    <TouchableOpacity
-                    activeOpacity={0.7}
-                    onPress={() => {plusHandler()} }><Text> {MyIcon2}</Text></TouchableOpacity> 
-
-                    <Text style={styles.counterCountainer}> {count} </Text> 
-        
-                    <TouchableOpacity
-                    activeOpacity={0.7}
-                    onPress={() => {minusHandler()} }><Text> {MyIcon1}</Text></TouchableOpacity> 
-                    <Text style={styles.PaymentStyle}>Rs.{payment}/-</Text>
-                </View>
-            </View>
+                
+            {/* </View> */}
         
             <View style={styles.paymentDetails}>
 
                 <View style={styles.paymentDetailsContainer}>
-                <Text style={styles.paymentDetailsText}>Subtotal</Text>
-                <Text style={{paddingLeft:175,color:"#757575",}}>Rs.{payment}</Text>
+                <Text style={styles.paymentDetailsText}>Total</Text>
+                <Text style={{paddingLeft:196,color:"#757575",}}>Rs.{totalAmount}</Text>
                 </View>
 
                 <View style={styles.paymentDetailsContainer}>
@@ -169,14 +166,27 @@ const PaymentScreen = (props) =>{
 
                 <View style={styles.paymentDetailsContainer}>
                 <Text style={styles.paymentDetailsText}>Discount</Text>
-                <Text style={{paddingLeft:174,color:"#757575",}}>Rs.0</Text>
+                <Text style={{paddingLeft:174,color:"#757575",}}>0%</Text>
                 </View>
 
             </View>
 
+            <View style={styles.dealPlusMinus}>  
+                <Text style={styles.Total}>Total Amount :</Text>
+                    {/* <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => {plusHandler()} }><Text> {MyIcon2}</Text></TouchableOpacity> 
+
+                    <Text style={styles.counterCountainer}> {count} </Text> 
+        
+                    <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => {minusHandler()} }><Text> {MyIcon1}</Text></TouchableOpacity>  */}
+                    <Text style={styles.PaymentStyle}>Rs: {finalBill}/-</Text>
+                </View>
 
             <View style={styles.optionsContainer}>
-                <Text style={{paddingTop:5, color:"#424242", fontWeight:'bold', fontSize:16 }}>Payment Method</Text>
+                <Text style={{padding:5, color:"#424242", fontWeight:'bold', fontSize:16 }}>Payment Method</Text>
 
                 <View style={styles.radioButtonContainer}>
                 <RadioButton
@@ -248,6 +258,11 @@ const styles=StyleSheet.create({
         flex:1,
         alignContent:'center',
         backgroundColor:'#EEEEEE',
+        marginTop:20
+    },
+
+    bill:{
+        margin:10,
     },
 
     imageContainer:{
@@ -265,16 +280,21 @@ const styles=StyleSheet.create({
     },
 
     dealPlusMinus:{
-      width: '100%',
-      paddingLeft:10,
+        marginTop:20,
+        marginLeft:15,
+        //marginRight:15,
+      width: '92%',
+      //paddingLeft:10,
       padding:10,
       paddingTop:10,
       flexDirection:'row',
       borderColor: '#ffffff',
-      borderWidth: 1.5,
+      borderWidth: 1,
+      borderColor: "#EE0202",
       backgroundColor: '#ffffff' , 
-      borderBottomLeftRadius:10,
-      borderBottomRightRadius:10,
+    //   borderBottomLeftRadius:10,
+    //   borderBottomRightRadius:10,
+    borderRadius: 10,
     },
 
     counterCountainer:{
@@ -285,14 +305,20 @@ const styles=StyleSheet.create({
     },
 
     PaymentStyle:{
-        fontSize:20,
+        fontSize:18,
         fontWeight:'bold',
-        paddingLeft:140,
+        paddingLeft:65,
+        marginLeft:10
     
     },
 
+    Total:{
+        fontSize:16,
+        fontWeight:'bold',
+    },
+
     optionsContainer:{
-        marginTop:12,
+        marginTop:18,
         //marginRight:10,
         paddingTop:2,
         borderColor:"#EE0202",
@@ -324,7 +350,8 @@ const styles=StyleSheet.create({
 
     paymentDetailsText:{
         marginTop:2,
-        color:"#757575",  
+        //color:"#757575",
+        color:'black'  
     },
 
     image: {
@@ -353,9 +380,9 @@ const styles=StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal:10,
-        width:'70%',
+        width:'50%',
         height:40,
-        backgroundColor: '#FF5722',
+        backgroundColor: "#EE0202",
         borderRadius:25,
       },
     
@@ -366,7 +393,11 @@ const styles=StyleSheet.create({
       }
 })
 
-export default PaymentScreen;
+const mapStateToProps = (state) => {
+    return {
+      selectedMeal: state
+    }
+  }
 
-
-
+//export default PaymentScreen;
+export default connect(mapStateToProps)(PaymentScreen);

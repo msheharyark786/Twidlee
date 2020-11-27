@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useCallback } from 'react';
 import {
   ScrollView,
   View,
@@ -6,11 +6,13 @@ import {
   Text,
   Button,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  ImageBackground
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
 import * as cartActions from '../store/actions/cart';
+import { toggleFavorite } from '../store/actions/meals';
 // import * as cartActions from '../store/actions/cart';
 
 //import { useSelector, useDispatch } from 'react-redux';
@@ -37,14 +39,48 @@ const MealDetailScreen = props => {
   const availableMeals=useSelector(state=>state.mealReducer.meals);
   const mealId = props.navigation.getParam('mealId');
   const selectedMeal = availableMeals.find(meal => meal.id === mealId);
+
+  const currentMealIsFavorite = useSelector(state =>
+    state.mealReducer.favoriteMeals.some(meal => meal.id === mealId)
+  );
+
+  useEffect(() => {
+    props.navigation.setParams({ isFav: currentMealIsFavorite });
+  }, [currentMealIsFavorite]);
+
   useEffect(()=>{
     props.navigation.setParams({mealTitle:selectedMeal.title});
   }, [selectedMeal]
   );
   var activeCat=[''];
+
+  const toggleFavoriteHandler = useCallback(() => {
+    dispatch(toggleFavorite(mealId));
+  }, [dispatch, mealId]);
+
+  useEffect(() => {
+    // props.navigation.setParams({ mealTitle: selectedMeal.title });
+    props.navigation.setParams({toggleFav: toggleFavoriteHandler});
+  }, [toggleFavoriteHandler]);
+
+
   return (
     <ScrollView>
-      <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
+      <ImageBackground
+              source={{ uri: selectedMeal.imageUrl }}
+              style={styles.image}
+            >
+              {/* <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Favorite"
+          iconName="ios-star"
+          onPress={() => {
+            dispatch();
+          }}
+        />
+      </HeaderButtons> */}
+            </ImageBackground> 
+      {/* <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} /> */}
       <View style={styles.details}>
         <DefaultText>{selectedMeal.persons}</DefaultText>
         <DefaultText>Rs.{selectedMeal.price}/-</DefaultText>
@@ -61,26 +97,26 @@ const MealDetailScreen = props => {
                 activeOpacity={0.5}
                 onPress={() => {
                   
-                  if((activeCat==''))
-                  {
-                    dispatch(cartActions.addToCart(selectedMeal));
-                    activeCat=selectedMeal.categoryIds;
-                  }
-                  if((selectedMeal.categoryIds==activeCat)){
-                    dispatch(cartActions.addToCart(selectedMeal));
-                    //activeCat=selectedMeal.categoryIds;
-                    //selectedCategory=selectedMeal.categoryIds;
-                    //console.log(selectedCategory);
-                  }
-                  console.log(activeCat)
-                  // else if((selectedCategory!==null)&&(selectedCategory===activeCat))
+                  // if((activeCat==''))
                   // {
-                  //   dispatch(cartActions.addToCart(selectedMeal));
+                    dispatch(cartActions.addToCart(selectedMeal));
+                  //   activeCat=selectedMeal.categoryIds;
                   // }
-                  if((selectedMeal.categoryIds!==activeCat)) 
-                  {
-                    alert("Your previous cart will be cleared if you proceed with this restaurant.")
-                  }
+                  // if((selectedMeal.categoryIds==activeCat)){
+                  //   dispatch(cartActions.addToCart(selectedMeal));
+                  //   //activeCat=selectedMeal.categoryIds;
+                  //   //selectedCategory=selectedMeal.categoryIds;
+                  //   //console.log(selectedCategory);
+                  // }
+                  // console.log(activeCat)
+                  // // else if((selectedCategory!==null)&&(selectedCategory===activeCat))
+                  // // {
+                  // //   dispatch(cartActions.addToCart(selectedMeal));
+                  // // }
+                  // if((selectedMeal.categoryIds!==activeCat)) 
+                  // {
+                  //   alert("Your previous cart will be cleared if you proceed with this restaurant.")
+                  // }
                   
                   
 
@@ -99,8 +135,10 @@ const MealDetailScreen = props => {
 };
 
 MealDetailScreen.navigationOptions = navigationData => {
-  const mealId = navigationData.navigation.getParam('mealId');
+  //const mealId = navigationData.navigation.getParam('mealId');
   const mealTitle=navigationData.navigation.getParam('mealTitle');
+  const toggleFavorite = navigationData.navigation.getParam('toggleFav');
+  const isFavorite = navigationData.navigation.getParam('isFav');
   
   return {
     headerTitle: mealTitle,
@@ -108,10 +146,8 @@ MealDetailScreen.navigationOptions = navigationData => {
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
           title="Favorite"
-          iconName="ios-star"
-          onPress={() => {
-            console.log('Mark as favorite!');
-          }}
+          iconName={isFavorite ? 'heart' : 'heart-outline'}
+          onPress={toggleFavorite}
         />
       </HeaderButtons>
     )

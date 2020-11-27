@@ -17,7 +17,7 @@ import {
   import CategoriesScreen from '../screens/CategoriesScreen';
   import {createDrawerNavigator} from 'react-navigation-drawer'
   import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
-  import SecondTopScreen from '../screens/SecondTopScreen';
+  import SecondTopScreen from './SecondTopScreen';
   import AboutUsScreen from '../screens/AboutUsScreen';
   import ReviewsScreen from '../screens/ReviewsScreen';
   import Colors from '../constants/Colors';

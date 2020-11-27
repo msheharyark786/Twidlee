@@ -75,7 +75,13 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
                   headerShown: false,
                 },
             },
-            MealDetail: MealDetailScreen,
+            MealDetail:{
+              screen:MealDetailScreen,
+              navigationOptions: {
+                title: '',
+                headerShown: true,
+              },
+            },
            // Products:Products,
             // PaymentScreen: {
             //   screen:PaymentScreen,
@@ -105,18 +111,12 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
           },
           MealDetail:{
             screen:MealDetailScreen,
-            // navigationOptions: {
-            //   title: '',
-            //   headerShown: false,
-            // },
-          } ,
-          PaymentScreen: {
-            screen:PaymentScreen,
             navigationOptions: {
               title: '',
-              headerShown: false,
+              headerShown: true,
             },
-          }
+          },
+          
             
           
           //MealDetail: MealDetailScreen
@@ -136,14 +136,14 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
               headerShown: false,
             },
           },
-          MealDetail: MealDetailScreen,
-          PaymentScreen: {
-            screen:PaymentScreen,
+          MealDetail:{
+            screen:MealDetailScreen,
             navigationOptions: {
               title: '',
-              headerShown: false,
+              headerShown: true,
             },
-          }
+          },
+         
           
         },
         {
@@ -160,14 +160,14 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
                 headerShown: false,
               },
             },
-            MealDetail: MealDetailScreen,
-            PaymentScreen: {
-              screen:PaymentScreen,
+            MealDetail:{
+              screen:MealDetailScreen,
               navigationOptions: {
                 title: '',
-                headerShown: false,
+                headerShown: true,
               },
-            }
+            },
+           
           
         },
         {
@@ -184,15 +184,14 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
                 headerShown: false,
               },
             },
-            MealDetail: MealDetailScreen,
-            PaymentScreen: {
-              screen:PaymentScreen,
+            MealDetail:{
+              screen:MealDetailScreen,
               navigationOptions: {
                 title: '',
-                headerShown: false,
+                headerShown: true,
               },
-            }
-          
+            },
+            
         },
         {
           //initialRouteName: 'Deal',

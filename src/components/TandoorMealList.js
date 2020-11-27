@@ -1,23 +1,29 @@
 import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
-
+import { useSelector } from 'react-redux';
 
 import MealItem from './MealItem';
 const TandoorMealList = props => {
+  const favoriteMeals = useSelector(state => state.mealReducer.favoriteMeals);
   const renderMealItem = itemData => {
-    if(itemData.item.type==='Tandoor'){
+    const isFavorite = favoriteMeals.some(meal => meal.id === itemData.item.id);
+    //console.log(item.item.offerId);
+    if(itemData.item.type==="Tandoor"){
     return (
       <MealItem
         title={itemData.item.title} 
         image={itemData.item.imageUrl}
         price={itemData.item.price}
         persons={itemData.item.persons}
+        //offerId={itemData.item.offerId}
         
         onSelectMeal={() => {
           props.navigation.navigate({
             routeName: 'MealDetail',
-            params: { 
-              mealId: itemData.item.id
+            params: {
+              mealId: itemData.item.id,
+              mealTitle: itemData.item.title,
+              isFav: isFavorite
             }
           });
         }}

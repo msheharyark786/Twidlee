@@ -21,7 +21,7 @@ export const MEALS = [
     'Deals',
     'Deal 1',
     'For 3 Persons',
-    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118653547_205409600919035_5084380285642382220_o.jpg?_nc_cat=106&ccb=2&_nc_sid=8bfeb9&_nc_ohc=xfl-KLVwU6kAX-1cvhK&_nc_ht=scontent.flhe15-1.fna&oh=53a860ee9238cc39ecee890a1b9719f3&oe=5FBD120F',
+    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/118653547_205409600919035_5084380285642382220_o.jpg?_nc_cat=106&ccb=2&_nc_sid=8bfeb9&_nc_eui2=AeHYYNnOclPF8YY3a9q6CTk5FUt-6Hnnvh4VS37oeee-Hhvs_I5sNrj53633otdUz-TnBZ5ZZ6S5fDEWxx9t59k-&_nc_ohc=FV6xTmY4A10AX8rCsRt&_nc_ht=scontent.flhe15-1.fna&oh=32ece3900c06704b0069a1c0c49a52ad&oe=5FE49F0F',
     499,
     [
       'Chicken Kabab 4 pc',
@@ -386,7 +386,7 @@ export const MEALS = [
     'Pakistani',
     'Chicken Handi',
     'Half KG',
-    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/117643939_202446297882032_4221326379336286783_o.jpg?_nc_cat=106&ccb=2&_nc_sid=9267fe&_nc_ohc=TARRcpLO2ZoAX-Ke7nu&_nc_ht=scontent.flhe15-1.fna&oh=91adeb2953899b72cb08b5b8441a536c&oe=5FBC6790',
+    'https://scontent.flhe15-1.fna.fbcdn.net/v/t1.0-9/117643939_202446297882032_4221326379336286783_o.jpg?_nc_cat=106&ccb=2&_nc_sid=9267fe&_nc_eui2=AeElLJArEI_rVhiDVk1wTR5LlUFYU3xFT0yVQVhTfEVPTO6zv9XDRqUwtNW6vKix_c-4frs0Zj2usKFM7nc9p7ei&_nc_ohc=U0uocgr4a_IAX8i_tgo&_nc_ht=scontent.flhe15-1.fna&oh=f11f8695e15551d680cedd01cd0feca3&oe=5FE3F490',
     400,
     [
       'Chicken Handi without bone',

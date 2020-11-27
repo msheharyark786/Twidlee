@@ -23,7 +23,7 @@ import {
   import {createStackNavigator, Header} from 'react-navigation-stack';
   import {createDrawerNavigator} from 'react-navigation-drawer'
   import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
-  import SecondTopScreen from '../screens/SecondTopScreen';
+  import SecondTopScreen from '../navigation/SecondTopScreen';
   
   import AboutUsScreen from '../screens/AboutUsScreen';
   import ReviewsScreen from '../screens/ReviewsScreen';

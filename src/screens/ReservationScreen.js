@@ -156,7 +156,7 @@ function ReservationScreen(props) {
 
   const mealId = props.navigation.getParam('mealId');
   const totalAmount = props.navigation.getParam('totalAmount');
-  console.log("Done!  ",totalAmount);
+  //console.log("Done!  ",totalAmount);
 
   
   if(mealId!=null){
@@ -165,8 +165,8 @@ function ReservationScreen(props) {
         <View style={styles.imageContainer}>
           <Image source={{ uri:  mealId.imageUrl }} style={styles.image} />
         <View style={styles.optionsContainer}>
-          <Text style={{paddingTop:5, color:"#424242", fontWeight:'bold', fontSize:18 }}>Total Amount (Inc tax)  =</Text>
-          <Text style={{paddingTop:5, fontWeight:'bold', paddingLeft:20, fontSize:19, color:"#757575",}}>Rs.{totalAmount}/-</Text>
+          <Text style={{paddingTop:5, color:"#424242", fontWeight:'bold', fontSize:14 }}>Total Amount (Inc tax)  =</Text>
+          <Text style={{paddingTop:5, fontWeight:'bold', paddingLeft:20, fontSize:16, color:"#757575",}}>Rs.{totalAmount}/-</Text>
         </View> 
         </View> 
       </View>

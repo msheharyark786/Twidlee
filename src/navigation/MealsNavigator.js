@@ -178,6 +178,7 @@ const FirstNavigator = createStackNavigator(
 
     },
     Cart:CartScreen,
+    PaymentScreen:PaymentScreen
     // SecondTop:{
     //   navigationOptions: {
     //     title: '',
