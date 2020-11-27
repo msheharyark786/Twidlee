@@ -3,17 +3,16 @@ import {
   StyleSheet,
   View,
   Text,
-  
   TouchableOpacity,
   Button,
   TextInput,
-  
   KeyboardAvoidingView,
+  Animated
 } from 'react-native';
 import {useState} from 'react';
 import PassMeter from "react-native-passmeter";
-
-
+import { useEffect } from 'react';
+import { LogBox } from 'react-native';
 
 
 
@@ -22,6 +21,16 @@ function ChangePasswordScreen(props) {
   const MAX_LEN = 12,
   MIN_LEN = 6,
   PASS_LABELS = ["Too Short", "Weak", "Normal", "Strong", "Secure"];
+
+  // Animated.timing(this.state.animatedValue, {
+  //   toValue: 1,
+  //   duration: 500,
+  //   useNativeDriver: true, // <-- Add this
+  //   }).start();
+
+    useEffect(() => {
+      LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
+      }, [])
 
     const [password, setPassword] = useState('');
     const [newpassword, setnewPassword] = useState('');
