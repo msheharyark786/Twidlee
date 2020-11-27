@@ -308,7 +308,7 @@ const styles=StyleSheet.create({
         fontSize:18,
         fontWeight:'bold',
         paddingLeft:65,
-        marginLeft:10
+        //marginLeft:10
     
     },
 

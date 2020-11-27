@@ -10,9 +10,7 @@ import * as ordersActions from '../store/actions/orders';
 import ShoppingCartIcon from '../components/ShoppingCartIcon';
 import { connect } from 'react-redux'
 
-const CartScreen = props => {
-
-  
+const CartScreen = props => {  
   // const Id = useSelector(state => state.meals );
   // const selectedMeal = availableMeals.find(meal => meal.id === Id);
   // console.log(mealId,"  mealID  ", selectedMeal , "   selected  ")
@@ -55,22 +53,27 @@ const CartScreen = props => {
           </Text>
         </Text>
 
+        
         {/* <Button
-          color={Colors.IconColor}
-          borderRadius='15'
+          color={Colors.accent}
           title="Order Now"
           disabled={cartItems.length === 0}
-          
-          /> */}
+          onPress={() => {
+            dispatch(ordersActions.addOrder(cartItems, cartTotalAmount));
+            
+          }}
+        /> */}
 
           <TouchableOpacity
-            disabled={cartItems.length === 0}
+            
             style={styles.orderNow}
+           disabled={cartItems.length === 0}
+            color="white"
             onPress={() => {
               //dispatch(ordersActions.addOrder(cartItems, cartTotalAmount));
               props.navigation.navigate({ routeName: ('PaymentScreen'),
               params: {
-                mealId: mealId,
+                mealId: cartItems,
                 totalAmount: cartTotalAmount
                }
               });        
@@ -93,12 +96,6 @@ const CartScreen = props => {
             onRemove={() => {
               dispatch(cartActions.removeFromCart(itemData.item.mealId));
             }}
-
-            // addable
-            // onAddPress={() => {
-            //   dispatch(cartActions.addToCart(mealId));
-            // }}
-
           />
         )}
       />
