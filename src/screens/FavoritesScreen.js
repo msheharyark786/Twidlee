@@ -29,22 +29,33 @@ const FavoritesScreen = props => {
   }
   //console.log(idMeals);
   //return <MealList listData={favMeals} navigation={props.navigation} /> 
+  var IdMeal=0;
+  var IdDesi=0;
+  var IdBbq=0;
+  var IdChinese=0;
+  var IdTandoor=0;
   const renderMealItem = itemData => {
-    console.log(itemData.item.id)
-    if(itemData.item.type==='Deals'){
+    //console.log(itemData.item.id)
+    if(itemData.item.type==='Deals'&&( IdMeal===0||IdMeal==itemData.item.id)){
+      IdMeal=itemData.item.id;
+      console.log("IdMeal", IdMeal)
     return <MealList listData={favMeals} navigation={props.navigation} /> 
     }
     //console.log(itemData.item.type)
-    else if(itemData.item.type==='Pakistani'){
+    else if(itemData.item.type==='Pakistani'&&( IdDesi===0||IdDesi==itemData.item.id)){
+      IdDesi=itemData.item.id;
       return <DesiMealList listData={favMeals} navigation={props.navigation} />  
     }
-    else if(itemData.item.type==='Bbq'){
+    else if(itemData.item.type==='Bbq'&&( IdBbq===0||IdBbq==itemData.item.id)){
+      IdBbq==itemData.item.id;
       return <BbqMealList listData={favMeals} navigation={props.navigation} />  
     }
-    else if(itemData.item.type==='Chinese'){
+    else if(itemData.item.type==='Chinese'&&( IdChinese===0||IdChinese==itemData.item.id)){
+      IdChinese==itemData.item.id;
       return <ChineseMealList listData={favMeals} navigation={props.navigation} />  
     }
-    else if(itemData.item.type==='Tandoor'){
+    else if(itemData.item.type==='Tandoor'&&( IdTandoor===0||IdTandoor==itemData.item.id)){
+      IdTandoor==itemData.item.id;
       return <TandoorMealList listData={favMeals} navigation={props.navigation} />  
     }
       
