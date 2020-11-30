@@ -357,17 +357,17 @@ const TabNavigator = createBottomTabNavigator({
 //         }
 //       });
 
-const FiltersNavigator = createStackNavigator(
-  {
-    Filters: FiltersScreen
-  },
-  {
-    navigationOptions: {
-      drawerLabel: 'Filters!!!!'
-    },
-    defaultNavigationOptions: defaultNavOptions
-  }
-);
+// const FiltersNavigator = createStackNavigator(
+//   {
+//     Filters: FiltersScreen
+//   },
+//   {
+//     navigationOptions: {
+//       drawerLabel: 'Filters!!!!'
+//     },
+//     defaultNavigationOptions: defaultNavOptions
+//   }
+// );
 
 
 const MainNavigator = createDrawerNavigator(
@@ -401,15 +401,7 @@ const MainNavigator = createDrawerNavigator(
       },
       screen: TabNavigator
     },
-    Filters: {
-      navigationOptions: {
-        drawerLabel: 'Filter',
-        title: '',
-        headerShown: false,
-        headerMode: 'none'
-      },
-      screen: FiltersNavigator,
-    }
+   
     // 
     //Forms: Forms
 },

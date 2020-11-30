@@ -1,5 +1,6 @@
 import {MEALS, Meals} from '../../data/dummy-data';
 import { TOGGLE_FAVORITE } from '../actions/meals';
+import {CATEGORY_ID} from '../actions/meals';
 
 const initialState={
     meals:MEALS,
@@ -23,7 +24,12 @@ const mealReducer = (state = initialState, action) => {
           const meal = state.meals.find(meal => meal.id === action.mealId);
           return { ...state, favoriteMeals: state.favoriteMeals.concat(meal) };
         }
-        
+        case CATEGORY_ID:
+          const existingCat = state.favoriteMeals.findIndex(
+            meal => meal.categoryIds === action.categoryIds
+          )
+
+          
       default:
         return state;
     }

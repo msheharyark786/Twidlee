@@ -77,10 +77,10 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
             },
             MealDetail:{
               screen:MealDetailScreen,
-              navigationOptions: {
-                title: '',
-                headerShown: true,
-              },
+              // navigationOptions: {
+              //   title: '',
+              //   headerShown: true,
+              // },
             },
            // Products:Products,
             // PaymentScreen: {
@@ -111,10 +111,10 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
           },
           MealDetail:{
             screen:MealDetailScreen,
-            navigationOptions: {
-              title: '',
-              headerShown: true,
-            },
+            // navigationOptions: {
+            //   title: '',
+            //   headerShown: true,
+            // },
           },
           
             
@@ -138,10 +138,10 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
           },
           MealDetail:{
             screen:MealDetailScreen,
-            navigationOptions: {
-              title: '',
-              headerShown: true,
-            },
+            // navigationOptions: {
+            //   title: '',
+            //   headerShown: true,
+            // },
           },
          
           
@@ -162,10 +162,10 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
             },
             MealDetail:{
               screen:MealDetailScreen,
-              navigationOptions: {
-                title: '',
-                headerShown: true,
-              },
+              // navigationOptions: {
+              //   title: '',
+              //   headerShown: true,
+              // },
             },
            
           
@@ -186,10 +186,10 @@ import HeaderImageScreen from '../screens/HeaderImageScreen';
             },
             MealDetail:{
               screen:MealDetailScreen,
-              navigationOptions: {
-                title: '',
-                headerShown: true,
-              },
+              // navigationOptions: {
+              //   title: '',
+              //   headerShown: true,
+              // },
             },
             
         },

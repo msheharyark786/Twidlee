@@ -12,17 +12,14 @@ import {
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
 import * as cartActions from '../store/actions/cart';
-import { toggleFavorite } from '../store/actions/meals';
-// import * as cartActions from '../store/actions/cart';
+import * as mealsActions from '../store/actions/meals';
 
-//import { useSelector, useDispatch } from 'react-redux';
-import ShoppingCartIcon from '../components/ShoppingCartIcon';
+
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
-import My_Button from '../components/MyButtonAndroid';
-import Category from '../models/category';
 
-var selectedCategory=[''];
+
+
 
 
 const ListItem = props => {
@@ -39,29 +36,10 @@ const MealDetailScreen = props => {
   const availableMeals=useSelector(state=>state.mealReducer.meals);
   const mealId = props.navigation.getParam('mealId');
   const selectedMeal = availableMeals.find(meal => meal.id === mealId);
-
-  const currentMealIsFavorite = useSelector(state =>
+ 
+  const isFavorite = useSelector(state =>
     state.mealReducer.favoriteMeals.some(meal => meal.id === mealId)
   );
-
-  useEffect(() => {
-    props.navigation.setParams({ isFav: currentMealIsFavorite });
-  }, [currentMealIsFavorite]);
-
-  useEffect(()=>{
-    props.navigation.setParams({mealTitle:selectedMeal.title});
-  }, [selectedMeal]
-  );
-  var activeCat=[''];
-
-  const toggleFavoriteHandler = useCallback(() => {
-    dispatch(toggleFavorite(mealId));
-  }, [dispatch, mealId]);
-
-  useEffect(() => {
-    // props.navigation.setParams({ mealTitle: selectedMeal.title });
-    props.navigation.setParams({toggleFav: toggleFavoriteHandler});
-  }, [toggleFavoriteHandler]);
 
 
   return (
@@ -70,20 +48,19 @@ const MealDetailScreen = props => {
               source={{ uri: selectedMeal.imageUrl }}
               style={styles.image}
             >
-              {/* <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Favorite"
-          iconName="ios-star"
-          onPress={() => {
-            dispatch();
-          }}
-        />
-      </HeaderButtons> */}
+             
             </ImageBackground> 
       {/* <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} /> */}
       <View style={styles.details}>
         <DefaultText>{selectedMeal.persons}</DefaultText>
         <DefaultText>Rs.{selectedMeal.price}/-</DefaultText>
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Favorite"
+          iconName={isFavorite ? 'heart' : 'heart-outline'}
+          onPress={()=>{dispatch(mealsActions.toggleFavorite(mealId));}}
+        />
+      </HeaderButtons>
         
       </View>
       <Text style={styles.title}>Deal Detail</Text>
@@ -134,25 +111,25 @@ const MealDetailScreen = props => {
   );
 };
 
-MealDetailScreen.navigationOptions = navigationData => {
-  //const mealId = navigationData.navigation.getParam('mealId');
-  const mealTitle=navigationData.navigation.getParam('mealTitle');
-  const toggleFavorite = navigationData.navigation.getParam('toggleFav');
-  const isFavorite = navigationData.navigation.getParam('isFav');
+// MealDetailScreen.navigationOptions = navigationData => {
+//   //const mealId = navigationData.navigation.getParam('mealId');
+//   const mealTitle=navigationData.navigation.getParam('mealTitle');
+//   const toggleFavorite = navigationData.navigation.getParam('toggleFav');
+//   const isFavorite = navigationData.navigation.getParam('isFav');
   
-  return {
-    headerTitle: mealTitle,
-    headerRight:()=> (
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Favorite"
-          iconName={isFavorite ? 'heart' : 'heart-outline'}
-          onPress={toggleFavorite}
-        />
-      </HeaderButtons>
-    )
-  };
-};
+//   return {
+//     headerTitle: mealTitle,
+//     headerRight:()=> (
+//       <HeaderButtons HeaderButtonComponent={HeaderButton}>
+//         <Item
+//           title="Favorite"
+//           iconName={isFavorite ? 'heart' : 'heart-outline'}
+//           onPress={toggleFavorite}
+//         />
+//       </HeaderButtons>
+//     )
+//   };
+// };
 
 const styles = StyleSheet.create({
   image: {
