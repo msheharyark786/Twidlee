@@ -36,9 +36,9 @@ function AccountScreen(props) {
   const phoneEdit = props.navigation.getParam('p1');
   const emailEdit = props.navigation.getParam('e1');
 
-  var name= " Haseeb Sheikh";
-  var email= "haseebsheikh0066@gmail.com";
-  var phone = '3130441113';
+  var name= " M. Sheharyar Khan";
+  var email= "msheharyark786@gmail.com";
+  var phone = '3249472294';
 
   //console.log("defult",nameEdit, phoneEdit, emailEdit)
 
@@ -69,13 +69,14 @@ function AccountScreen(props) {
 
 
   return (
+    <ScrollView>
     <View style={styles.screen}>
 
         <View style={styles.header}>
           <View style={styles.container}>
              <Image
               style={styles.image}
-              source={require('../images/profile.jpeg')}
+              source={require('../images/profile.jpg')}
               />
             <Text style={styles.logotext}>
               {name}
@@ -95,7 +96,7 @@ function AccountScreen(props) {
         
         <View style={styles.footer}>
 
-          <ScrollView>
+          
           <View style={styles.line}>
               <TouchableOpacity style={styles.button}  onPress={() => {
               props.navigation.navigate({
@@ -199,31 +200,31 @@ function AccountScreen(props) {
       <Text style={styles.textDatas}>Logout</Text></TouchableOpacity>   
       </View>
     
-      </ScrollView>
+      
       </View>
       
 
 
     </View>
+    </ScrollView>
   )
 }
  
 AccountScreen.navigationOptions = navData => {
-    return {
-      headerTitle: 'Twidlee',
-     
-      headerLeft:()=> (
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title="Menu"
-            iconName="ios-menu"
-            onPress={() => {
-              navData.navigation.toggleDrawer();
-            }}
-          />
-        </HeaderButtons>
-      )
-    };
+  return {
+    headerTitle: 'Twidlee',
+    // headerLeft: () =>(
+    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item
+    //       title="Menu"
+    //       iconName="ios-menu"
+    //       onPress={() => {
+    //         navData.navigation.toggleDrawer();
+    //       }}
+    //     />
+    //   </HeaderButtons>
+    // )
+  };
   };
 
 

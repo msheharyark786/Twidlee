@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, StyleSheet, TouchableNativeFeedback, View, TouchableOpacity, Platform} from 'react-native';
+import Colors from '../constants/Colors';
 // import Colors from '../Constants/Colors';
 
 
@@ -25,7 +26,7 @@ function My_Buttons(props) {
 
 const styles=StyleSheet.create({
     button:{
-        backgroundColor: '#FF5722',
+        backgroundColor: Colors.accentColor,
         paddingVertical:12,
         paddingHorizontal:60,
         borderRadius:25,

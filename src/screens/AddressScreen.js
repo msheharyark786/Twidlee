@@ -10,7 +10,13 @@ function AddressScreen() {
         </View>
     )
 }
-
+AddressScreen.navigationOptions = navData => {
+    return {
+      headerTitle: 'Your Addresses',
+      headerLeft: ()=>null
+      
+    };
+  };
 const styles=StyleSheet.create({
     screen:{
       flex:1,

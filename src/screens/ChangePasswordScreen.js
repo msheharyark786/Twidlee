@@ -139,7 +139,12 @@ function ChangePasswordScreen(props) {
         </View>
     )
 }
-
+ChangePasswordScreen.navigationOptions = navData => {
+  return {
+    headerTitle: 'Change Your Password',
+    headerLeft: ()=>null
+  };
+};
 const styles = StyleSheet.create({
     container: {    
       padding: 20,

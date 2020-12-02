@@ -10,9 +10,9 @@ function TermConditionScreen() {
 
         <ScrollView>
         <View style={styles.screen}>
-            <Text style={styles.heading}>
+            {/* <Text style={styles.heading}>
             PRIVACY POLICY
-            </Text>
+            </Text> */}
             </View>
 
             <Text style={styles.smallHeading}>
@@ -48,18 +48,8 @@ function TermConditionScreen() {
 
 TermConditionScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'Terms & Conditions',
-      headerLeft: ()=>(
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title="Menu"
-            iconName="ios-menu"
-            onPress={() => {
-              navData.navigation.toggleDrawer();
-            }}
-          />
-        </HeaderButtons>
-      )
+      headerTitle: 'Privacy Policies',
+      headerLeft: ()=>null
     };
   };
 

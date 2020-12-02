@@ -9,14 +9,15 @@ import {
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import Colors from '../constants/Colors';
 import HeaderButton from '../components/HeaderButton'; 
-import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import ImageAnimationScreen from '../screens/ImageAnimationScreen';
 //import Pakistani from '../screens/PakistaniScreen';
 //import HeaderImage from '../components/HeaderImage';
 //import TandoorScreen from '../screens/TandoorScreen';
 const CategoriesScreen = props => {
+  const availableCategory=useSelector(state=>state.mealReducer.categoryId);
   const renderGridItem = itemData => {
     return (
       //<Header title="Caetory" />,
@@ -117,7 +118,7 @@ const CategoriesScreen = props => {
   return (
     <View style={styles.list}>
       <FlatList
-        data={CATEGORIES}
+        data={availableCategory}
         keyExtractor={(item, index) => item.id}
         renderItem={renderGridItem}
         style={{ width: '100%' }}

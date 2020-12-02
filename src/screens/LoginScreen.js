@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   View,
@@ -9,7 +9,8 @@ import {
   TextInput,
   Platform,
   Alert,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  ActivityIndicator,
 } from 'react-native';
 
 import Forms from '../components/Forms';
@@ -17,11 +18,20 @@ import Logos from '../components/Logos';
 import SignupScreen from './SignupScreen';
 import My_Buttons from '../components/MyButtonAndroid';
 import * as Animatable from 'react-native-animatable';
+//import { showLoader, hideLoader } from '../components/AppLoader';
+
 
 const LoginScreen = (props) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('xyz@gmail.com');
+  const [password, setPassword] = useState('12345');
+  const [state, setState] = useState(true);
 
+
+// showLoader = () => { this.setState({ showLoader:true }); };
+// hideLoader = () => { this.setState({ showLoader:false }); };
+
+
+  //setState({ spinner: false });
 
   const handleLogin=()=>{
     console.log("Handle Login")
@@ -31,10 +41,12 @@ const LoginScreen = (props) => {
     
       if((email== checkEmail ) && (password== checkPassword))
         {
+          //showLoader();
           console.log("If part")
           props.navigation.navigate({
             routeName:'Categories'
           })
+          //hideLoader();
         }
       
       else{
@@ -42,8 +54,8 @@ const LoginScreen = (props) => {
           alert("Please write correct email or password")
       }
 
-      setEmail("");  
-      setPassword("");
+      //setEmail("");  
+      //setPassword("");
       
     }
 
@@ -51,6 +63,16 @@ const LoginScreen = (props) => {
 
   return (
     <View style={styles.container}>
+
+    <View style={styles.spinnerv}>
+    {
+      state?
+      <ActivityIndicator size={100} /> :
+      <Text> loading... </Text>
+    }
+    </View>
+
+
       <View style={styles.header}>
         <Logos />
       </View>
@@ -61,6 +83,7 @@ const LoginScreen = (props) => {
           <TextInput
             style={styles.inputArea}
             underlineColorAndroid="rgba(0, 0, 0, 0)"
+            autoFocus={true}
             placeholder="Email"
             autoCapitalize="none"
             placeholderTextColor="#ffffff"
@@ -101,6 +124,7 @@ const LoginScreen = (props) => {
 
             <TouchableOpacity style={styles.signupButton}
              onPress={() => {
+               
               props.navigation.navigate({routeName: 'SignupScreen'});
             }}>
             <Text style={styles.buttonText}>SignUp</Text>
@@ -117,8 +141,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FF5722',
+    backgroundColor: '#EE0202',
   },
+
+spinner: {
+      //flex: 1,
+      position: 'absolute',
+      left:0,
+      right:0,
+      top: 0,
+      bottom: 0,
+      justifyContent: 'center',
+      alignItems: 'center',
+     // paddingTop: 30,
+      //backgroundColor: '#ecf0f1',
+      //padding: 8,
+    },
+
   signupContianer: {
     flexGrow: 1,
     justifyContent: 'center',
@@ -133,7 +172,7 @@ const styles = StyleSheet.create({
   },
   signupButton: {
     fontWeight: 'bold',
-    backgroundColor: '#FF5722',
+    backgroundColor: '#EE0202',
     fontSize: 20,
     width: 100,
     height: 30,
@@ -141,16 +180,17 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 2,
+    backgroundColor:'#EE0202',
     justifyContent: 'center',
     alignItems: 'center',
   },
 
   footer: {
     flex: 3,
-    backgroundColor: '#ffaf49',
+    backgroundColor: '#ffffff',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    paddingVertical: 40,
+    //paddingVertical: 10,
     paddingHorizontal: 60,
   },
   g_container: {
@@ -161,15 +201,16 @@ const styles = StyleSheet.create({
   inputArea: {
     marginVertical: 10,
     height: 40,
-    width: 200,
-    backgroundColor: 'rgba(255,255,255,0.3)',
+    width: 250,
+    backgroundColor: '#F2F1F3',
+
     borderRadius: 25,
     paddingHorizontal: 30,
   },
   button: {
     width: 100,
     height: 30,
-    backgroundColor: '#FF5722',
+    backgroundColor: '#EE0202',
     borderRadius: 25,
     marginVertical: 20,
   },

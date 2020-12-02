@@ -63,6 +63,8 @@ import ShoppingCartIcon from '../components/ShoppingCartIcon';
 import { withNavigation } from 'react-navigation'
 
 import { connect } from 'react-redux'
+import { color } from 'react-native-reanimated';
+import { useSelector, useDispatch } from 'react-redux';
 //import { Header } from 'react-native/Libraries/NewAppScreen';
 
 
@@ -101,14 +103,33 @@ import { connect } from 'react-redux'
 // };
 const defaultNavOptions = { 
   headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
+    backgroundColor: Platform.OS === 'android' ? Colors.orangeColor : ''
   },
   headerTitleStyle: {
-    fontWeight: 'bold'
+    alignSelf: 'center' ,
+    fontWeight: 'bold',
+    color:Colors.primaryColor,
+   
   },
+  // header:{
+    
+  //   left: <Text style={{color: "#3b5998"}}> BackBtn ,
+    
+  //   }
   headerBackTitleStyle: {
     fontFamily: 'open-sans'
   },
+  // headerLeft:() =>(
+  //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+  //     <Item
+  //       title="Menu"
+  //       iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+  //       onPress={() => {
+  //         navData.navigation.toggleDrawer();
+  //       }}
+  //     />
+  //   </HeaderButtons>
+  // ),
   headerTintColor: Platform.OS === 'android' ? Colors.themeColor : Colors.primary
 };
 
@@ -120,9 +141,16 @@ const FavNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-   // defaultNavigationOptions: defaultNavOptions
+   defaultNavigationOptions: defaultNavOptions
   }
 );
+const name=()=>{
+  const availableCategory=useSelector(state=>state.mealReducer.categoryId);
+
+  const selectedCategory = availableCategory.find(cat => cat.id === catId);
+  return selectedCategory.title;
+};
+
 
 const FirstNavigator = createStackNavigator(
   {
@@ -131,6 +159,12 @@ const FirstNavigator = createStackNavigator(
     First: {
       navigationOptions: (navData) = {
         headerTitle: 'Restaurants',
+       
+        
+        // headerStyle:()=>{
+        //   color:Colors.accentColor
+        // },
+        
     // headerLeft:() =>(
     //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
     //     <Item
@@ -169,7 +203,8 @@ const FirstNavigator = createStackNavigator(
     // },
     ThreeTopScreen:{
       navigationOptions: (navData) = {
-        headerTitle: 'Restaurant Menu',
+        headerTitle: "Restaurant Menu",
+        headerLeft:()=>null,
         headerRight:()=> (
           <ShoppingCartIcon />
         )
@@ -213,7 +248,7 @@ const ReserveNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    //defaultNavigationOptions: defaultStackNavOptions
+    defaultNavigationOptions: defaultNavOptions
   }
 );
 
@@ -224,14 +259,16 @@ const HisNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    //defaultNavigationOptions: defaultStackNavOptions
+    defaultNavigationOptions: defaultNavOptions
   }
 );
 
 const AccNavigator = createStackNavigator(
   {
     Account: AccountScreen,
-    ProfileScreen: ProfileScreen,
+    ProfileScreen: {
+      screen:ProfileScreen,
+    },
     AboutUs: AboutUsScreen,
     Address: AddressScreen,
     ChangePassword: ChangePasswordScreen,
@@ -242,7 +279,7 @@ const AccNavigator = createStackNavigator(
   },
   {
     // initialRouteName: 'Categories',
-    //defaultNavigationOptions: defaultStackNavOptions
+    defaultNavigationOptions:defaultNavOptions
   }
 );
 

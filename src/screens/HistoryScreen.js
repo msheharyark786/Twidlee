@@ -17,17 +17,17 @@ function HistoryScreen() {
 HistoryScreen.navigationOptions = navData => {
     return {
       headerTitle: 'History',
-      headerLeft: ()=>(
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title="Menu"
-            iconName="ios-menu"
-            onPress={() => {
-              navData.navigation.toggleDrawer();
-            }}
-          />
-        </HeaderButtons>
-      )
+      // headerLeft: ()=>(
+      //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      //     <Item
+      //       title="Menu"
+      //       iconName="ios-menu"
+      //       onPress={() => {
+      //         navData.navigation.toggleDrawer();
+      //       }}
+      //     />
+      //   </HeaderButtons>
+      // )
     };
   };
 

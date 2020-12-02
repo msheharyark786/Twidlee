@@ -7,9 +7,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
-    Image,
+  ImageBackground,
     TextInput,
     Platform,
+    Image,
   Button } from 'react-native';
 import Header from '../components/Header';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -24,6 +25,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import HeaderButton from '../components/HeaderButton';
 import Colors from '../constants/Colors';
 import PhoneInput from "react-native-phone-number-input";
+import * as Animatable from 'react-native-animatable';
 
 const ProfileScreen: React.FC = (props) => {
 
@@ -68,25 +70,37 @@ const ProfileScreen: React.FC = (props) => {
 
   return (
     <View style={styles.screen}>
-      
-        <Text style={styles.logotext}>
-          Profile
-        </Text>
 
         <ScrollView>
         <View style={styles.header}>
           
-              <View style={{flexDirection: 'row', marginTop:20}}>
-             <Image
-              style={styles.image}
-              source={require('../images/profile.jpeg')}
-              />
-            <TouchableOpacity  onPress={()=>{addPhoto()}} >
-              <Icon name="add-circle-outline"  size={30}
-              color={Colors.accentColor} />
-              </TouchableOpacity>
-            </View>
+              <View style={{ marginTop:20}}>
 
+             <ImageBackground
+               style={styles.image}
+               imageStyle={{ borderRadius: 65 , borderWidth:1,  }}
+              source={require('../images/profile.jpg')}>
+              
+              <View style={styles.photoStyle}>
+              <Animatable.View
+              animation="rubberBand"
+              duration={5000}
+              >
+
+              <TouchableOpacity  onPress={()=>{addPhoto()}} >
+              <Icon name="camera"  size={21}
+              style={styles.iconStyle}
+                color='white'
+               />
+              </TouchableOpacity>
+
+            </Animatable.View>
+               </View>
+
+              </ImageBackground>
+
+            </View>
+            
 
             <TextInput
             style={styles.inputArea}
@@ -114,21 +128,7 @@ const ProfileScreen: React.FC = (props) => {
 
             {/* <View > */}
               
-            {/* <PhoneInput 
-            style={styles.inputArea}
-            placeholder={p1}
-            required={true}
-            placeholderTextColor="#ffffff"
-            keyboardType='phone'
-            //ref='PhoneInput'
-            minLength={11}
-            errorMessage="Please enter a valid Phone number"
-            value={phones}
-            onChangeText={(value) => setPhones(value)}
-            initialValue={p1}
-            //initialValue=""
-            /> */}
-
+            
             <PhoneInput
             //style={styles.inputArea}
             ref={phoneInput}
@@ -161,13 +161,13 @@ const ProfileScreen: React.FC = (props) => {
   )
 }
  
-// AccountScreen.navigationOptions = navData => {
-//     return {
-//       headerTitle: 'Profile',
-      
-//     };
-//   };
-
+ProfileScreen.navigationOptions = navData => {
+  return {
+    headerTitle: 'My Profile',
+    headerLeft: ()=>null
+    
+  };
+};
 
 
 
@@ -191,11 +191,17 @@ const styles=StyleSheet.create({
 },
 
   header:{
-    // paddingTop: 15,
+  
     flex: 1,
     alignItems: "center",
+    
   },
 
+  iconStyle:{
+
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
  
 
   textDatas:{
@@ -247,13 +253,21 @@ const styles=StyleSheet.create({
 
     width: 130,
     height: 130,
-    marginTop: 2,
-    borderWidth:1,
-    borderColor:'#EE0202',
-    borderRadius:65,
     alignItems: 'center',
     marginBottom:10
   },
+
+  photoStyle:{
+
+    position: 'absolute',
+     right:0,
+     top: 0,
+     backgroundColor: "#EE0202",
+     borderRadius:8,
+     width: 22,
+     height: 22,
+     marginLeft:5 
+    },
 
   buttonView:{
     marginTop:20,
@@ -279,3 +293,7 @@ buttonText: {
 
 })
 export default ProfileScreen
+
+
+
+

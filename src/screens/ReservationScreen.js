@@ -32,17 +32,17 @@ function ReservationScreen(props) {
 ReservationScreen.navigationOptions = navData => {
     return {
       headerTitle: 'Reservation',
-      headerLeft:()=> (
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title="Menu"
-            iconName="ios-menu"
-            onPress={() => {
-              navData.navigation.toggleDrawer();
-            }}
-          />
-        </HeaderButtons>
-      )
+      // headerLeft:()=> (
+      //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      //     <Item
+      //       title="Menu"
+      //       iconName="ios-menu"
+      //       onPress={() => {
+      //         navData.navigation.toggleDrawer();
+      //       }}
+      //     />
+      //   </HeaderButtons>
+      // )
     };
   };
 

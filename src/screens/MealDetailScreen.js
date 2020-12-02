@@ -7,16 +7,16 @@ import {
   Button,
   StyleSheet,
   TouchableOpacity,
+  Alert,
   ImageBackground
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { useSelector, useDispatch } from 'react-redux';
 import * as cartActions from '../store/actions/cart';
 import * as mealsActions from '../store/actions/meals';
-
-
 import HeaderButton from '../components/HeaderButton';
 import DefaultText from '../components/DefaultText';
+import Colors from '../constants/Colors';
 
 
 
@@ -40,27 +40,71 @@ const MealDetailScreen = props => {
   const isFavorite = useSelector(state =>
     state.mealReducer.favoriteMeals.some(meal => meal.id === mealId)
   );
-
+  
+  dispatch(mealsActions.category_id(selectedMeal.categoryIds));
+  
+  const CatId=useSelector(state=>state.mealReducer.catId);
+  console.log("CatId",CatId)
+    const func=()=>{
+     // console.log("selectedMeal.categoryIds",selectedMeal.categoryIds)
+     // for(var i=0;CatId[i]<=1;i++ ){
+      
+       console.log("selectedMeal.categoryIds",selectedMeal.categoryIds)
+        if(CatId==selectedMeal.categoryIds)
+      {
+        //console.log("if",CatId);
+        return dispatch(cartActions.addToCart(selectedMeal));
+       
+        
+        //activeCat=selectedMeal.categoryIds;
+      }
+      else {
+        Alert.alert(
+          "Alert Title",
+          "My Alert Msg",
+          [
+            {
+              text: "Cancel",
+              onPress: () => console.log("Cancel Pressed"),
+              style: "cancel"
+            },
+            { text: "OK", onPress: () => {
+              dispatch(cartActions.allClear(1))
+              dispatch(mealsActions.set_new_id(selectedMeal.categoryIds));
+              dispatch(cartActions.addToCart(selectedMeal));
+              
+            
+            } }
+          ],
+          { cancelable: false }
+        );
+        //console.log("elsemm",CatId);
+        
+      }
+    }
 
   return (
     <ScrollView>
       <ImageBackground
+              resizeMode="cover"
               source={{ uri: selectedMeal.imageUrl }}
               style={styles.image}
-            >
-             
+              >
+              <View style={styles.heartStyle}>
+              <HeaderButtons HeaderButtonComponent={HeaderButton}>
+              <Item
+              title="Favorite"
+            iconName={isFavorite ? 'heart' : 'heart-outline'}
+            onPress={()=>{dispatch(mealsActions.toggleFavorite(mealId));}}
+            />
+            </HeaderButtons>
+            </View>
             </ImageBackground> 
       {/* <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} /> */}
       <View style={styles.details}>
         <DefaultText>{selectedMeal.persons}</DefaultText>
         <DefaultText>Rs.{selectedMeal.price}/-</DefaultText>
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Favorite"
-          iconName={isFavorite ? 'heart' : 'heart-outline'}
-          onPress={()=>{dispatch(mealsActions.toggleFavorite(mealId));}}
-        />
-      </HeaderButtons>
+        
         
       </View>
       <Text style={styles.title}>Deal Detail</Text>
@@ -72,37 +116,8 @@ const MealDetailScreen = props => {
                 <TouchableOpacity
                 style={styles.button}
                 activeOpacity={0.5}
-                onPress={() => {
-                  
-                  // if((activeCat==''))
-                  // {
-                    dispatch(cartActions.addToCart(selectedMeal));
-                  //   activeCat=selectedMeal.categoryIds;
-                  // }
-                  // if((selectedMeal.categoryIds==activeCat)){
-                  //   dispatch(cartActions.addToCart(selectedMeal));
-                  //   //activeCat=selectedMeal.categoryIds;
-                  //   //selectedCategory=selectedMeal.categoryIds;
-                  //   //console.log(selectedCategory);
-                  // }
-                  // console.log(activeCat)
-                  // // else if((selectedCategory!==null)&&(selectedCategory===activeCat))
-                  // // {
-                  // //   dispatch(cartActions.addToCart(selectedMeal));
-                  // // }
-                  // if((selectedMeal.categoryIds!==activeCat)) 
-                  // {
-                  //   alert("Your previous cart will be cleared if you proceed with this restaurant.")
-                  // }
-                  
-                  
-
-                        // <View style={styles.container}>
-                        //     <Products products={selectedMeal} onPress={selectedMeal.addItemToCart} />
-                        // </View>
-                    
-                
-                }}>
+                onPress={()=>{dispatch(cartActions.addToCart(selectedMeal))}}
+                >
                 <Text style={styles.buttonText}>Add to Cart</Text>
                 </TouchableOpacity>
             </View>
@@ -111,30 +126,17 @@ const MealDetailScreen = props => {
   );
 };
 
-// MealDetailScreen.navigationOptions = navigationData => {
-//   //const mealId = navigationData.navigation.getParam('mealId');
-//   const mealTitle=navigationData.navigation.getParam('mealTitle');
-//   const toggleFavorite = navigationData.navigation.getParam('toggleFav');
-//   const isFavorite = navigationData.navigation.getParam('isFav');
-  
-//   return {
-//     headerTitle: mealTitle,
-//     headerRight:()=> (
-//       <HeaderButtons HeaderButtonComponent={HeaderButton}>
-//         <Item
-//           title="Favorite"
-//           iconName={isFavorite ? 'heart' : 'heart-outline'}
-//           onPress={toggleFavorite}
-//         />
-//       </HeaderButtons>
-//     )
-//   };
-// };
+
 
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 200
+    height: 200,
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
+    //backgroundColor: 'rgba(52, 52, 52, alpha)',
+    //backgroundColor: 'transparent',
+    //backgroundColor: 'white',
+//opacity: 0.8
   },
   details: {
     flexDirection: 'row',
@@ -166,7 +168,7 @@ button: {
   marginHorizontal:10,
   width:'70%',
   height:40,
-  backgroundColor: '#FF5722',
+  backgroundColor: Colors.accentColor,
   borderRadius:25,
 },
 
@@ -174,7 +176,14 @@ buttonText: {
   color:'#ffffff',
   fontWeight:'bold',
   fontSize: 20
-}
+},
+heartStyle:{
+
+  alignItems: 'flex-end',
+  marginTop:10,
+  marginLeft:2
+},
+
 });
 
 

@@ -11,14 +11,16 @@ import {
   } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import My_Buttons from '../components/MyButtonAndroid';
-
+//import { showLoader, hideLoader } from '../components/AppLoader';
 
 const SplashScreen= props => {
+  
     return (
 
+     
       //Main veiw
         <View style={styles.container}> 
-
+        {/* { showLoader()} */}
     {/* header View  */}
             <View style={styles.header}>  
             <Animatable.Image
@@ -30,7 +32,7 @@ const SplashScreen= props => {
             resizeMode='stretch'
             />
             </View>
-
+          {/* {hideLoader()} */}
     {/* Footer veiw */}
             <Animatable.View 
             animation="fadeInUpBig"
@@ -62,7 +64,7 @@ const height_logo = height * 0.28;
 const styles = StyleSheet.create({
     container:{
       flex:1,
-      backgroundColor:'#FF5722',
+      backgroundColor:'#EE0202',
     },
     
     header:{

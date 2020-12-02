@@ -1,9 +1,21 @@
 export const TOGGLE_FAVORITE= 'TOGGLE_FAVORITE';
 export const CATEGORY_ID= 'CATEGORY_ID';
+export const CLEAR= 'CLEAR';
+export const SET_NEW_ID= 'SET_NEW_ID';
 
 export const toggleFavorite=(id)=>{
     return {type: TOGGLE_FAVORITE, mealId:id};  
 }
 export const category_id=(id)=>{
-    return {type: CATEGORY_ID, categoryIds:id};  
+    return {type: CATEGORY_ID, categoryIds:id};
+    //console.log(categoryIds)  
+}
+export const clear=(id)=>{
+    return {type: CLEAR, change:id};
+    //console.log(change)  
+}
+
+export const set_new_id=(id)=>{
+    return {type: SET_NEW_ID, new_Category_id:id};
+    //console.log(change)  
 }

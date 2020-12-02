@@ -14,16 +14,16 @@ const TandoorScreen = props => {
   return <TandoorMealList listData={displayedMeals} navigation={props.navigation} />
 }
 
-TandoorScreen.navigationOptions = navigationData => {
-  const catId = navigationData.navigation.getParam('categoryId');
+// TandoorScreen.navigationOptions = navigationData => {
+//   const catId = navigationData.navigation.getParam('categoryId');
 
-  const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
+//   const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
   // console.log("Tandoor")
   // console.log(selectedCategory);
   // return {
   //   headerTitle: selectedCategory.title
   // };
-};
+// };
 
 
 

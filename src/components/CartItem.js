@@ -20,11 +20,11 @@ const CartItem = props => {
   const MyIcon1 = <Icon name="minus" size={15} color="#EE0202" solid />;
   const MyIcon2 = <Icon name="plus" size={15} color="#EE0202" solid />;
 
-  const mealId = useSelector(state => state.cart.items.id);
+  //const mealId = useSelector(state => state.cart.items.id);
 
   //const availableMeals=useSelector(state=>state.mealReducer.selectedMeal);
-  const availableMeals=useSelector(state=>state.selectedMeal);
-  console.log(availableMeals,'  selected')
+  //const availableMeals=useSelector(state=>state.selectedMeal);
+  //console.log(availableMeals,'  selected')
   //const selectedMeal = MEALS.find(meal => meal.id === mealId);
   //const dispatch = useDispatch();
   //const mealId = props.navigation.getParam('mealId');

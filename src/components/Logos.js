@@ -5,6 +5,7 @@ import {
     Text,
     Image,
   } from 'react-native';
+import Colors from '../constants/Colors';
 
 
 
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
       flexGrow:1,
       justifyContent: 'center',
       alignItems:'center',
-       backgroundColor:'#FF5722',
+       backgroundColor:Colors.accentColor,
       paddingTop:10,
     },
     logotext:{

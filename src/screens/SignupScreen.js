@@ -81,7 +81,7 @@ const SignupScreen = (props) => {
             style={styles.inputArea}
             placeholder="Username"
             autoCapitalize="none"
-            placeholderTextColor="#ffffff"
+            placeholderTextColor="black"
             value={userName}
             required={true}
             onChangeText={(value) => setUsername(value)}
@@ -94,7 +94,7 @@ const SignupScreen = (props) => {
             secureTextEntry={true}
             autoCapitalize="none"
             required={true}
-            placeholderTextColor="white"
+            placeholderTextColor="black"
             minLength={6}
             errorMessage="Please enter Minimum 6 characters password"
             value={password}
@@ -107,7 +107,7 @@ const SignupScreen = (props) => {
             placeholder="Email"
             required={true}
             autoCapitalize="none"
-            placeholderTextColor="#ffffff"
+            placeholderTextColor="black"
             keyboardType="email-address"
             errorMessage="Please enter a valid email address."
             value={email}
@@ -120,7 +120,7 @@ const SignupScreen = (props) => {
             placeholder="Phone number"
             required={true}
             autoCapitalize="none"
-            placeholderTextColor="#ffffff"
+            placeholderTextColor="black"
             keyboardType="numeric"
             minLength={11}
             errorMessage="Please enter a valid Phone number"
@@ -164,14 +164,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FF5722',
+    backgroundColor: '#EE0202',
   },
 
   inputArea:{
     marginVertical:10,
     height: 40, 
     width:230,
-    backgroundColor: 'rgba(255,255,255,0.3)', 
+     backgroundColor: '#F2F1F3',
     borderRadius:25,
     paddingHorizontal:30,
 },
@@ -198,7 +198,7 @@ signupButtonText:{
     marginVertical:10,
     width:100,
     height:30,
-    backgroundColor: '#FF5722',
+    backgroundColor: '#EE0202',
     borderRadius:25,
   },
 
@@ -208,7 +208,7 @@ signupButtonText:{
 
   footer: {
     flex: 3,
-    backgroundColor: '#ffaf49',
+    backgroundColor: '#ffffff',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingVertical: 10,
@@ -222,7 +222,7 @@ signupButtonText:{
     //marginVertical:20,
     width:90,
     height:30,
-    backgroundColor: '#FF5722',
+    backgroundColor: '#EE0202',
     borderRadius:25,
   },
 

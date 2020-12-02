@@ -17,17 +17,18 @@ function My_OrderScreen() {
 My_OrderScreen.navigationOptions = navData => {
     return {
       headerTitle: 'My Orders',
-      headerLeft: ()=>(
-        <HeaderButtons HeaderButtonComponent={HeaderButton}>
-          <Item
-            title="Menu"
-            iconName="ios-menu"
-            onPress={() => {
-              navData.navigation.toggleDrawer();
-            }}
-          />
-        </HeaderButtons>
-      )
+      headerLeft: ()=>null
+      // headerLeft: ()=>(
+      //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      //     <Item
+      //       title="Menu"
+      //       iconName="ios-menu"
+      //       onPress={() => {
+      //         navData.navigation.toggleDrawer();
+      //       }}
+      //     />
+      //   </HeaderButtons>
+      // )
     };
   };
 
@@ -43,3 +44,24 @@ const styles=StyleSheet.create({
 })
 
 export default My_OrderScreen
+
+
+// Alert.alert(
+//   "Alert Title",
+//   "My Alert Msg",
+//   [
+//     {
+//       text: "Cancel",
+//       onPress: () => console.log("Cancel Pressed"),
+//       style: "cancel"
+//     },
+//     { text: "OK", onPress: () => {
+//       dispatch(cartActions.allClear(1))
+//       dispatch(mealsActions.set_new_id(selectedMeal.categoryIds));
+//       dispatch(cartActions.addToCart(selectedMeal));
+      
+    
+//     } }
+//   ],
+//   { cancelable: false }
+// );

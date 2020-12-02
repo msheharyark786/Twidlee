@@ -76,18 +76,18 @@ const FavoritesScreen = props => {
 
 FavoritesScreen.navigationOptions = navData => {
   return {
-    headerTitle: 'Your Favorites',
-    headerLeft: () =>(
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Menu"
-          iconName="ios-menu"
-          onPress={() => {
-            navData.navigation.toggleDrawer();
-          }}
-        />
-      </HeaderButtons>
-    )
+    headerTitle: 'Favorite Meals',
+    // headerLeft: () =>(
+    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item
+    //       title="Menu"
+    //       iconName="ios-menu"
+    //       onPress={() => {
+    //         navData.navigation.toggleDrawer();
+    //       }}
+    //     />
+    //   </HeaderButtons>
+    // )
   };
 };
 

@@ -16,6 +16,7 @@ import {
   import {createStackNavigator} from 'react-navigation-stack';
   import CategoriesScreen from '../screens/CategoriesScreen';
   import {createDrawerNavigator} from 'react-navigation-drawer'
+  
   import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
   import SecondTopScreen from './SecondTopScreen';
   import AboutUsScreen from '../screens/AboutUsScreen';
@@ -23,11 +24,22 @@ import {
   import Colors from '../constants/Colors';
 //mport MealsNavigator from '../navigation/MealsNavigator';
 
-  
+
+
+
+
   const MenuNavigator = createStackNavigator(
     {
       // MealsNavigator: MealsNavigator,
-      SecondTop:SecondTopScreen,
+      
+      SecondTop:{
+        screen:SecondTopScreen,
+      //   navigationOptions: {
+      //         title: "{name}",
+      //         headerShown: true,
+      //       },
+
+      },
       // Categories: {
       //   screen: CategoriesScreen,
       //   navigationOptions: {
@@ -121,5 +133,21 @@ const ThreeNavigator = createDrawerNavigator(
       }
     }
 );
+
+MenuNavigator.navigationOptions = navData => {
+  return {
+    headerTitle: 'All Products',
+    // headerLeft:() =>(
+    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item
+    //       title="Menu"
+    //       iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
+    //       onPress={() => {
+    //         navData.navigation.toggleDrawer();
+    //       }}
+    //     />
+    //   </HeaderButtons>
+    // ),
+  }}
 
 export default createAppContainer(ThreeNavigator);
