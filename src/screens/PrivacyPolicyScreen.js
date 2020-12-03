@@ -48,7 +48,7 @@ function TermConditionScreen() {
 
 TermConditionScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'Privacy Policies',
+      headerTitle: 'PRIVACY POLICIES',
       headerLeft: ()=>null
     };
   };

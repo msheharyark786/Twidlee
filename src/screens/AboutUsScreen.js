@@ -48,7 +48,7 @@ function TermConditionScreen() {
 
 TermConditionScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'About Us',
+      headerTitle: 'ABOUT US',
       headerLeft: ()=>null
     };
   };

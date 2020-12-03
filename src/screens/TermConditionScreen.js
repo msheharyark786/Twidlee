@@ -48,7 +48,7 @@ For customer support, you may reach out to us via email or through our in-app cu
 
 TermConditionScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'Terms & Conditions',
+      headerTitle: 'TERMS & CONDITIONS',
       headerLeft: ()=>null
     };
   };

@@ -43,8 +43,9 @@ const MealDetailScreen = props => {
   
   dispatch(mealsActions.category_id(selectedMeal.categoryIds));
   
-  const CatId=useSelector(state=>state.mealReducer.catId);
+ const CatId=useSelector(state=>state.mealReducer.catId);
   console.log("CatId",CatId)
+  
     const func=()=>{
      // console.log("selectedMeal.categoryIds",selectedMeal.categoryIds)
      // for(var i=0;CatId[i]<=1;i++ ){
@@ -52,7 +53,7 @@ const MealDetailScreen = props => {
        console.log("selectedMeal.categoryIds",selectedMeal.categoryIds)
         if(CatId==selectedMeal.categoryIds)
       {
-        //console.log("if",CatId);
+        console.log("if",CatId);
         return dispatch(cartActions.addToCart(selectedMeal));
        
         
@@ -60,8 +61,8 @@ const MealDetailScreen = props => {
       }
       else {
         Alert.alert(
-          "Alert Title",
-          "My Alert Msg",
+          "CART ALERT",
+          "You have items from another restaurant. If you want to proceed with this reataurant, your previous cart will be deleted.",
           [
             {
               text: "Cancel",
@@ -69,8 +70,9 @@ const MealDetailScreen = props => {
               style: "cancel"
             },
             { text: "OK", onPress: () => {
-              dispatch(cartActions.allClear(1))
-              dispatch(mealsActions.set_new_id(selectedMeal.categoryIds));
+              dispatch(cartActions.allClear(1));
+              console.log("2  : ",selectedMeal.categoryIds)
+              //dispatch(mealsActions.set_new_id(selectedMeal.categoryIds));
               dispatch(cartActions.addToCart(selectedMeal));
               
             
@@ -116,7 +118,7 @@ const MealDetailScreen = props => {
                 <TouchableOpacity
                 style={styles.button}
                 activeOpacity={0.5}
-                onPress={()=>{dispatch(cartActions.addToCart(selectedMeal))}}
+                onPress={func}
                 >
                 <Text style={styles.buttonText}>Add to Cart</Text>
                 </TouchableOpacity>

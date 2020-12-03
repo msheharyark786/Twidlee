@@ -25,20 +25,23 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
+import { useSelector, useDispatch } from 'react-redux';
 import HeaderButton from '../components/HeaderButton';
 import Colors from '../constants/Colors';
+
 
 function AccountScreen(props) {
 
 
-  const nameEdit = props.navigation.getParam('n1');
-  const phoneEdit = props.navigation.getParam('p1');
-  const emailEdit = props.navigation.getParam('e1');
-
-  var name= " M. Sheharyar Khan";
-  var email= "msheharyark786@gmail.com";
-  var phone = '3249472294';
+  // const nameEdit = props.navigation.getParam('n1');
+  // const phoneEdit = props.navigation.getParam('p1');
+  // const emailEdit = props.navigation.getParam('e1');
+  const name=useSelector(state=>state.changeInProfile.name);
+  const email=useSelector(state=>state.changeInProfile.email);
+  const phone=useSelector(state=>state.changeInProfile.phone);
+  // console.log("account",name)
+  // console.log(email)
+  // console.log(phone)
 
   //console.log("defult",nameEdit, phoneEdit, emailEdit)
 
@@ -212,7 +215,8 @@ function AccountScreen(props) {
  
 AccountScreen.navigationOptions = navData => {
   return {
-    headerTitle: 'Twidlee',
+    headerTitle: 'MY ACCOUNT ',
+    
     // headerLeft: () =>(
     //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
     //     <Item

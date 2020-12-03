@@ -233,24 +233,26 @@ const PaymentScreen = (props) =>{
         </ScrollView>
     );}
 
-    // PaymentScreen.navigationOptions = navigationData => {
-    //     // const mealId = navigationData.navigation.getParam('mealId');
-    //     // const selectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId);
-    //     return {
-    //       headerTitle:"Payment Method",
-    //       headerRight:()=> (
-    //         <HeaderButtons HeaderButtonComponent={HeaderButton}>
-    //           <Item
-    //             title="Favorite"
-    //             iconName="ios-star"
-    //             onPress={() => {
-    //               console.log('Mark as favorite!');
-    //             }}
-    //           />
-    //         </HeaderButtons>
-    //       )
-    //     };
-    //   };
+    PaymentScreen.navigationOptions = navigationData => {
+        // const mealId = navigationData.navigation.getParam('mealId');
+        // const selectedMeal = Tandoor_MEALS.find(meal => meal.id === mealId);
+        return {
+          headerTitle:"PAYMENT OPTIONS",
+          headerLeft: ()=>null
+
+        //   headerRight:()=> (
+        //     <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        //       <Item
+        //         title="Favorite"
+        //         iconName="ios-star"
+        //         onPress={() => {
+        //           console.log('Mark as favorite!');
+        //         }}
+        //       />
+        //     </HeaderButtons>
+        //   )
+        };
+      };
 
 const styles=StyleSheet.create({
 

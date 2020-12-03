@@ -141,7 +141,7 @@ function ChangePasswordScreen(props) {
 }
 ChangePasswordScreen.navigationOptions = navData => {
   return {
-    headerTitle: 'Change Your Password',
+    headerTitle: 'CHANGE PASSWORD',
     headerLeft: ()=>null
   };
 };

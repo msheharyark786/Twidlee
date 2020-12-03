@@ -31,7 +31,7 @@ function ReservationScreen(props) {
 
 ReservationScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'Reservation',
+      headerTitle: 'RESERVATION',
       // headerLeft:()=> (
       //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
       //     <Item

@@ -12,7 +12,7 @@ function AddressScreen() {
 }
 AddressScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'Your Addresses',
+      headerTitle: 'MY ADDRESSES',
       headerLeft: ()=>null
       
     };

@@ -7,13 +7,15 @@ import productsReducer from './src/store/reducers/products';
 import cartReducer from './src/store/reducers/cart';
 import ordersReducer from './src/store/reducers/orders';
 import mealReducer from './src/store/reducers/mealReducer';
+import changeInProfile from './src/store/reducers/changeInProfile';
 //import ShopNavigator from './src/navigation/ShopNavigator';
 
 const rootReducer = combineReducers({ 
   products: productsReducer,
   cart: cartReducer,
   orders: ordersReducer,
-  mealReducer:mealReducer
+  mealReducer:mealReducer,
+  changeInProfile:changeInProfile
 });
 
 const store = createStore(rootReducer);

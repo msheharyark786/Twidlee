@@ -109,6 +109,7 @@ const defaultNavOptions = {
     alignSelf: 'center' ,
     fontWeight: 'bold',
     color:Colors.primaryColor,
+    fontStyle:'italic'
    
   },
   // header:{
@@ -158,7 +159,7 @@ const FirstNavigator = createStackNavigator(
 
     First: {
       navigationOptions: (navData) = {
-        headerTitle: 'Restaurants',
+        headerTitle: 'RESTAURANTS',
        
         
         // headerStyle:()=>{
@@ -203,7 +204,7 @@ const FirstNavigator = createStackNavigator(
     // },
     ThreeTopScreen:{
       navigationOptions: (navData) = {
-        headerTitle: "Restaurant Menu",
+        headerTitle: "RESTAURANT MENU",
         headerLeft:()=>null,
         headerRight:()=> (
           <ShoppingCartIcon />

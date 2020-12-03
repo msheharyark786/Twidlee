@@ -16,7 +16,7 @@ function My_OrderScreen() {
 
 My_OrderScreen.navigationOptions = navData => {
     return {
-      headerTitle: 'My Orders',
+      headerTitle: 'MY ORDERS',
       headerLeft: ()=>null
       // headerLeft: ()=>(
       //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
@@ -65,3 +65,15 @@ export default My_OrderScreen
 //   ],
 //   { cancelable: false }
 // );
+
+
+
+
+// if(CatId==selectedMeal.categoryIds)
+// {
+//   //console.log("if",CatId);
+//   return dispatch(cartActions.addToCart(selectedMeal));
+ 
+  
+//   //activeCat=selectedMeal.categoryIds;
+//}

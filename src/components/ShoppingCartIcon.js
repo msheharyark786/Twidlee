@@ -8,7 +8,8 @@ import {
 
 
 
-import { withNavigation } from 'react-navigation'
+import { withNavigation } from 'react-navigation';
+import * as Animatable from 'react-native-animatable';
 import { useSelector, useDispatch } from 'react-redux';
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -25,7 +26,17 @@ const ShoppingCartIcon = (props) => {
         }}>
         <Text style={{ color: Colors.orangeColor, fontWeight: 'bold' }}>{cartTotalLenght}</Text>
         </View>
-        <Icon onPress={() => props.navigation.navigate('Cart')} name="ios-cart" size={30} color={Colors.primaryColor} />
+        <Animatable.View
+              animation="bounceInDown"
+              duration={2000}
+              >
+        <Icon 
+        name="ios-cart" 
+        size={30} 
+        color={Colors.primaryColor} 
+        onPress={() => props.navigation.navigate('Cart')} 
+        />
+        </Animatable.View>
     </View>
     )
     }

@@ -104,7 +104,7 @@ const CartScreen = props => {
 };
 
 CartScreen.navigationOptions = {
-  headerTitle: 'Your Cart',
+  headerTitle: 'MY CART',
   headerLeft:()=>null
 };
 
