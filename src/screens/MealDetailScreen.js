@@ -72,9 +72,11 @@ const MealDetailScreen = props => {
             },
             { text: "OK", onPress: () => {
               dispatch(cartActions.allClear(1));
-              console.log("send  : ",selectedMeal.categoryIds)
-              dispatch(mealsActions.set_new_catid(selectedCatId));
+              console.log("send  : ",selectedMeal.categoryIds);
+              
+             // dispatch(mealsActions.set_new_catid(selectedMeal.categoryIds));
               dispatch(cartActions.addToCart(selectedMeal));
+              dispatch(mealsActions.set_new_catid(selectedCatId));
               
             
             } }

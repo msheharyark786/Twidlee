@@ -32,7 +32,14 @@ const mealReducer = (state = initialState, action) => {
           const meal = state.meals.find(meal => meal.id === action.mealId);
           return { ...state, favoriteMeals: state.favoriteMeals.concat(meal) };
         }
-        case CATEGORY_ID:
+        case CATID_UPDATE:
+        const new_category=action.new_Cat;
+        state.catId="";
+        if (state.catId=='' ){
+          state.catId=new_category;
+          console.log("updated",state.catId);
+        }
+      case CATEGORY_ID:
           const existingCatId=action.categoryIds;
           //state.catId = action.categoryIds;
           console.log("------------------------------------");
@@ -48,14 +55,7 @@ const mealReducer = (state = initialState, action) => {
             
           }
 
-          case CATID_UPDATE:
-            const new_category=action.new_Cat;
-            state.catId="";
-            if (!(state.catId.includes(existingCatId))||state.catId=='' ){
-              state.catId=new_category;
-              console.log("updated",state.catId);
-            }
-           
+         
          
         //  // }
           
