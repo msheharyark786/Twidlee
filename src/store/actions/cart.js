@@ -13,3 +13,5 @@ export const removeFromCart = mealId => {
 export const allClear = clear => {
   return { type: ALL_CLEAR, pid: clear };
 };
+
+

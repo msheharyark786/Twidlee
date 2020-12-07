@@ -1,6 +1,6 @@
 import {MEALS, CATEGORIES} from '../../data/dummy-data';
 import { TOGGLE_FAVORITE } from '../actions/meals';
-import {CATEGORY_ID, CLEAR, SET_NEW_ID} from '../actions/meals';
+import {CATEGORY_ID, CLEAR, CATID_UPDATE} from '../actions/meals';
 import {useEffect} from 'react';
 const initialState={
   
@@ -8,7 +8,8 @@ const initialState={
     categoryId:CATEGORIES,
     filteredMeals:MEALS,
     favoriteMeals:[],
-    catId:'',
+    catId:[''],
+   // bb:["c1","c2"]
     // name: " M. Sheharyar Khan",
     // email: "msheharyark786@gmail.com",
     // phone : '3249472294',
@@ -34,17 +35,30 @@ const mealReducer = (state = initialState, action) => {
         case CATEGORY_ID:
           const existingCatId=action.categoryIds;
           //state.catId = action.categoryIds;
-       console.log("existingCatId",existingCatId);
+          console.log("------------------------------------");
           
-         //console.log("state.catId",state.catId)
-
-          if (state.catId == existingCatId  || state.catId=='')
+          if ((state.catId.includes(existingCatId))||state.catId=='' )
           {
+            // existingCatId=existingCatId.split();
+            // console.log("array",existingCatId)
+            state.catId='';
             state.catId = existingCatId;
             // catId=existingCatId;
-            console.log("IF_State",state.catId);
+            console.log("state.catId",state.catId);
             
           }
+
+          case CATID_UPDATE:
+            const new_category=action.new_Cat;
+            state.catId="";
+            if (!(state.catId.includes(existingCatId))||state.catId=='' ){
+              state.catId=new_category;
+              console.log("updated",state.catId);
+            }
+           
+         
+        //  // }
+          
           // else if(existingCatId==1){
           //   state.catId = '';
           // }
@@ -56,10 +70,13 @@ const mealReducer = (state = initialState, action) => {
 
         //   }
           // case SET_NEW_ID:
-          //   var new_category=0;
+          //   var new_category=action.new_Category_id;
           //   console.log("action.new_Category_id",action.new_Category_id)
-          //   if(state.catId!=action.new_Category_id){
-          //     state.catId=existingCatId;
+          //   if((state.catId.includes(new_category))){
+          //     return ;
+          // }
+          // else{
+          //   state.catId = new_category;
           // }
           
 

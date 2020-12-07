@@ -48,7 +48,7 @@ export default My_OrderScreen
 
 // Alert.alert(
 //   "Alert Title",
-//   "My Alert Msg",
+//   "You have items from another restaurant. If you want to proceed with this reataurant, your previous cart will be deleted.",
 //   [
 //     {
 //       text: "Cancel",

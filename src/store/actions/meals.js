@@ -1,7 +1,7 @@
 export const TOGGLE_FAVORITE= 'TOGGLE_FAVORITE';
 export const CATEGORY_ID= 'CATEGORY_ID';
 export const CLEAR= 'CLEAR';
-export const SET_NEW_ID= 'SET_NEW_ID';
+export const CATID_UPDATE= 'CATID_UPDATE';
 // export const CHANGE_NAME= 'CHANGE_NAME';
 // export const CHANGE_PHONE= 'CHANGE_PHONE';
 // export const CHANGE_EMAIL= 'CHANGE_EMAIL';
@@ -20,6 +20,10 @@ export const clear=(id)=>{
 
 export const set_new_id=(cal)=>{
     return {type: SET_NEW_ID, new_Category_id:cal};
+    //console.log(change)  
+}
+export const set_new_catid=(val)=>{
+    return {type: CATID_UPDATE, new_Cat:val};
     //console.log(change)  
 }
 // export const change_name=(names)=>{

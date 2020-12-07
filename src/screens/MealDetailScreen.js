@@ -40,8 +40,9 @@ const MealDetailScreen = props => {
   const isFavorite = useSelector(state =>
     state.mealReducer.favoriteMeals.some(meal => meal.id === mealId)
   );
-  
-  dispatch(mealsActions.category_id(selectedMeal.categoryIds));
+  const selectedCatId=(selectedMeal.categoryIds).toString();
+  console.log("string",selectedCatId)
+  dispatch(mealsActions.category_id(selectedCatId));
   
  const CatId=useSelector(state=>state.mealReducer.catId);
   console.log("CatId",CatId)
@@ -71,8 +72,8 @@ const MealDetailScreen = props => {
             },
             { text: "OK", onPress: () => {
               dispatch(cartActions.allClear(1));
-              console.log("2  : ",selectedMeal.categoryIds)
-              //dispatch(mealsActions.set_new_id(selectedMeal.categoryIds));
+              console.log("send  : ",selectedMeal.categoryIds)
+              dispatch(mealsActions.set_new_catid(selectedCatId));
               dispatch(cartActions.addToCart(selectedMeal));
               
             
